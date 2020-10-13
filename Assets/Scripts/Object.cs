@@ -6,9 +6,15 @@ public class Object : MonoBehaviour
 {
 
     [Header("Distance")]
-    public Vector3 Leight = Vector3.zero;
+    public float Leight = 0f;
+    public Vector3 collOffsetHorizontal;
+    public Vector3 collOffsetVertical;
+
+    [Header("Collider and Layermask")]
+    public LayerMask isObjectLayer;
 
     private Animator anim;
+    public bool isObjectAbove = true;
 
     // Start is called before the first frame update
     void Start()
@@ -19,13 +25,18 @@ public class Object : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Physics.Raycast(transform.position, Vector3.back,5f);
+        isObjectAbove = Physics2D.Raycast(transform.position + collOffsetHorizontal, Vector3.back,Leight,isObjectLayer) || Physics2D.Raycast(transform.position - collOffsetHorizontal, Vector3.back, Leight,isObjectLayer)
+            || Physics2D.Raycast(transform.position + collOffsetVertical, Vector3.back, Leight, isObjectLayer) || Physics2D.Raycast(transform.position - collOffsetVertical, Vector3.back, Leight, isObjectLayer);
+
         
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, Leight);
+        Gizmos.DrawLine(transform.position + collOffsetHorizontal, transform.position + collOffsetHorizontal + Vector3.back * Leight);
+        Gizmos.DrawLine(transform.position - collOffsetHorizontal, transform.position - collOffsetHorizontal + Vector3.back * Leight);
+        Gizmos.DrawLine(transform.position + collOffsetVertical, transform.position + collOffsetVertical + Vector3.back * Leight);
+        Gizmos.DrawLine(transform.position - collOffsetVertical, transform.position - collOffsetVertical + Vector3.back * Leight);
     }
 }
