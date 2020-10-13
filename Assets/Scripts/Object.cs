@@ -14,7 +14,7 @@ public class Object : MonoBehaviour
     public LayerMask isObjectLayer;
 
     private Animator anim;
-    public bool isObjectAbove = true;
+    public bool isObjectAbove = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,10 +25,13 @@ public class Object : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isObjectAbove = Physics2D.Raycast(transform.position + collOffsetHorizontal, Vector3.back,Leight,isObjectLayer) || Physics2D.Raycast(transform.position - collOffsetHorizontal, Vector3.back, Leight,isObjectLayer)
-            || Physics2D.Raycast(transform.position + collOffsetVertical, Vector3.back, Leight, isObjectLayer) || Physics2D.Raycast(transform.position - collOffsetVertical, Vector3.back, Leight, isObjectLayer);
+        isObjectAbove = Physics.Raycast(transform.position + collOffsetHorizontal, Vector3.back, Leight, isObjectLayer) || Physics.Raycast(transform.position - collOffsetHorizontal, Vector3.back, Leight, isObjectLayer);
+            //|| Physics.Raycast(transform.position + collOffsetVertical, Vector3.back, Leight, isObjectLayer) || Physics.Raycast(transform.position - collOffsetVertical, Vector3.back, Leight, isObjectLayer);
 
-        
+        if (isObjectAbove)
+        {
+            Debug.Log("Touched");
+        }
     }
 
     private void OnDrawGizmos()
