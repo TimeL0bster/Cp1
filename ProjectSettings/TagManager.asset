@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Slots
+  - Obj1
   layers:
   - Default
   - TransparentFX

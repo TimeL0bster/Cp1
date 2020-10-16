@@ -43,6 +43,7 @@ public class Object : MonoBehaviour
             if (slots.isFull[i] == false)
             {
                 slots.isFull[i] = true;
+                //Instantiate();
                 break;
             }
         }
