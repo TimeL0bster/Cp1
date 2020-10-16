@@ -13,10 +13,13 @@ public class Object : MonoBehaviour
     [Header("Collider and Layermask")]
     public LayerMask isObjectLayer;
 
+    [Header("This object")]
+    public GameObject miniObject;
+
     private Animator anim;
     private Slots slots;
 
-    public bool isObjectAbove = false;
+    private bool isObjectAbove = false;
 
     // Start is called before the first frame update
     void Start()
@@ -30,23 +33,28 @@ public class Object : MonoBehaviour
         isObjectAbove = Physics.Raycast(transform.position + collOffsetHorizontal, Vector3.back, Leight, isObjectLayer) || Physics.Raycast(transform.position - collOffsetHorizontal, Vector3.back, Leight, isObjectLayer)
             || Physics.Raycast(transform.position + collOffsetVertical, Vector3.back, Leight, isObjectLayer) || Physics.Raycast(transform.position - collOffsetVertical, Vector3.back, Leight, isObjectLayer);
 
-        if (isObjectAbove)
+        /*if (isObjectAbove)
         {
             Debug.Log("Touched");
-        }
+        }*/
     }
 
     private void OnMouseDown()
     {
-        for (int i = 0;i < slots.slots.Length;i++)
+        if (!isObjectAbove)
         {
-            if (slots.isFull[i] == false)
+            for (int i = 0; i < slots.slots.Length; i++)
             {
-                slots.isFull[i] = true;
-                //Instantiate();
-                break;
+                if (slots.isFull[i] == false)
+                {
+                    slots.isFull[i] = true;
+                    Instantiate(miniObject, slots.slots[i].transform, false);
+                    Destroy(this.gameObject);
+                    break;
+                }
             }
         }
+
     }
 
     private void OnDrawGizmos()
