@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\IndiSlot.cs" />
     <Compile Include="Assets\Scripts\MatchCheck.cs" />
     <Compile Include="Assets\Scripts\MiniObject.cs" />
     <Compile Include="Assets\Scripts\Object.cs" />
