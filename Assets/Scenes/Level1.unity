@@ -132,10 +132,9 @@ GameObject:
   - component: {fileID: 35695853}
   - component: {fileID: 35695857}
   - component: {fileID: 35695856}
-  - component: {fileID: 35695855}
   - component: {fileID: 35695854}
   m_Layer: 5
-  m_Name: Image
+  m_Name: MatchCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -174,32 +173,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leight: 540
   collOffsetHorizontal: {x: 17, y: 0, z: 0}
---- !u!61 &35695855
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 35695852}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
-    newSize: {x: 0.64, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 31, y: 31}
-  m_EdgeRadius: 0
 --- !u!114 &35695856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -549,22 +522,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &423740416
-CircleCollider2D:
+--- !u!65 &423740416
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 423740415}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.13
+  m_Size: {x: 0.26, y: 0.29, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &423740417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -927,22 +897,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &1040715009
-CircleCollider2D:
+--- !u!65 &1040715009
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040715008}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.13
+  m_Size: {x: 0.26, y: 0.29, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1040715010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1046,22 +1013,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &1112771366
-CircleCollider2D:
+--- !u!65 &1112771366
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1112771365}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.13
+  m_Size: {x: 0.26, y: 0.29, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1112771367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1165,22 +1129,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &1123288161
-CircleCollider2D:
+--- !u!65 &1123288161
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123288160}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.13
+  m_Size: {x: 0.26, y: 0.29, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1123288162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1284,22 +1245,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &1484813099
-CircleCollider2D:
+--- !u!65 &1484813099
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1484813098}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.13
+  m_Size: {x: 0.26, y: 0.29, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1484813100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1403,22 +1361,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &1571038351
-CircleCollider2D:
+--- !u!65 &1571038351
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1571038350}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.13
+  m_Size: {x: 0.26, y: 0.29, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1571038352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1610,22 +1565,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &1671271062
-CircleCollider2D:
+--- !u!65 &1671271062
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1671271061}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.13
+  m_Size: {x: 0.26, y: 0.29, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1671271063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1704,7 +1656,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1671271061}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.125, y: 1.346, z: 2.088}
+  m_LocalPosition: {x: 1.037, y: 1.13, z: 2.088}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

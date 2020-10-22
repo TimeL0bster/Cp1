@@ -32,11 +32,6 @@ public class Object : MonoBehaviour
     {
         isObjectAbove = Physics.Raycast(transform.position + collOffsetHorizontal, Vector3.back, Leight, isObjectLayer) || Physics.Raycast(transform.position - collOffsetHorizontal, Vector3.back, Leight, isObjectLayer)
             || Physics.Raycast(transform.position + collOffsetVertical, Vector3.back, Leight, isObjectLayer) || Physics.Raycast(transform.position - collOffsetVertical, Vector3.back, Leight, isObjectLayer);
-
-        if (isObjectAbove)
-        {
-            Debug.Log("Touched");
-        }
     }
 
     private void OnMouseDown()

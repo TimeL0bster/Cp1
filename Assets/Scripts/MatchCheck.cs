@@ -10,7 +10,6 @@ public class MatchCheck : MonoBehaviour
     public float leight = 0f;
     public Vector3 collOffsetHorizontal;
 
-    private RaycastHit2D objectHit;
     private Image img;
 
     // Start is called before the first frame update
@@ -22,26 +21,40 @@ public class MatchCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (objectHit.collider == null)
-        {
-            objectHit = Physics2D.Raycast(transform.position + collOffsetHorizontal, Vector2.right * leight);
-        }
-        else
-        {
-            MatchChecker(objectHit);
-        }
-
+        ClearMatch(MatchChecker());
     }
 
-    private void MatchChecker(RaycastHit2D objectHit)
+    private List<GameObject> MatchChecker()
     {
-        if (objectHit.collider != null)
+        RaycastHit2D objectHit = Physics2D.Raycast(transform.position + collOffsetHorizontal, Vector2.right * leight); ;
+        List<GameObject> matchObject = new List<GameObject>();
+
+        if (objectHit.collider != null && objectHit.collider.GetComponent<Image>().sprite == img.sprite)
         {
-            if (objectHit.collider.GetComponent<Image>().sprite == img.sprite)
+            matchObject.Add(objectHit.collider.gameObject);
+            //objectHit.collider.GetComponent<BoxCollider2D>().enabled = false;
+            objectHit = Physics2D.Raycast(objectHit.collider.transform.position + collOffsetHorizontal, Vector2.right * leight);
+            Debug.Log("Match");
+        }
+
+        return matchObject;
+    }
+
+    private void ClearMatch(List<GameObject> matchChecker)
+    {
+        List<GameObject> matchObjects = new List<GameObject>();
+
+        for (int i = 0; i < matchChecker.Count; i++)
+        {
+            matchObjects.Add(matchChecker[i]);
+        }
+
+        if (matchObjects.Count >= 2)
+        {
+            for (int i = 0; i < matchObjects.Count; i++)
             {
-                Debug.Log("Match");
-                objectHit = Physics2D.Raycast(objectHit.collider.transform.position + collOffsetHorizontal, Vector2.right * leight);
+                //Destroy(matchObjects[i].gameObject);
+                matchObjects[i].GetComponent<Image>().sprite = null;
             }
             
         }
@@ -50,7 +63,7 @@ public class MatchCheck : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        //Gizmos.DrawLine(objectHit.collider.transform.position + collOffsetHorizontal, transform.position + collOffsetHorizontal + Vector3.right * leight);
-        
+        Gizmos.DrawLine(transform.position + collOffsetHorizontal, transform.position + collOffsetHorizontal + Vector3.right * leight);
+
     }
 }
