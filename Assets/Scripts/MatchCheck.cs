@@ -24,46 +24,44 @@ public class MatchCheck : MonoBehaviour
         ClearMatch(MatchChecker());
     }
 
-    private List<GameObject> MatchChecker()
+    public List<GameObject> MatchChecker()
     {
         RaycastHit2D objectHit = Physics2D.Raycast(transform.position + collOffsetHorizontal, Vector2.right * leight); ;
         List<GameObject> matchObject = new List<GameObject>();
 
-        if (objectHit.collider != null && objectHit.collider.GetComponent<Image>().sprite == img.sprite)
+        while (objectHit.collider != null && objectHit.collider.GetComponent<Image>().sprite == img.sprite)
         {
             matchObject.Add(objectHit.collider.gameObject);
-            //objectHit.collider.GetComponent<BoxCollider2D>().enabled = false;
             objectHit = Physics2D.Raycast(objectHit.collider.transform.position + collOffsetHorizontal, Vector2.right * leight);
-            Debug.Log("Match");
+            //Debug.Log("Match");
         }
 
         return matchObject;
     }
 
-    private void ClearMatch(List<GameObject> matchChecker)
+    public void ClearMatch(List<GameObject> matchChecker)
     {
         List<GameObject> matchObjects = new List<GameObject>();
 
         for (int i = 0; i < matchChecker.Count; i++)
         {
-            matchObjects.Add(matchChecker[i]);
+            matchObjects.AddRange(matchChecker);
         }
 
-        if (matchObjects.Count >= 2)
+        if (matchObjects.Count > 4)
         {
             for (int i = 0; i < matchObjects.Count; i++)
             {
-                //Destroy(matchObjects[i].gameObject);
+                Debug.Log("Matched");
                 matchObjects[i].GetComponent<Image>().sprite = null;
+                //Destroy(matchObjects[i].gameObject);
             }
-            
         }
     }
 
-    private void OnDrawGizmos()
+    public void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.blue;
         Gizmos.DrawLine(transform.position + collOffsetHorizontal, transform.position + collOffsetHorizontal + Vector3.right * leight);
-
     }
 }
