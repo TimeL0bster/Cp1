@@ -9,22 +9,23 @@ public class MatchCheck : MonoBehaviour
     [Header("Distance")]
     public float leight = 0f;
     public Vector3 collOffsetHorizontal;
+    public Vector3 collOffsetVertical;
 
-    private Image img;
+    protected Image img;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         img = GetComponent<Image>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        ClearMatch(MatchChecker());
+        
     }
 
-    public List<GameObject> MatchChecker()
+    protected List<GameObject> MatchChecker()
     {
         RaycastHit2D objectHit = Physics2D.Raycast(transform.position + collOffsetHorizontal, Vector2.right * leight); ;
         List<GameObject> matchObject = new List<GameObject>();
@@ -32,14 +33,14 @@ public class MatchCheck : MonoBehaviour
         while (objectHit.collider != null && objectHit.collider.GetComponent<Image>().sprite == img.sprite)
         {
             matchObject.Add(objectHit.collider.gameObject);
+            Debug.Log("Green hit");
             objectHit = Physics2D.Raycast(objectHit.collider.transform.position + collOffsetHorizontal, Vector2.right * leight);
-            //Debug.Log("Match");
         }
 
         return matchObject;
     }
 
-    public void ClearMatch(List<GameObject> matchChecker)
+    protected void ClearMatch(List<GameObject> matchChecker)
     {
         List<GameObject> matchObjects = new List<GameObject>();
 
@@ -50,18 +51,13 @@ public class MatchCheck : MonoBehaviour
 
         if (matchObjects.Count > 4)
         {
+            Debug.Log("Matched");
             for (int i = 0; i < matchObjects.Count; i++)
             {
-                Debug.Log("Matched");
-                matchObjects[i].GetComponent<Image>().sprite = null;
-                //Destroy(matchObjects[i].gameObject);
+                //matchObjects[i].GetComponent<Image>().sprite = null;
+                Destroy(matchObjects[i].gameObject);
             }
         }
     }
 
-    public void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawLine(transform.position + collOffsetHorizontal, transform.position + collOffsetHorizontal + Vector3.right * leight);
-    }
 }

@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\MatchCheck.cs" />
     <Compile Include="Assets\Scripts\MiniObject.cs" />
     <Compile Include="Assets\Scripts\Object.cs" />
+    <Compile Include="Assets\Scripts\RedCheck.cs" />
     <Compile Include="Assets\Scripts\SceneTransition.cs" />
     <Compile Include="Assets\Scripts\Slots.cs" />
     <Compile Include="Assets\Scripts\TouchHandle.cs" />

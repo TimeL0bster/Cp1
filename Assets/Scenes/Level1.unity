@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 35695856}
   - component: {fileID: 35695854}
   m_Layer: 5
-  m_Name: MatchCheckGreen
+  m_Name: MatchCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -291,6 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leight: 540
   collOffsetHorizontal: {x: 17, y: 0, z: 0}
+  collOffsetVertical: {x: 0, y: 0, z: 0}
 --- !u!114 &35695856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2286,7 +2287,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1539285488}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.93, y: 1.62, z: 1.692}
+  m_LocalPosition: {x: 0.93, y: 1.702, z: 1.692}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 1452118581}
@@ -2388,10 +2389,9 @@ GameObject:
   - component: {fileID: 1553723584}
   - component: {fileID: 1553723588}
   - component: {fileID: 1553723587}
-  - component: {fileID: 1553723586}
   - component: {fileID: 1553723585}
   m_Layer: 5
-  m_Name: MatchCheckGreenClone
+  m_Name: MatchCheckGreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2405,7 +2405,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553723583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 7.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2070064494}
@@ -2428,22 +2428,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c73b8631feb512e459ec6adee85f7254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leight: 540
+  leight: 550
   collOffsetHorizontal: {x: 17, y: 0, z: 0}
---- !u!114 &1553723586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1553723583}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61b5f0930fb8eed4dbc69e4753806563, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leight: 540
-  collOffsetHorizontal: {x: 17, y: 0, z: 0}
+  collOffsetVertical: {x: 0, y: 0, z: 0}
 --- !u!114 &1553723587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3495,13 +3482,14 @@ GameObject:
   - component: {fileID: 1976931392}
   - component: {fileID: 1976931391}
   - component: {fileID: 1976931390}
+  - component: {fileID: 1976931393}
   m_Layer: 5
   m_Name: MatchCheckRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1976931389
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3528,13 +3516,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976931388}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61b5f0930fb8eed4dbc69e4753806563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   leight: 540
   collOffsetHorizontal: {x: 17, y: 0, z: 0}
+  collOffsetVertical: {x: 0, y: 0, z: 0}
 --- !u!114 &1976931391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3572,6 +3561,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976931388}
   m_CullTransparentMesh: 0
+--- !u!114 &1976931393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976931388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7397e1677309f0743bb2496db4c6ea56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leight: 540
+  collOffsetHorizontal: {x: 17, y: 0, z: 0}
+  collOffsetVertical: {x: 0, y: 0, z: 0}
 --- !u!1 &2070064490
 GameObject:
   m_ObjectHideFlags: 0
