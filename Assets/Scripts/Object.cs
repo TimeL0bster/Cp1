@@ -19,25 +19,23 @@ public class Object : MonoBehaviour
     public GameObject miniObject;
 
     private Animator anim;
-    private Slots slots;
-
     private bool isObjectAbove = false;
 
-    // Start is called before the first frame update
-    void Start()
+    protected Slots slots;
+
+    protected virtual void Start()
     {
         slots = GameObject.FindGameObjectWithTag("Slots").GetComponent<Slots>();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected void CastRay()
     {
         isObjectAbove = Physics.Raycast(transform.position + collOffsetHorizontal, Vector3.back, Leight, isObjectLayer) || Physics.Raycast(transform.position - collOffsetHorizontal, Vector3.back, Leight, isObjectLayer)
             || Physics.Raycast(transform.position + collOffsetVertical, Vector3.back, Leight, isObjectLayer) || Physics.Raycast(transform.position - collOffsetVertical, Vector3.back, Leight, isObjectLayer)
             || Physics.Raycast(transform.position + collOffsetVertical2, Vector3.back, Leight, isObjectLayer) || Physics.Raycast(transform.position - collOffsetVertical2, Vector3.back, Leight, isObjectLayer);
     }
 
-    private void OnMouseDown()
+    protected void Touched()
     {
         if (!isObjectAbove)
         {
@@ -52,7 +50,6 @@ public class Object : MonoBehaviour
                 }
             }
         }
-
     }
 
     private void OnDrawGizmos()

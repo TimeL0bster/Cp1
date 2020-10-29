@@ -16,29 +16,9 @@ public class RedCheck : MatchCheck
         base.ClearMatch(base.MatchChecker());
     }
 
-    private void ClearMatchRed(List<GameObject> matchChecker)
-    {
-        List<GameObject> matchObjects = new List<GameObject>();
-
-        for (int i = 0; i < matchChecker.Count; i++)
-        {
-            matchObjects.AddRange(matchChecker);
-        }
-
-        if (matchObjects.Count > 4)
-        {
-            for (int i = 0; i < matchObjects.Count; i++)
-            {
-                Debug.Log("Matched");
-                //matchObjects[i].GetComponent<Image>().sprite = null;
-                Destroy(matchObjects[i].gameObject);
-            }
-        }
-    }
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position + collOffsetHorizontal, transform.position + collOffsetHorizontal + Vector3.right * leight);
+        Gizmos.DrawLine(transform.position + collOffsetVertical + collOffsetHorizontal, transform.position + collOffsetVertical + collOffsetHorizontal + Vector3.right * leight);
     }
 }

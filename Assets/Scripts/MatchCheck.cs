@@ -11,6 +11,11 @@ public class MatchCheck : MonoBehaviour
     public Vector3 collOffsetHorizontal;
     public Vector3 collOffsetVertical;
 
+    [Header("Naming")]
+    public string signalLog;
+    public string matchedLog;
+
+
     protected Image img;
 
     // Start is called before the first frame update
@@ -19,22 +24,16 @@ public class MatchCheck : MonoBehaviour
         img = GetComponent<Image>();
     }
 
-    // Update is called once per frame
-    private void Update()
-    {
-        
-    }
-
     protected List<GameObject> MatchChecker()
     {
-        RaycastHit2D objectHit = Physics2D.Raycast(transform.position + collOffsetHorizontal, Vector2.right * leight); ;
+        RaycastHit2D objectHit = Physics2D.Raycast(transform.position + collOffsetVertical + collOffsetHorizontal, Vector2.right * leight); ;
         List<GameObject> matchObject = new List<GameObject>();
 
         while (objectHit.collider != null && objectHit.collider.GetComponent<Image>().sprite == img.sprite)
         {
             matchObject.Add(objectHit.collider.gameObject);
-            Debug.Log("Green hit");
-            objectHit = Physics2D.Raycast(objectHit.collider.transform.position + collOffsetHorizontal, Vector2.right * leight);
+            Debug.Log(signalLog);
+            objectHit = Physics2D.Raycast(objectHit.collider.transform.position + collOffsetVertical + collOffsetHorizontal, Vector2.right * leight);
         }
 
         return matchObject;
@@ -51,13 +50,21 @@ public class MatchCheck : MonoBehaviour
 
         if (matchObjects.Count > 4)
         {
-            Debug.Log("Matched");
+            Debug.Log(matchedLog);
             for (int i = 0; i < matchObjects.Count; i++)
             {
                 //matchObjects[i].GetComponent<Image>().sprite = null;
-                Destroy(matchObjects[i].gameObject);
+                //Destroy(matchObjects[i].gameObject);
+                StartCoroutine(OnWaitDestroyObject(matchObjects[i].gameObject));
             }
         }
+    }
+
+    IEnumerator OnWaitDestroyObject(GameObject matchObjects)
+    {
+        yield return new WaitForSeconds(.2f);
+
+        Destroy(matchObjects);
     }
 
 }
