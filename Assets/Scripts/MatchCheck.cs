@@ -41,21 +41,21 @@ public class MatchCheck : MonoBehaviour
 
     protected void ClearMatch(List<GameObject> matchChecker)
     {
-        List<GameObject> matchObjects = new List<GameObject>();
+        List<GameObject> matchedObjects = new List<GameObject>();
 
         for (int i = 0; i < matchChecker.Count; i++)
         {
-            matchObjects.AddRange(matchChecker);
+            matchedObjects.AddRange(matchChecker);
         }
 
-        if (matchObjects.Count > 4)
+        if (matchedObjects.Count > 4)
         {
             Debug.Log(matchedLog);
-            for (int i = 0; i < matchObjects.Count; i++)
+            for (int i = 0; i < matchedObjects.Count; i++)
             {
                 //matchObjects[i].GetComponent<Image>().sprite = null;
                 //Destroy(matchObjects[i].gameObject);
-                StartCoroutine(OnWaitDestroyObject(matchObjects[i].gameObject));
+                StartCoroutine(OnWaitDestroyObject(matchedObjects[i].gameObject));
             }
         }
     }

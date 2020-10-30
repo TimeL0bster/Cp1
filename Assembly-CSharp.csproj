@@ -63,10 +63,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BlueCheck.cs" />
     <Compile Include="Assets\Scripts\GreenCheck.cs" />
     <Compile Include="Assets\Scripts\IndiSlot.cs" />
     <Compile Include="Assets\Scripts\MatchCheck.cs" />
     <Compile Include="Assets\Scripts\MiniObject.cs" />
+    <Compile Include="Assets\Scripts\MiniObject1.cs" />
+    <Compile Include="Assets\Scripts\MiniObject2.cs" />
     <Compile Include="Assets\Scripts\Object.cs" />
     <Compile Include="Assets\Scripts\Object1.cs" />
     <Compile Include="Assets\Scripts\Object2.cs" />
