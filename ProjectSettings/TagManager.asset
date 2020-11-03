@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Slots
   - Obj1
+  - Object
   layers:
   - Default
   - TransparentFX

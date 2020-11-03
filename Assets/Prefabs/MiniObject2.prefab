@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4755068018706641943}
   - component: {fileID: 4755068018706641942}
   - component: {fileID: 7462185486031186254}
+  - component: {fileID: 6098712305915730926}
   - component: {fileID: 4291546612532502246}
   m_Layer: 10
   m_Name: MiniObject2
@@ -83,16 +84,43 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4755068018706641940}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff54e734885f6394194b54acde582252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leight: 540
-  collOffsetHorizontal: {x: 17, y: 0, z: 0}
-  isObjectLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  leight1: 0
+  leight2: 0
+  collOffsetHorizontal: {x: -6, y: 0, z: 0}
+  collOffsetVertical: {x: 0, y: 17, z: 0}
+  collOffsetHorizontal2: {x: 0, y: 0, z: 0}
+  collOffsetVertical2: {x: 0, y: 0, z: 0}
+  collOffsetHorizontal3: {x: 0, y: 0, z: 0}
+  collOffsetVertical3: {x: 0, y: 0, z: 0}
+  miniObjectSprite:
+  - {fileID: 0}
+--- !u!114 &6098712305915730926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4755068018706641940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1610ce1d38178bd4ba03380fb3c0f83e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leight1: 100
+  leight2: 200
+  collOffsetHorizontal: {x: -6, y: 0, z: 0}
+  collOffsetVertical: {x: 0, y: 17, z: 0}
+  collOffsetHorizontal2: {x: -6, y: 0, z: 0}
+  collOffsetVertical2: {x: 0, y: -17, z: 0}
+  collOffsetHorizontal3: {x: 0, y: 0, z: 0}
+  collOffsetVertical3: {x: 0, y: 0, z: 0}
+  miniObjectSprite:
+  - {fileID: 21300000, guid: d2a2c84890cf0fa46862001b6d5394ab, type: 3}
 --- !u!61 &4291546612532502246
 BoxCollider2D:
   m_ObjectHideFlags: 0
