@@ -36,17 +36,19 @@ public class MiniObject : MonoBehaviour
         RaycastHit2D miniObjectHitLowerLeft = Physics2D.Raycast(transform.position + collOffsetVertical2 + collOffsetHorizontal2, Vector3.left * leight2);
         List<GameObject> objectHit = new List<GameObject>();
 
-        if (miniObjectHitLowerLeft.collider != null && miniObjectHitLowerLeft.collider.GetComponent<Image>().sprite == miniObjectSprite[0])
+        if (miniObjectHitLowerLeft.collider != null && miniObjectHitUpperLeft.collider.GetComponent<Image>().sprite == img.sprite)
         {
             /*objectHit.Add(miniObjectHit.collider.gameObject);
             mySlot = miniObjectHit.collider.transform.parent.name;
             Debug.Log(mySlot);
             */
-            if (miniObjectHitUpperLeft.collider != null && miniObjectHitUpperLeft.collider.GetComponent<Image>().sprite == img.sprite)
+            if (miniObjectHitUpperLeft.collider != null && miniObjectHitLowerLeft.collider.GetComponent<Image>().sprite == miniObjectSprite[0])
             {
                 i = Time.deltaTime / .2f;
+                transform.position = Vector3.Lerp(transform.position, miniObjectHitLowerLeft.collider.transform.parent.position, i);
+                miniObjectHitLowerLeft.collider.transform.SetParent(transform.parent);
+                miniObjectHitLowerLeft.collider.transform.position = Vector3.Lerp(miniObjectHitLowerLeft.collider.transform.position, transform.parent.position, i);
                 transform.SetParent(miniObjectHitLowerLeft.collider.transform.parent);
-                transform.position = Vector3.Lerp(transform.position, miniObjectHitLowerLeft.collider.transform.position, i);
             }
 
         }
