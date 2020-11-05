@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -21,7 +22,6 @@ public class MiniObject : MonoBehaviour
 
     protected Image img;
 
-    private string mySlot = null;
     private float i = 0f;
 
     // Start is called before the first frame update
@@ -36,23 +36,36 @@ public class MiniObject : MonoBehaviour
         RaycastHit2D miniObjectHitLowerLeft = Physics2D.Raycast(transform.position + collOffsetVertical2 + collOffsetHorizontal2, Vector3.left * leight2);
         List<GameObject> objectHit = new List<GameObject>();
 
-        if (miniObjectHitLowerLeft.collider != null && miniObjectHitUpperLeft.collider.GetComponent<Image>().sprite == img.sprite)
+        if (miniObjectHitUpperLeft.collider != null && miniObjectHitUpperLeft.collider.GetComponent<Image>().sprite == img.sprite)
         {
-            /*objectHit.Add(miniObjectHit.collider.gameObject);
-            mySlot = miniObjectHit.collider.transform.parent.name;
-            Debug.Log(mySlot);
-            */
-            if (miniObjectHitUpperLeft.collider != null && miniObjectHitLowerLeft.collider.GetComponent<Image>().sprite == miniObjectSprite[0])
+
+            if (miniObjectHitLowerLeft.collider != null && miniObjectHitLowerLeft.collider.GetComponent<Image>().sprite == miniObjectSprite[0])
             {
-                i = Time.deltaTime / .2f;
-                transform.position = Vector3.Lerp(transform.position, miniObjectHitLowerLeft.collider.transform.parent.position, i);
-                miniObjectHitLowerLeft.collider.transform.SetParent(transform.parent);
-                miniObjectHitLowerLeft.collider.transform.position = Vector3.Lerp(miniObjectHitLowerLeft.collider.transform.position, transform.parent.position, i);
-                transform.SetParent(miniObjectHitLowerLeft.collider.transform.parent);
+                //i = Time.deltaTime / .2f;
+                //transform.position = Vector3.Lerp(transform.position, miniObjectHitLowerLeft.collider.transform.parent.position, i);
+                //miniObjectHitLowerLeft.collider.transform.position = Vector3.Lerp(miniObjectHitLowerLeft.collider.transform.position, transform.parent.position, i);
+
+                //miniObjectHitLowerLeft.collider.transform.position = transform.parent.position;
+
+                //transform.SetParent(miniObjectHitLowerLeft.collider.transform.parent);
+                //miniObjectHitLowerLeft.collider.transform.SetParent(transform.parent);
+
+                StartCoroutine(OnWaitSwitchObject(miniObjectHitLowerLeft.collider));
             }
 
         }
 
+    }
+
+    IEnumerator OnWaitSwitchObject(Collider2D miniObjectPos)
+    {
+        transform.position = miniObjectPos.transform.parent.position;
+        miniObjectPos.transform.position = transform.parent.position;
+
+        yield return new WaitForSeconds(.5f);
+
+        transform.SetParent(miniObjectPos.transform.parent);
+        
     }
 
     protected void SwitchObjectPosition()
@@ -60,9 +73,4 @@ public class MiniObject : MonoBehaviour
         //transform.position = Vector3.Lerp();
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.white;
-        Gizmos.DrawLine(transform.position + collOffsetVertical + collOffsetHorizontal, transform.position + collOffsetVertical + collOffsetHorizontal + Vector3.left * leight1);
-    }
 }

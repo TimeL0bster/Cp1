@@ -26,7 +26,7 @@ public class MatchCheck : MonoBehaviour
 
     protected List<GameObject> MatchChecker()
     {
-        RaycastHit2D objectHit = Physics2D.Raycast(transform.position + collOffsetVertical + collOffsetHorizontal, Vector2.right * leight); ;
+        RaycastHit2D objectHit = Physics2D.Raycast(transform.position + collOffsetVertical + collOffsetHorizontal, Vector2.right * leight);
         List<GameObject> matchObject = new List<GameObject>();
 
         while (objectHit.collider != null && objectHit.collider.GetComponent<Image>().sprite == img.sprite)

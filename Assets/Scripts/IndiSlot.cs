@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class IndiSlot : MonoBehaviour
 {
+
     public int i;
 
     private Slots slots;
+    private Image img;
 
     // Start is called before the first frame update
     void Start()
@@ -23,4 +26,5 @@ public class IndiSlot : MonoBehaviour
             slots.isFull[i] = false;
         }
     }
+
 }
