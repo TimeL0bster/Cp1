@@ -17,22 +17,37 @@ public class AllCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        ClearMatch(MatchObj1Checker());
     }
 
-    private List<GameObject> MatchChecker()
+    private List<GameObject> MatchObj1Checker()
     {
-        RaycastHit2D objectHit = Physics2D.Raycast(transform.position + collOffsetVertical + collOffsetHorizontal, Vector2.right * leight);
-        List<GameObject> matchGreenObject = new List<GameObject>();
+        RaycastHit2D object1Hit = Physics2D.Raycast(transform.position + collOffsetVertical + collOffsetHorizontal, Vector2.right * leight);
+        List<GameObject> matchObject1 = new List<GameObject>();
 
-        while (objectHit.collider != null && objectHit.collider.GetComponent<Image>().sprite == spr[0])
+        while (object1Hit.collider != null && object1Hit.collider.GetComponent<Image>().sprite == spr[0])
         {
-            matchGreenObject.Add(objectHit.collider.gameObject);
-            Debug.Log("Green match found");
-            objectHit = Physics2D.Raycast(objectHit.collider.transform.position + collOffsetVertical + collOffsetHorizontal, Vector2.right * leight);
+            matchObject1.Add(object1Hit.collider.gameObject);
+            Debug.Log("Obj1 match found");
+            object1Hit = Physics2D.Raycast(object1Hit.collider.transform.position + collOffsetVertical + collOffsetHorizontal, Vector2.right * leight);
         }
 
-        return matchGreenObject;
+        return matchObject1;
+    }
+
+    private List<GameObject> MatchObj2Check()
+    {
+        RaycastHit2D object2Hit = Physics2D.Raycast(transform.position + collOffsetVertical + collOffsetHorizontal, Vector2.right * leight);
+        List<GameObject> matchObject2 = new List<GameObject>();
+
+        while (object2Hit.collider != null && object2Hit.collider.GetComponent<Image>().sprite == spr[1])
+        {
+            matchObject2.Add(object2Hit.collider.gameObject);
+            Debug.Log("Obj2 match found");
+            object2Hit = Physics2D.Raycast(object2Hit.collider.transform.position + collOffsetVertical + collOffsetHorizontal, Vector2.right * leight);
+        }
+
+        return matchObject2;
     }
 
     private void ClearMatch(List<GameObject> matchChecker)
@@ -61,6 +76,12 @@ public class AllCheck : MonoBehaviour
         yield return new WaitForSeconds(.2f);
 
         Destroy(matchObjects);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.white;
+        Gizmos.DrawLine(transform.position + collOffsetVertical + collOffsetHorizontal, transform.position + collOffsetVertical + collOffsetHorizontal + Vector3.right * leight);
     }
 
 }
