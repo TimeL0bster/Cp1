@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,43 +9,57 @@ public class AllCheck : MonoBehaviour
 
     [Header("Distance")]
     public float leight = 0f;
-    public Vector3 collOffsetHorizontal;
-    public Vector3 collOffsetVertical;
+    public Vector3 collOffSetRay1;
 
     [Header("Sprites")]
     public Sprite[] spr;
 
+    private RaycastHit2D protoHit;
+
     // Update is called once per frame
     void Update()
     {
-        ClearMatch(MatchObj1Checker());
+        ClearMatch(MatchObjCheck1());
+        ClearMatch(MatchObjCheck2());
     }
 
-    private List<GameObject> MatchObj1Checker()
+    private List<GameObject> MatchObjCheck1()
     {
-        RaycastHit2D object1Hit = Physics2D.Raycast(transform.position + collOffsetVertical + collOffsetHorizontal, Vector2.right * leight);
+        protoHit = Physics2D.Raycast(transform.position + collOffSetRay1, Vector2.right * leight);
+        RaycastHit2D[] objectHit1 = Physics2D.RaycastAll(transform.position + collOffSetRay1, Vector2.right * leight);
         List<GameObject> matchObject1 = new List<GameObject>();
 
-        while (object1Hit.collider != null && object1Hit.collider.GetComponent<Image>().sprite == spr[0])
+        if (protoHit.collider != null)
         {
-            matchObject1.Add(object1Hit.collider.gameObject);
-            Debug.Log("Obj1 match found");
-            object1Hit = Physics2D.Raycast(object1Hit.collider.transform.position + collOffsetVertical + collOffsetHorizontal, Vector2.right * leight);
+            foreach (RaycastHit2D hit in objectHit1)
+            {
+                if (hit.collider.GetComponent<Image>().sprite == spr[0])
+                {
+                    Debug.Log("Obj1 match found");
+                    matchObject1.Add(hit.collider.gameObject);
+                }
+            }
         }
 
         return matchObject1;
     }
 
-    private List<GameObject> MatchObj2Check()
+    private List<GameObject> MatchObjCheck2()
     {
-        RaycastHit2D object2Hit = Physics2D.Raycast(transform.position + collOffsetVertical + collOffsetHorizontal, Vector2.right * leight);
+        protoHit = Physics2D.Raycast(transform.position + collOffSetRay1, Vector2.right * leight);
+        RaycastHit2D[] objectHit2 = Physics2D.RaycastAll(transform.position + collOffSetRay1, Vector2.right * leight);
         List<GameObject> matchObject2 = new List<GameObject>();
 
-        while (object2Hit.collider != null && object2Hit.collider.GetComponent<Image>().sprite == spr[1])
+        if (protoHit.collider != null)
         {
-            matchObject2.Add(object2Hit.collider.gameObject);
-            Debug.Log("Obj2 match found");
-            object2Hit = Physics2D.Raycast(object2Hit.collider.transform.position + collOffsetVertical + collOffsetHorizontal, Vector2.right * leight);
+            foreach (RaycastHit2D hit in objectHit2)
+            {
+                if (hit.collider.GetComponent<Image>().sprite == spr[1])
+                {
+                    Debug.Log("Obj2 match found");
+                    matchObject2.Add(hit.collider.gameObject);
+                }
+            }
         }
 
         return matchObject2;
@@ -81,7 +96,7 @@ public class AllCheck : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
-        Gizmos.DrawLine(transform.position + collOffsetVertical + collOffsetHorizontal, transform.position + collOffsetVertical + collOffsetHorizontal + Vector3.right * leight);
+        Gizmos.DrawLine(transform.position + collOffSetRay1, transform.position + collOffSetRay1 + Vector3.right * leight);
     }
 
 }

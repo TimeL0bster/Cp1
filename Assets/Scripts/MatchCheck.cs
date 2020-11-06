@@ -11,10 +11,9 @@ public class MatchCheck : MonoBehaviour
     public Vector3 collOffsetHorizontal;
     public Vector3 collOffsetVertical;
 
-    [Header("Naming")]
+    [Header("Log signal")]
     public string signalLog;
     public string matchedLog;
-
 
     protected Image img;
 
@@ -31,8 +30,8 @@ public class MatchCheck : MonoBehaviour
 
         while (objectHit.collider != null && objectHit.collider.GetComponent<Image>().sprite == img.sprite)
         {
+            Debug.Log("Match found");
             matchObject.Add(objectHit.collider.gameObject);
-            Debug.Log(signalLog);
             objectHit = Physics2D.Raycast(objectHit.collider.transform.position + collOffsetVertical + collOffsetHorizontal, Vector2.right * leight);
         }
 

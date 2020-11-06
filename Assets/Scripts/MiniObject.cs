@@ -22,7 +22,7 @@ public class MiniObject : MonoBehaviour
 
     protected Image img;
 
-    private float i = 0f;
+    //private float i = 0f;
 
     // Start is called before the first frame update
     protected virtual void Start()

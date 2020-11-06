@@ -44,7 +44,7 @@ public class Object : MonoBehaviour
                 if (slots.isFull[i] == false)
                 {
                     slots.isFull[i] = true;
-                    Instantiate(miniObject, slots.slots[i].transform, false);
+                    Instantiate(miniObject, slots.slots[i].transform.parent, false);
                     Destroy(this.gameObject);
                     break;
                 }
