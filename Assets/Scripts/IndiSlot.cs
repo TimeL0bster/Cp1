@@ -15,7 +15,6 @@ public class IndiSlot : MonoBehaviour
     void Start()
     {
         slots = GameObject.FindGameObjectWithTag("Slots").GetComponent<Slots>();
-        
     }
 
     // Update is called once per frame

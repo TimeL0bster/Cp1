@@ -22,6 +22,7 @@ public class Object : MonoBehaviour
     private bool isObjectAbove = false;
 
     protected Slots slots;
+    protected MiniObjectPool objectPooler;
 
     protected virtual void Start()
     {
@@ -44,7 +45,11 @@ public class Object : MonoBehaviour
                 if (slots.isFull[i] == false)
                 {
                     slots.isFull[i] = true;
-                    Instantiate(miniObject, slots.slots[i].transform.parent, false);
+                    Instantiate(miniObject, slots.slots[i].transform, false);
+                    /*GameObject mnObj = MiniObjectPool.SharedInstance.GetPooledObject();
+                    mnObj.transform.position = slots.slots[i].transform.position;
+                    mnObj.transform.SetParent(slots.slots[i].transform);
+                    mnObj.SetActive(true);*/
                     Destroy(this.gameObject);
                     break;
                 }

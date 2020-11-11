@@ -35,7 +35,6 @@ public class AllCheck : MonoBehaviour
             {
                 if (hit.collider.GetComponent<Image>().sprite == spr[0])
                 {
-                    Debug.Log("Obj1 match found");
                     matchObject1.Add(hit.collider.gameObject);
                 }
             }
@@ -56,7 +55,6 @@ public class AllCheck : MonoBehaviour
             {
                 if (hit.collider.GetComponent<Image>().sprite == spr[1])
                 {
-                    Debug.Log("Obj2 match found");
                     matchObject2.Add(hit.collider.gameObject);
                 }
             }

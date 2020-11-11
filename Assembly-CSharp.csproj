@@ -69,9 +69,10 @@
     <Compile Include="Assets\Scripts\MiniObject1.cs" />
     <Compile Include="Assets\Scripts\BlueCheck.cs" />
     <Compile Include="Assets\Scripts\MiniObject2.cs" />
+    <Compile Include="Assets\Scripts\ObjPosSwtch.cs" />
     <Compile Include="Assets\Scripts\Slots.cs" />
     <Compile Include="Assets\Scripts\AllCheck.cs" />
-    <Compile Include="Assets\Scripts\ObjPosSwtch.cs" />
+    <Compile Include="Assets\Scripts\MiniObjectPool.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

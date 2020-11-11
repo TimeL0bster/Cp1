@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjPosSwtch : MonoBehaviour
 {
@@ -13,17 +15,22 @@ public class ObjPosSwtch : MonoBehaviour
     [Header("Sprites")]
     public Sprite[] miniObjectSprite;
 
+    private RaycastHit2D protoHit;
+    private Slots slots;
+
     // Update is called once per frame
     void Update()
     {
-        
+        ObjSwtch();
     }
 
     private void ObjSwtch()
     {
-        RaycastHit2D[] objectHit2 = Physics2D.RaycastAll(transform.position + collOffSetRay1, Vector2.right * leight);
+        protoHit = Physics2D.Raycast(transform.position + collOffSetRay1, Vector2.right * leight);
+        RaycastHit2D[] objectHit1 = Physics2D.RaycastAll(transform.position + collOffSetRay1, Vector2.right * leight);
 
-        
+
+
     }
 
     private void OnDrawGizmos()

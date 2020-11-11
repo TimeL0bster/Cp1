@@ -36,24 +36,7 @@ public class MiniObject : MonoBehaviour
         RaycastHit2D miniObjectHitLowerLeft = Physics2D.Raycast(transform.position + collOffsetVertical2 + collOffsetHorizontal2, Vector3.left * leight2);
         List<GameObject> objectHit = new List<GameObject>();
 
-        if (miniObjectHitUpperLeft.collider != null && miniObjectHitUpperLeft.collider.GetComponent<Image>().sprite == img.sprite)
-        {
-
-            if (miniObjectHitLowerLeft.collider != null && miniObjectHitLowerLeft.collider.GetComponent<Image>().sprite == miniObjectSprite[0])
-            {
-                //i = Time.deltaTime / .2f;
-                //transform.position = Vector3.Lerp(transform.position, miniObjectHitLowerLeft.collider.transform.parent.position, i);
-                //miniObjectHitLowerLeft.collider.transform.position = Vector3.Lerp(miniObjectHitLowerLeft.collider.transform.position, transform.parent.position, i);
-
-                //miniObjectHitLowerLeft.collider.transform.position = transform.parent.position;
-
-                //transform.SetParent(miniObjectHitLowerLeft.collider.transform.parent);
-                //miniObjectHitLowerLeft.collider.transform.SetParent(transform.parent);
-
-                StartCoroutine(OnWaitSwitchObject(miniObjectHitLowerLeft.collider));
-            }
-
-        }
+        
 
     }
 
