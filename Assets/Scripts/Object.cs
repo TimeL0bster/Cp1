@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Object : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class Object : MonoBehaviour
     public GameObject miniObject;
 
     private Animator anim;
+    private Image img;
     private bool isObjectAbove = false;
 
     protected Slots slots;
@@ -27,17 +29,30 @@ public class Object : MonoBehaviour
     protected virtual void Start()
     {
         slots = GameObject.FindGameObjectWithTag("Slots").GetComponent<Slots>();
+        img = GetComponent<Image>();
     }
 
-    protected void CastRay()
+    public void CastRay()
     {
         isObjectAbove = Physics.Raycast(transform.position + collOffsetHorizontal, Vector3.back, Leight, isObjectLayer) || Physics.Raycast(transform.position - collOffsetHorizontal, Vector3.back, Leight, isObjectLayer)
             || Physics.Raycast(transform.position + collOffsetVertical, Vector3.back, Leight, isObjectLayer) || Physics.Raycast(transform.position - collOffsetVertical, Vector3.back, Leight, isObjectLayer)
             || Physics.Raycast(transform.position + collOffsetVertical2, Vector3.back, Leight, isObjectLayer) || Physics.Raycast(transform.position - collOffsetVertical2, Vector3.back, Leight, isObjectLayer);
+
+        if (!isObjectAbove)
+        {
+            //img.color = new Color(255, 255, 255);
+            img.color = new Color32(255,255,255,255);
+        }
+        else
+        {
+            img.color = new Color32(80, 80, 80, 255);
+        }
+
     }
 
-    protected void Touched()
+    public void Touched()
     {
+
         if (!isObjectAbove)
         {
             for (int i = 0; i < slots.slots.Length; i++)
@@ -50,11 +65,19 @@ public class Object : MonoBehaviour
                     mnObj.transform.position = slots.slots[i].transform.position;
                     mnObj.transform.SetParent(slots.slots[i].transform);
                     mnObj.SetActive(true);*/
-                    Destroy(this.gameObject);
+                    float t = 0f;
+                    while (t <= 1)
+                    {
+                        t = Time.deltaTime / .5f;
+                        Debug.Log(t.ToString());
+                        transform.position = Vector3.Lerp(transform.position, slots.slots[i].transform.position, t);
+                    }
+                    //Destroy(this.gameObject);
                     break;
                 }
             }
         }
+
     }
 
     private void OnDrawGizmos()

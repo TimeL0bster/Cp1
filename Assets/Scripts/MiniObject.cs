@@ -32,11 +32,8 @@ public class MiniObject : MonoBehaviour
 
     protected void detechAdjacientSlot()
     {
-        RaycastHit2D miniObjectHitUpperLeft = Physics2D.Raycast(transform.position + collOffsetVertical + collOffsetHorizontal, Vector3.left * leight1);
-        RaycastHit2D miniObjectHitLowerLeft = Physics2D.Raycast(transform.position + collOffsetVertical2 + collOffsetHorizontal2, Vector3.left * leight2);
-        List<GameObject> objectHit = new List<GameObject>();
-
         
+
 
     }
 
