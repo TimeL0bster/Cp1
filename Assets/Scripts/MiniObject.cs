@@ -22,8 +22,6 @@ public class MiniObject : MonoBehaviour
 
     protected Image img;
 
-    //private float i = 0f;
-
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -37,20 +35,9 @@ public class MiniObject : MonoBehaviour
 
     }
 
-    IEnumerator OnWaitSwitchObject(Collider2D miniObjectPos)
-    {
-        transform.position = miniObjectPos.transform.parent.position;
-        miniObjectPos.transform.position = transform.parent.position;
-
-        yield return new WaitForSeconds(.5f);
-
-        transform.SetParent(miniObjectPos.transform.parent);
-        
-    }
-
     protected void SwitchObjectPosition()
     {
-        //transform.position = Vector3.Lerp();
+        
     }
 
 }

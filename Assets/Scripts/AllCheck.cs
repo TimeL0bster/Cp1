@@ -72,7 +72,7 @@ public class AllCheck : MonoBehaviour
             matchedObjects.AddRange(matchChecker);
         }
 
-        if (matchedObjects.Count > 4)
+        if (matchedObjects.Count >= 5)
         {
             Debug.Log("Matched");
             for (int i = 0; i < matchedObjects.Count; i++)

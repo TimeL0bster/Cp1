@@ -19,6 +19,7 @@ public class Object : MonoBehaviour
     [Header("This object")]
     public GameObject miniObject;
 
+    private BoxCollider boxCollider;
     private Animator anim;
     private Image img;
     private bool isObjectAbove = false;
@@ -30,6 +31,7 @@ public class Object : MonoBehaviour
     {
         slots = GameObject.FindGameObjectWithTag("Slots").GetComponent<Slots>();
         img = GetComponent<Image>();
+        boxCollider = GetComponent<BoxCollider>();
     }
 
     public void CastRay()
@@ -40,7 +42,6 @@ public class Object : MonoBehaviour
 
         if (!isObjectAbove)
         {
-            //img.color = new Color(255, 255, 255);
             img.color = new Color32(255,255,255,255);
         }
         else
@@ -60,10 +61,9 @@ public class Object : MonoBehaviour
                 
                 if (slots.isFull[i] == false)
                 {
-                    slots.isFull[i] = true;
-                    Instantiate(miniObject, slots.slots[i].transform, false);
+
                     StartCoroutine(Move(10,i));
-                    //Destroy(this.gameObject);
+                    
                     /*GameObject mnObj = MiniObjectPool.SharedInstance.GetPooledObject();
                     mnObj.transform.position = slots.slots[i].transform.position;
                     mnObj.transform.SetParent(slots.slots[i].transform);
@@ -82,10 +82,30 @@ public class Object : MonoBehaviour
         while (f < 1)
         {
             f += Time.deltaTime/time;
-            transform.position = Vector3.Lerp(transform.position, slots.slots[i].transform.position, f);
+            boxCollider.enabled = !boxCollider.enabled;
+            transform.localScale -= new Vector3(1, 1, 1) * Time.deltaTime * 3f;
+            transform.position = Vector3.Lerp(transform.position, slots.tempoSlots[i].transform.position, f);
+            StartCoroutine(spwnMiniObject(i));
+            StartCoroutine(DestroySelf(.5f));
             yield return 0;
         }
 
+    }
+
+    IEnumerator spwnMiniObject(int i)
+    {
+        slots.isFull[i] = true;
+
+        yield return new WaitForSeconds(.5f);
+
+        Instantiate(miniObject, slots.slots[i].transform, false);
+    }
+
+    IEnumerator DestroySelf(float destroyTime)
+    {
+        yield return new WaitForSeconds(destroyTime);
+
+        Destroy(this.gameObject);
     }
 
     private void OnDrawGizmos()

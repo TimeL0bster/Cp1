@@ -13,7 +13,7 @@ public class ObjPosSwtch : MonoBehaviour
     public Vector3 collOffSetRay2;
 
     [Header("Sprites")]
-    public Sprite[] miniObjectSprite;
+    public Sprite[] miniObjectSprt;
 
     private RaycastHit2D protoHit;
     private Slots slots;
@@ -29,7 +29,36 @@ public class ObjPosSwtch : MonoBehaviour
         protoHit = Physics2D.Raycast(transform.position + collOffSetRay1, Vector2.right * leight);
         RaycastHit2D[] objectHit1 = Physics2D.RaycastAll(transform.position + collOffSetRay1, Vector2.right * leight);
 
-
+        if (protoHit.collider != null)
+        {
+            if (objectHit1[0].collider.GetComponent<Image>().sprite == miniObjectSprt[0])
+            {
+                if (objectHit1[1].collider != null && objectHit1[1].collider.GetComponent<Image>().sprite == miniObjectSprt[0])
+                {
+                    Debug.Log("Green");
+                }
+                else
+                {
+                    for (int i = 2; i < 7;i++)
+                    {
+                        if (objectHit1[i].collider.GetComponent<Image>().sprite == miniObjectSprt[0])
+                        {
+                            float f = 0;
+                            while (f < 1)
+                            {
+                                f += Time.deltaTime / 10;
+                                objectHit1[1].collider.transform.position = Vector3.Lerp(objectHit1[1].collider.transform.position, slots.tempoSlots[i].transform.position, 1);
+                                objectHit1[i].collider.transform.position = Vector3.Lerp(objectHit1[i].collider.transform.position, slots.tempoSlots[1].transform.position, 1);
+                            }
+                        }
+                    }
+                }
+            }
+            else if (objectHit1[0].collider.GetComponent<Image>().sprite == miniObjectSprt[1])
+            {
+                Debug.Log("Red");
+            }
+        }
 
     }
 
