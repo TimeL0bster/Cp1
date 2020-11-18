@@ -57,25 +57,33 @@ public class Object : MonoBehaviour
         {
             for (int i = 0; i < slots.slots.Length; i++)
             {
+                
                 if (slots.isFull[i] == false)
                 {
                     slots.isFull[i] = true;
                     Instantiate(miniObject, slots.slots[i].transform, false);
+                    StartCoroutine(Move(10,i));
+                    //Destroy(this.gameObject);
                     /*GameObject mnObj = MiniObjectPool.SharedInstance.GetPooledObject();
                     mnObj.transform.position = slots.slots[i].transform.position;
                     mnObj.transform.SetParent(slots.slots[i].transform);
                     mnObj.SetActive(true);*/
-                    float t = 0f;
-                    while (t <= 1)
-                    {
-                        t = Time.deltaTime / .5f;
-                        Debug.Log(t.ToString());
-                        transform.position = Vector3.Lerp(transform.position, slots.slots[i].transform.position, t);
-                    }
-                    //Destroy(this.gameObject);
                     break;
                 }
             }
+        }
+
+    }
+
+    IEnumerator Move(float time, int i)
+    {
+        float f = 0;
+
+        while (f < 1)
+        {
+            f += Time.deltaTime/time;
+            transform.position = Vector3.Lerp(transform.position, slots.slots[i].transform.position, f);
+            yield return 0;
         }
 
     }
