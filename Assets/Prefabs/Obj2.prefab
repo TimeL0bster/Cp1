@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5092977202203440608}
   m_Layer: 8
   m_Name: Obj2
-  m_TagString: Untagged
+  m_TagString: Obj2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,6 +100,7 @@ MonoBehaviour:
     m_Bits: 256
   miniObject: {fileID: 4755068018706641940, guid: 3030cab5c23d45b448d2a6a8fb09c757,
     type: 3}
+  miniObjs: []
 --- !u!65 &5092977202203440608
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -127,7 +128,7 @@ GameObject:
   - component: {fileID: 5092977202700930913}
   m_Layer: 5
   m_Name: Button
-  m_TagString: Untagged
+  m_TagString: Obj2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

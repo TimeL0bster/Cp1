@@ -4,16 +4,10 @@ using UnityEngine;
 
 public class Object1 : Object
 {
-
-    //float t = 0f;
-
     // Update is called once per frame
     void Update()
     {
         base.CastRay();
-        /*t = Time.deltaTime / 2f;
-        Debug.Log(t.ToString());
-        transform.position = Vector3.Lerp(transform.position, new Vector3(0,0,0), t);*/
     }
 
     private void OnMouseDown()

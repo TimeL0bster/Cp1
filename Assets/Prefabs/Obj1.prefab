@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6838487746977709118}
   m_Layer: 8
   m_Name: Obj1
-  m_TagString: Untagged
+  m_TagString: Obj1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,6 +100,14 @@ MonoBehaviour:
     m_Bits: 256
   miniObject: {fileID: 6940943000679418869, guid: 5950e6bacee342447b9e468acabba4c6,
     type: 3}
+  miniObjs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!65 &6838487746977709118
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -127,7 +135,7 @@ GameObject:
   - component: {fileID: 6838487747823560671}
   m_Layer: 5
   m_Name: Button
-  m_TagString: Untagged
+  m_TagString: Obj1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

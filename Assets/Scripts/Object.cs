@@ -16,8 +16,9 @@ public class Object : MonoBehaviour
     [Header("Collider and Layermask")]
     public LayerMask isObjectLayer;
 
-    [Header("This object")]
+    [Header("Mini Gameobject")]
     public GameObject miniObject;
+    public GameObject[] miniObjs;
 
     private BoxCollider boxCollider;
     private Animator anim;
@@ -61,18 +62,11 @@ public class Object : MonoBehaviour
                 
                 if (slots.isFull[i] == false)
                 {
-
-                    StartCoroutine(Move(10,i));
-                    
-                    /*GameObject mnObj = MiniObjectPool.SharedInstance.GetPooledObject();
-                    mnObj.transform.position = slots.slots[i].transform.position;
-                    mnObj.transform.SetParent(slots.slots[i].transform);
-                    mnObj.SetActive(true);*/
+                    StartCoroutine(Move(10,i));   
                     break;
                 }
             }
         }
-
     }
 
     IEnumerator Move(float time, int i)
@@ -83,13 +77,12 @@ public class Object : MonoBehaviour
         {
             f += Time.deltaTime/time;
             boxCollider.enabled = !boxCollider.enabled;
-            transform.localScale -= new Vector3(1, 1, 1) * Time.deltaTime * 3f;
+            transform.localScale -= new Vector3(1, 1, 1) * Time.deltaTime * 2.5f;
             transform.position = Vector3.Lerp(transform.position, slots.tempoSlots[i].transform.position, f);
             StartCoroutine(spwnMiniObject(i));
             StartCoroutine(DestroySelf(.5f));
             yield return 0;
         }
-
     }
 
     IEnumerator spwnMiniObject(int i)
@@ -99,6 +92,18 @@ public class Object : MonoBehaviour
         yield return new WaitForSeconds(.5f);
 
         Instantiate(miniObject, slots.slots[i].transform, false);
+
+        /*if (gameObject.CompareTag("Obj1"))
+        {
+            GameObject mnObj = MiniObjectPool.SharedInstance.GetPooledObject1();
+            mnObj.SetActive(true);
+        }
+        else if (gameObject.CompareTag("Obj2"))
+        {
+            GameObject mnObj = MiniObjectPool.SharedInstance.GetPooledObject2();
+            mnObj.SetActive(true);
+        }*/
+
     }
 
     IEnumerator DestroySelf(float destroyTime)

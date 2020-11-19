@@ -15,6 +15,12 @@ public class AllCheck : MonoBehaviour
     public Sprite[] spr;
 
     private RaycastHit2D protoHit;
+    private Slots slots;
+
+    private void Start()
+    {
+        slots = GameObject.FindGameObjectWithTag("Slots").GetComponent<Slots>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -67,28 +73,31 @@ public class AllCheck : MonoBehaviour
     {
         List<GameObject> matchedObjects = new List<GameObject>();
 
-        for (int i = 0; i < matchChecker.Count; i++)
+        for (int i = 0; i < 3; i++)
         {
             matchedObjects.AddRange(matchChecker);
+            break;
         }
 
-        if (matchedObjects.Count >= 5)
+        if (matchedObjects.Count >= 3)
         {
-            Debug.Log("Matched");
             for (int i = 0; i < matchedObjects.Count; i++)
             {
                 //matchObjects[i].GetComponent<Image>().sprite = null;
                 //Destroy(matchObjects[i].gameObject);
-                StartCoroutine(OnWaitDestroyObject(matchedObjects[i].gameObject));
+                StartCoroutine(OnWaitDestroyObject(matchedObjects[i].gameObject, i));
             }
         }
+
+        Debug.Log(matchedObjects.Count);
     }
 
-    IEnumerator OnWaitDestroyObject(GameObject matchObjects)
+    IEnumerator OnWaitDestroyObject(GameObject matchObjects, int i)
     {
         yield return new WaitForSeconds(.2f);
 
         Destroy(matchObjects);
+        //matchObjects.SetActive(false);
     }
 
     private void OnDrawGizmos()

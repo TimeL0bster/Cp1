@@ -31,14 +31,18 @@ public class ObjPosSwtch : MonoBehaviour
 
         if (protoHit.collider != null)
         {
-            if (objectHit1[0].collider.GetComponent<Image>().sprite == miniObjectSprt[0])
+            /*if (objectHit1[0].collider.GetComponent<Image>().sprite == miniObjectSprt[0])
             {
+
+                Debug.Log("Green first");
+
                 if (objectHit1[1].collider != null && objectHit1[1].collider.GetComponent<Image>().sprite == miniObjectSprt[0])
                 {
-                    Debug.Log("Green");
+                    Debug.Log("Green seccond");
                 }
                 else
                 {
+                    Debug.Log("missmatch");
                     for (int i = 2; i < 7;i++)
                     {
                         if (objectHit1[i].collider.GetComponent<Image>().sprite == miniObjectSprt[0])
@@ -56,8 +60,8 @@ public class ObjPosSwtch : MonoBehaviour
             }
             else if (objectHit1[0].collider.GetComponent<Image>().sprite == miniObjectSprt[1])
             {
-                Debug.Log("Red");
-            }
+                Debug.Log("Red first");
+            }*/
         }
 
     }
