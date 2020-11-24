@@ -13,7 +13,7 @@ public class ObjPosSwtch : MonoBehaviour
     public Vector3 collOffSetRay2;
 
     [Header("Sprites")]
-    public Sprite[] miniObjectSprt;
+    public Sprite[] miniObjectSprite;
 
     private RaycastHit2D protoHit;
     private Slots slots;
@@ -29,6 +29,7 @@ public class ObjPosSwtch : MonoBehaviour
         protoHit = Physics2D.Raycast(transform.position + collOffSetRay1, Vector2.right * leight);
         RaycastHit2D[] objectHit1 = Physics2D.RaycastAll(transform.position + collOffSetRay1, Vector2.right * leight);
 
+<<<<<<< HEAD
         if (protoHit.collider != null)
         {
             /*if (objectHit1[0].collider.GetComponent<Image>().sprite == miniObjectSprt[0])
@@ -63,6 +64,9 @@ public class ObjPosSwtch : MonoBehaviour
                 Debug.Log("Red first");
             }*/
         }
+=======
+
+>>>>>>> parent of 56ea4e80... obj move pos (Complete) & mini obj swtch (In progress)
 
     }
 

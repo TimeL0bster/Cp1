@@ -79,7 +79,11 @@ public class AllCheck : MonoBehaviour
             break;
         }
 
+<<<<<<< HEAD
         if (matchedObjects.Count >= 3)
+=======
+        if (matchedObjects.Count > 4)
+>>>>>>> parent of 56ea4e80... obj move pos (Complete) & mini obj swtch (In progress)
         {
             for (int i = 0; i < matchedObjects.Count; i++)
             {

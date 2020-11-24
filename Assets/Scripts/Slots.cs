@@ -7,6 +7,6 @@ public class Slots : MonoBehaviour
 
     public bool[] isFull;
     public GameObject[] slots;
-    public GameObject[] tempoSlots;
+    //public List<GameObject> matchingObjects = new List<GameObject>();
 
 }

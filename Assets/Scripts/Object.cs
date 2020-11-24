@@ -20,7 +20,6 @@ public class Object : MonoBehaviour
     public GameObject miniObject;
     public GameObject[] miniObjs;
 
-    private BoxCollider boxCollider;
     private Animator anim;
     private Image img;
     private bool isObjectAbove = false;
@@ -32,7 +31,6 @@ public class Object : MonoBehaviour
     {
         slots = GameObject.FindGameObjectWithTag("Slots").GetComponent<Slots>();
         img = GetComponent<Image>();
-        boxCollider = GetComponent<BoxCollider>();
     }
 
     public void CastRay()
@@ -43,6 +41,7 @@ public class Object : MonoBehaviour
 
         if (!isObjectAbove)
         {
+            //img.color = new Color(255, 255, 255);
             img.color = new Color32(255,255,255,255);
         }
         else
@@ -62,7 +61,18 @@ public class Object : MonoBehaviour
                 
                 if (slots.isFull[i] == false)
                 {
+<<<<<<< HEAD
                     StartCoroutine(Move(10,i));   
+=======
+                    slots.isFull[i] = true;
+                    Instantiate(miniObject, slots.slots[i].transform, false);
+                    StartCoroutine(Move(10,i));
+                    //Destroy(this.gameObject);
+                    /*GameObject mnObj = MiniObjectPool.SharedInstance.GetPooledObject();
+                    mnObj.transform.position = slots.slots[i].transform.position;
+                    mnObj.transform.SetParent(slots.slots[i].transform);
+                    mnObj.SetActive(true);*/
+>>>>>>> parent of 56ea4e80... obj move pos (Complete) & mini obj swtch (In progress)
                     break;
                 }
             }
@@ -76,15 +86,20 @@ public class Object : MonoBehaviour
         while (f < 1)
         {
             f += Time.deltaTime/time;
+<<<<<<< HEAD
             boxCollider.enabled = !boxCollider.enabled;
             transform.localScale -= new Vector3(1, 1, 1) * Time.deltaTime * 2.5f;
             transform.position = Vector3.Lerp(transform.position, slots.tempoSlots[i].transform.position, f);
             StartCoroutine(spwnMiniObject(i));
             StartCoroutine(DestroySelf(.5f));
+=======
+            transform.position = Vector3.Lerp(transform.position, slots.slots[i].transform.position, f);
+>>>>>>> parent of 56ea4e80... obj move pos (Complete) & mini obj swtch (In progress)
             yield return 0;
         }
     }
 
+<<<<<<< HEAD
     IEnumerator spwnMiniObject(int i)
     {
         slots.isFull[i] = true;
@@ -113,6 +128,8 @@ public class Object : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+=======
+>>>>>>> parent of 56ea4e80... obj move pos (Complete) & mini obj swtch (In progress)
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.white;

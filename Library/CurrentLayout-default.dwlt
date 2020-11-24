@@ -16,10 +16,14 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 43
-    width: 1920
-    height: 997
+    width: 1366
+    height: 685
   m_ShowMode: 4
+<<<<<<< HEAD
   m_Title: Project
+=======
+  m_Title: Hierarchy
+>>>>>>> parent of 56ea4e80... obj move pos (Complete) & mini obj swtch (In progress)
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
@@ -44,9 +48,15 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1920
     height: 997
   m_MinSize: {x: 875, y: 542}
+=======
+    width: 1366
+    height: 685
+  m_MinSize: {x: 875, y: 300}
+>>>>>>> parent of 56ea4e80... obj move pos (Complete) & mini obj swtch (In progress)
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
@@ -69,7 +79,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1920
+    width: 1366
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -93,8 +103,8 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 977
-    width: 1920
+    y: 665
+    width: 1366
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -117,12 +127,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
+<<<<<<< HEAD
     width: 1920
     height: 947
   m_MinSize: {x: 879, y: 492}
   m_MaxSize: {x: 16004, y: 14042}
   vertical: 0
   controlID: 154
+=======
+    width: 1366
+    height: 635
+  m_MinSize: {x: 881, y: 342}
+  m_MaxSize: {x: 16006, y: 8042}
+  vertical: 0
+  controlID: 139
+>>>>>>> parent of 56ea4e80... obj move pos (Complete) & mini obj swtch (In progress)
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -142,12 +161,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1343
     height: 947
   m_MinSize: {x: 603, y: 492}
   m_MaxSize: {x: 12003, y: 14042}
   vertical: 1
   controlID: 89
+=======
+    width: 956
+    height: 635
+  m_MinSize: {x: 605, y: 342}
+  m_MaxSize: {x: 12005, y: 8042}
+  vertical: 1
+  controlID: 113
+>>>>>>> parent of 56ea4e80... obj move pos (Complete) & mini obj swtch (In progress)
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,12 +196,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1343
     height: 609
   m_MinSize: {x: 603, y: 221}
   m_MaxSize: {x: 12003, y: 4021}
   vertical: 0
   controlID: 90
+=======
+    width: 956
+    height: 364
+  m_MinSize: {x: 605, y: 221}
+  m_MaxSize: {x: 12005, y: 4021}
+  vertical: 0
+  controlID: 114
+>>>>>>> parent of 56ea4e80... obj move pos (Complete) & mini obj swtch (In progress)
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -191,10 +228,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 414
-    height: 609
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+    width: 295
+    height: 364
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -215,10 +252,10 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 414
+    x: 295
     y: 0
-    width: 621
-    height: 609
+    width: 442
+    height: 364
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 15}
@@ -243,12 +280,19 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1035
+    x: 737
     y: 0
+<<<<<<< HEAD
     width: 308
     height: 609
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
+=======
+    width: 219
+    height: 364
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
+>>>>>>> parent of 56ea4e80... obj move pos (Complete) & mini obj swtch (In progress)
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -270,12 +314,21 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 609
     width: 1343
     height: 338
   m_MinSize: {x: 231, y: 271}
   m_MaxSize: {x: 10001, y: 10021}
   m_ActualView: {fileID: 18}
+=======
+    y: 364
+    width: 956
+    height: 271
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 19}
+>>>>>>> parent of 56ea4e80... obj move pos (Complete) & mini obj swtch (In progress)
   m_Panes:
   - {fileID: 18}
   - {fileID: 19}
@@ -297,10 +350,10 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1343
+    x: 956
     y: 0
-    width: 577
-    height: 947
+    width: 410
+    height: 635
   m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 21}
@@ -329,10 +382,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1035
+    x: 737
     y: 73
-    width: 306
-    height: 588
+    width: 217
+    height: 343
   m_ViewDataDictionary: {fileID: 0}
   m_SerializedViewNames: []
   m_SerializedViewValues: []
@@ -376,23 +429,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 306
-      height: 567
-    m_Scale: {x: 0.425, y: 0.42500004}
-    m_Translation: {x: 153, y: 283.5}
+      width: 217
+      height: 322
+    m_Scale: {x: 0.2515625, y: 0.2515625}
+    m_Translation: {x: 108.5, y: 161}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -360
-      y: -667.0588
-      width: 720
-      height: 1334.1176
+      x: -431.30435
+      y: -640
+      width: 862.6087
+      height: 1280
     m_MinimalGUI: 1
-  m_defaultScale: 0.425
-  m_LastWindowPixelSize: {x: 306, y: 588}
+  m_defaultScale: 0.2515625
+  m_LastWindowPixelSize: {x: 217, y: 343}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000001000000000000
@@ -421,15 +474,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 413
-    height: 588
+    width: 294
+    height: 343
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
       m_SelectedIDs: 
       m_LastClickedID: 0
       m_ExpandedIDs: 76daffff70faffff3afbffff683c00009a3c0000a43c0000c63c0000d23c0000e43c0000fe3c0000283d0000323d0000503d00007c3d0000
+=======
+      m_SelectedIDs: c63c0000
+      m_LastClickedID: 15558
+      m_ExpandedIDs: 3afbfffff03c00006a3d0000
+>>>>>>> parent of 56ea4e80... obj move pos (Complete) & mini obj swtch (In progress)
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -474,10 +533,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 414
+    x: 295
     y: 73
-    width: 619
-    height: 588
+    width: 440
+    height: 343
   m_ViewDataDictionary: {fileID: 0}
   m_ShowContextualTools: 0
   m_WindowGUID: 7e07e9a0580db3a4783d36cae6aa6d83
@@ -490,9 +549,15 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: 271.59775, y: 566.24, z: -353.3515}
     speed: 2
     m_Value: {x: 271.59775, y: 566.24, z: -353.3515}
+=======
+    m_Target: {x: 446.0526, y: 811.65826, z: -24.116482}
+    speed: 2
+    m_Value: {x: 437.21555, y: 806.9335, z: -21.317455}
+>>>>>>> parent of 56ea4e80... obj move pos (Complete) & mini obj swtch (In progress)
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -541,11 +606,19 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0, y: 0, z: 0, w: 1}
     speed: 2
+<<<<<<< HEAD
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
     m_Target: 561.18005
     speed: 2
     m_Value: 561.18005
+=======
+    m_Value: {x: -0.000000022351742, y: -0.000000007450581, z: 9.313226e-10, w: -1}
+  m_Size:
+    m_Target: 650.1916
+    speed: 2
+    m_Value: 622.19293
+>>>>>>> parent of 56ea4e80... obj move pos (Complete) & mini obj swtch (In progress)
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -563,7 +636,11 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
+<<<<<<< HEAD
   m_LastSceneViewRotation: {x: -0.1044524, y: -0.39910653, z: 0.04582137, w: -0.9097844}
+=======
+  m_LastSceneViewRotation: {x: -0.11837409, y: -0.05151344, z: 0.0061625335, w: -0.9916449}
+>>>>>>> parent of 56ea4e80... obj move pos (Complete) & mini obj swtch (In progress)
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -682,9 +759,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 682
-    width: 1342
-    height: 317
+    y: 437
+    width: 955
+    height: 250
   m_ViewDataDictionary: {fileID: 0}
   m_SearchFilter:
     m_NameFilter: 
@@ -706,14 +783,20 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/Prefabs
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: D:\UnityProjects\Cp1
+  m_LastProjectPath: D:\Unity project\Cp1
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: 2e3e0000
     m_LastClickedID: 15918
     m_ExpandedIDs: 00000000203e000000ca9a3b
+=======
+    m_SelectedIDs: ea3d0000
+    m_LastClickedID: 15850
+    m_ExpandedIDs: 00000000e03d000000ca9a3b
+>>>>>>> parent of 56ea4e80... obj move pos (Complete) & mini obj swtch (In progress)
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -741,7 +824,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000203e0000
+=======
+    m_ExpandedIDs: 00000000e03d0000
+>>>>>>> parent of 56ea4e80... obj move pos (Complete) & mini obj swtch (In progress)
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -766,9 +853,15 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
+<<<<<<< HEAD
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 0
+=======
+    m_SelectedInstanceIDs: fa370000
+    m_LastClickedInstanceID: 14330
+    m_HadKeyboardFocusLastEvent: 1
+>>>>>>> parent of 56ea4e80... obj move pos (Complete) & mini obj swtch (In progress)
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -793,7 +886,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 48.5}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 201
@@ -819,9 +912,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 682
-    width: 1342
-    height: 317
+    y: 437
+    width: 955
+    height: 250
   m_ViewDataDictionary: {fileID: 0}
 --- !u!114 &20
 MonoBehaviour:
@@ -851,7 +944,11 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
+<<<<<<< HEAD
   m_LastSelectedObjectID: 15570
+=======
+  m_LastSelectedObjectID: -2940
+>>>>>>> parent of 56ea4e80... obj move pos (Complete) & mini obj swtch (In progress)
 --- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -873,10 +970,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1343
+    x: 956
     y: 73
-    width: 576
-    height: 926
+    width: 409
+    height: 614
   m_ViewDataDictionary: {fileID: 0}
   m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
