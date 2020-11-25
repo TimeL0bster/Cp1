@@ -15,6 +15,12 @@ public class AllCheck : MonoBehaviour
     public Sprite[] spr;
 
     private RaycastHit2D protoHit;
+    private Slots slots;
+
+    private void Start()
+    {
+        slots = GameObject.FindGameObjectWithTag("Slots").GetComponent<Slots>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -78,6 +84,7 @@ public class AllCheck : MonoBehaviour
             
             for (int i = 0; i < matchedObjects.Count; i++)
             {
+                slots.isFull[i] = false;
                 //matchObjects[i].GetComponent<Image>().sprite = null;
                 //Destroy(matchObjects[i].gameObject);
                 StartCoroutine(OnWaitDestroyObject(matchedObjects[i].gameObject));

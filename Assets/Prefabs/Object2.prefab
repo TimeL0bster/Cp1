@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1208866150893377040}
   - component: {fileID: 8097656666205074886}
-  - component: {fileID: 635233481972794528}
   - component: {fileID: -1036422092659323717}
   - component: {fileID: 1136906258489317900}
   m_Layer: 8
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 6184769696869396631}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -49,6 +48,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -84,28 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &635233481972794528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6184769696869396631}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 592af88be3560f94192e435d3977c21c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Leight: 0.35
-  collOffsetHorizontal: {x: 0.45, y: -0.22, z: 0}
-  collOffsetVertical: {x: 0.45, y: 0.22, z: 0}
-  collOffsetHorizontal2: {x: 0, y: 0, z: 0}
-  collOffsetVertical2: {x: 0, y: 0.51, z: 0}
-  isObjectLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  miniObject: {fileID: 4755068018706641940, guid: 3030cab5c23d45b448d2a6a8fb09c757,
-    type: 3}
 --- !u!114 &-1036422092659323717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,15 +97,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Leight: 0.35
-  collOffsetHorizontal: {x: 0.45, y: -0.22, z: 0}
-  collOffsetVertical: {x: 0.45, y: 0.22, z: 0}
+  collOffsetHorizontal: {x: 0.33, y: -0.17, z: 0}
+  collOffsetVertical: {x: 0.33, y: 0.17, z: 0}
   collOffsetHorizontal2: {x: 0, y: 0, z: 0}
-  collOffsetVertical2: {x: 0, y: 0.51, z: 0}
+  collOffsetVertical2: {x: 0, y: 0.35, z: 0}
   isObjectLayer:
     serializedVersion: 2
     m_Bits: 256
-  miniObject: {fileID: 4755068018706641940, guid: 3030cab5c23d45b448d2a6a8fb09c757,
-    type: 3}
+  miniObj: {fileID: 0}
+  ProjectionObj: {fileID: 0}
 --- !u!65 &1136906258489317900
 BoxCollider:
   m_ObjectHideFlags: 0

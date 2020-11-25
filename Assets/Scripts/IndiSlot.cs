@@ -18,11 +18,11 @@ public class IndiSlot : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (transform.childCount <= 0)
+        if (transform.childCount < 0)
         {
-            slots.isFull[i] = false;
+            //slots.isFull[i] = false;
         }
     }
 

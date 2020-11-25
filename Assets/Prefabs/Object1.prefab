@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5136039471006885132}
   - component: {fileID: 4462153943833258112}
-  - component: {fileID: 2592360204512084200}
   - component: {fileID: -8637947333038016801}
   - component: {fileID: 2661777457316407880}
   m_Layer: 8
@@ -27,9 +26,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6023137176961326677}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -49,6 +48,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -84,28 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2592360204512084200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6023137176961326677}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 592af88be3560f94192e435d3977c21c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Leight: 0.35
-  collOffsetHorizontal: {x: 0.45, y: -0.22, z: 0}
-  collOffsetVertical: {x: 0.45, y: 0.22, z: 0}
-  collOffsetHorizontal2: {x: 0, y: 0, z: 0}
-  collOffsetVertical2: {x: 0, y: 0.51, z: 0}
-  isObjectLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  miniObject: {fileID: 6940943000679418869, guid: 5950e6bacee342447b9e468acabba4c6,
-    type: 3}
 --- !u!114 &-8637947333038016801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,15 +96,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 628179b67f724c74c953237e7d06c3a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Leight: 0.35
-  collOffsetHorizontal: {x: 0.45, y: -0.22, z: 0}
-  collOffsetVertical: {x: 0.45, y: 0.22, z: 0}
+  Leight: 0.25
+  collOffsetHorizontal: {x: 0.33, y: -0.17, z: 0}
+  collOffsetVertical: {x: 0.33, y: 0.17, z: 0}
   collOffsetHorizontal2: {x: 0, y: 0, z: 0}
-  collOffsetVertical2: {x: 0, y: 0.51, z: 0}
+  collOffsetVertical2: {x: 0, y: 0.35, z: 0}
   isObjectLayer:
     serializedVersion: 2
     m_Bits: 256
-  miniObject: {fileID: 6940943000679418869, guid: 5950e6bacee342447b9e468acabba4c6,
+  miniObj: {fileID: 6940943000679418869, guid: 5950e6bacee342447b9e468acabba4c6, type: 3}
+  ProjectionObj: {fileID: 6838487746977709115, guid: 36a1f8eb0a334874b907bab6e7c0c680,
     type: 3}
 --- !u!65 &2661777457316407880
 BoxCollider:

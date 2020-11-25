@@ -17,11 +17,12 @@ public class Object : MonoBehaviour
     public LayerMask isObjectLayer;
 
     [Header("This object")]
-    public GameObject miniObject;
+    public GameObject miniObj;
 
     private BoxCollider boxCollider;
     private Animator anim;
     private Image img;
+    private SpriteRenderer sprt;
     private bool isObjectAbove = false;
 
     protected Slots slots;
@@ -31,6 +32,7 @@ public class Object : MonoBehaviour
     {
         slots = GameObject.FindGameObjectWithTag("Slots").GetComponent<Slots>();
         img = GetComponent<Image>();
+        sprt = GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider>();
     }
 
@@ -42,11 +44,13 @@ public class Object : MonoBehaviour
 
         if (!isObjectAbove)
         {
-            img.color = new Color32(255,255,255,255);
+            //img.color = new Color32(255,255,255,255);
+            sprt.color = new Color32(255, 255, 255, 255);
         }
         else
         {
-            img.color = new Color32(80, 80, 80, 255);
+            //img.color = new Color32(80, 80, 80, 255);
+            sprt.color = new Color32(80, 80, 80, 255);
         }
 
     }
@@ -62,12 +66,12 @@ public class Object : MonoBehaviour
                 if (slots.isFull[i] == false)
                 {
 
+                    slots.isFull[i] = true;
                     StartCoroutine(Move(10,i));
-                    
-                    /*GameObject mnObj = MiniObjectPool.SharedInstance.GetPooledObject();
-                    mnObj.transform.position = slots.slots[i].transform.position;
-                    mnObj.transform.SetParent(slots.slots[i].transform);
-                    mnObj.SetActive(true);*/
+                    StartCoroutine(spwnMiniObject(i));
+                    //Instantiate(miniObj, slots.slots[i].transform, false);
+                    //Destroy(this.gameObject);
+
                     break;
                 }
             }
@@ -77,28 +81,28 @@ public class Object : MonoBehaviour
 
     IEnumerator Move(float time, int i)
     {
+
         float f = 0;
+
+        boxCollider.enabled = !boxCollider.enabled;
 
         while (f < 1)
         {
-            f += Time.deltaTime/time;
-            boxCollider.enabled = !boxCollider.enabled;
+            f += Time.deltaTime / time;
             transform.localScale -= new Vector3(1, 1, 1) * Time.deltaTime * 3f;
             transform.position = Vector3.Lerp(transform.position, slots.tempoSlots[i].transform.position, f);
-            StartCoroutine(spwnMiniObject(i));
-            StartCoroutine(DestroySelf(.5f));
             yield return 0;
         }
-
     }
 
     IEnumerator spwnMiniObject(int i)
     {
-        slots.isFull[i] = true;
+        
 
         yield return new WaitForSeconds(.5f);
 
-        Instantiate(miniObject, slots.slots[i].transform, false);
+        Instantiate(miniObj, slots.slots[i].transform, false);
+        StartCoroutine(DestroySelf(.2f));
     }
 
     IEnumerator DestroySelf(float destroyTime)
