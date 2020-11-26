@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Object1 : Object
+public class Object1 : Objects
 {
 
     //float t = 0f;
@@ -11,24 +11,23 @@ public class Object1 : Object
     void Update()
     {
         base.CastRay();
-        /*t = Time.deltaTime / 2f;
-        Debug.Log(t.ToString());
-        transform.position = Vector3.Lerp(transform.position, new Vector3(0,0,0), t);*/
     }
 
     private void OnMouseDown()
     {
-        base.Touched();
+        base.Touched(.1f);
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.green;
-        Gizmos.DrawLine(transform.position + collOffsetHorizontal, transform.position + collOffsetHorizontal + Vector3.back * Leight);
-        Gizmos.DrawLine(transform.position - collOffsetHorizontal, transform.position - collOffsetHorizontal + Vector3.back * Leight);
-        Gizmos.DrawLine(transform.position + collOffsetVertical, transform.position + collOffsetVertical + Vector3.back * Leight);
-        Gizmos.DrawLine(transform.position - collOffsetVertical, transform.position - collOffsetVertical + Vector3.back * Leight);
-        Gizmos.DrawLine(transform.position + collOffsetVertical2, transform.position + collOffsetVertical2 + Vector3.back * Leight);
-        Gizmos.DrawLine(transform.position - collOffsetVertical2, transform.position - collOffsetVertical2 + Vector3.back * Leight);
+        Gizmos.color = Color.white;
+        Gizmos.DrawLine(transform.position + collOffset1, transform.position + collOffset1 + Vector3.back * Leight);
+        Gizmos.DrawLine(transform.position + collOffset2, transform.position + collOffset2 + Vector3.back * Leight);
+        Gizmos.DrawLine(transform.position + collOffset3, transform.position + collOffset3 + Vector3.back * Leight);
+        Gizmos.DrawLine(transform.position + collOffset4, transform.position + collOffset4 + Vector3.back * Leight);
+        Gizmos.DrawLine(transform.position + collOffset5, transform.position + collOffset5 + Vector3.back * Leight);
+        Gizmos.DrawLine(transform.position + collOffset6, transform.position + collOffset6 + Vector3.back * Leight);
+        Gizmos.DrawLine(transform.position + collOffset7, transform.position + collOffset7 + Vector3.back * Leight);
+        Gizmos.DrawLine(transform.position + collOffset8, transform.position + collOffset8 + Vector3.back * Leight);
     }
 }

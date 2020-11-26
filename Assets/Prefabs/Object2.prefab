@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8097656666205074886}
   - component: {fileID: -1036422092659323717}
   - component: {fileID: 1136906258489317900}
+  - component: {fileID: 8232385496707721109}
+  - component: {fileID: 8462268099419548522}
   m_Layer: 8
   m_Name: Object2
   m_TagString: Untagged
@@ -28,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6184769696869396631}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -73,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 258b1eb6b7c54244ebc07076f1a2f93e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 69adb7d6bc81b4bfaac6d7ce3cf9af31, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,16 +98,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e071e58bb7e47eb47b483a5de11b1adb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Leight: 0.35
-  collOffsetHorizontal: {x: 0.33, y: -0.17, z: 0}
-  collOffsetVertical: {x: 0.33, y: 0.17, z: 0}
-  collOffsetHorizontal2: {x: 0, y: 0, z: 0}
-  collOffsetVertical2: {x: 0, y: 0.35, z: 0}
+  Leight: 0.25
+  collOffset1: {x: -0.18, y: 0, z: 0}
+  collOffset2: {x: 0.15, y: 0, z: 0}
+  collOffset3: {x: -0.17, y: 0.25, z: 0}
+  collOffset4: {x: 0.15, y: 0.3, z: 0}
+  collOffset5: {x: -0.18, y: -0.27, z: 0}
+  collOffset6: {x: 0, y: 0, z: 0}
+  collOffset7: {x: 0, y: 0, z: 0}
+  collOffset8: {x: 0, y: 0, z: 0}
   isObjectLayer:
     serializedVersion: 2
     m_Bits: 256
-  miniObj: {fileID: 0}
-  ProjectionObj: {fileID: 0}
+  miniObj: {fileID: 4755068018706641940, guid: 3030cab5c23d45b448d2a6a8fb09c757, type: 3}
+  boxCollider:
+  - {fileID: 1136906258489317900}
+  - {fileID: 8232385496707721109}
+  - {fileID: 8462268099419548522}
 --- !u!65 &1136906258489317900
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -117,5 +126,31 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.26, y: 0.29, z: 0}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.28211993, y: 0.22827905, z: 0}
+  m_Center: {x: -0.007344842, y: 0.1542033, z: 0}
+--- !u!65 &8232385496707721109
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6184769696869396631}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.26783285, y: 0.1200248, z: 0}
+  m_Center: {x: -0.003945157, y: -0.036106825, z: 0}
+--- !u!65 &8462268099419548522
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6184769696869396631}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.21545073, y: 0.13679004, z: 0}
+  m_Center: {x: -0.060910027, y: -0.17640883, z: 0}
