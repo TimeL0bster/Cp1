@@ -1542,7 +1542,7 @@ MonoBehaviour:
   leight: 700
   collOffSetRay1: {x: 35, y: 0, z: 0}
   spr:
-  - {fileID: 21300000, guid: d2a2c84890cf0fa46862001b6d5394ab, type: 3}
+  - {fileID: 21300000, guid: c18b9c80cda0147a98f834a88b56c837, type: 3}
   - {fileID: 21300000, guid: 258b1eb6b7c54244ebc07076f1a2f93e, type: 3}
 --- !u!1 &247995845
 GameObject:
