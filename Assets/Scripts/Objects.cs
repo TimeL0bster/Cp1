@@ -20,12 +20,12 @@ public class Objects : MonoBehaviour
     [Header("Collider and Layermask")]
     public LayerMask isObjectLayer;
 
-    [Header("Mini objects")]
+    [Header("Other setting")]
     public GameObject miniObj;
     public BoxCollider[] boxCollider;
+    public float destroyTimer;
 
     private Animator anim;
-    private Image img;
     private SpriteRenderer sprt;
     private bool isObjectAbove = false;
 
@@ -35,7 +35,6 @@ public class Objects : MonoBehaviour
     protected virtual void Start()
     {
         slots = GameObject.FindGameObjectWithTag("Slots").GetComponent<Slots>();
-        img = GetComponent<Image>();
         sprt = GetComponent<SpriteRenderer>();
     }
 

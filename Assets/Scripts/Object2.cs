@@ -13,7 +13,7 @@ public class Object2 : Objects
 
     private void OnMouseDown()
     {
-        base.Touched(.1f);
+        base.Touched(destroyTimer);
     }
 
     private void OnDrawGizmos()

@@ -7,31 +7,49 @@ using UnityEngine.UI;
 
 public class MiniObject : MonoBehaviour
 {
-    [Header("Distance")]
-    public int leight1 = 0;
-    public int leight2 = 0;
-    public Vector3 collOffsetHorizontal;
-    public Vector3 collOffsetVertical;
-    public Vector3 collOffsetHorizontal2;
-    public Vector3 collOffsetVertical2;
-    public Vector3 collOffsetHorizontal3;
-    public Vector3 collOffsetVertical3;
 
-    [Header("Sprites")]
     public Sprite[] miniObjectSprite;
 
     protected Image img;
 
     // Start is called before the first frame update
-    protected virtual void Start()
+    public void Start()
     {
         img = GetComponent<Image>();
     }
 
-    protected void detechAdjacientSlot()
+    private void Update()
     {
-        
+        detechAdjacientSlot();
+    }
 
+    public void detechAdjacientSlot()
+    {
+
+        switch (this.gameObject.transform.parent.tag)
+        {
+            case "Slot1":
+                Debug.Log(this.gameObject.name + "at Slot1");
+                break;
+            case "Slot2":
+                Debug.Log(this.gameObject.name + "at Slot2");
+                break;
+            case "Slot3":
+                Debug.Log(this.gameObject.name + "at Slot3");
+                break;
+            case "Slot4":
+                Debug.Log(this.gameObject.name + "at Slot4");
+                break;
+            case "Slot5":
+                Debug.Log(this.gameObject.name + "at Slot5");
+                break;
+            case "Slot6":
+                Debug.Log(this.gameObject.name + "at Slot6");
+                break;
+            case "Slot7":
+                Debug.Log(this.gameObject.name + "at Slot7");
+                break;
+        }
 
     }
 

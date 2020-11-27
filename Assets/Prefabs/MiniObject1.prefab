@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8197960523368681288}
   - component: {fileID: 4021112304347680249}
   - component: {fileID: 6848018772661101292}
-  - component: {fileID: 68407685193355793}
   - component: {fileID: 2049537430414085901}
+  - component: {fileID: -7556751509209584350}
   m_Layer: 9
   m_Name: MiniObject1
   m_TagString: Untagged
@@ -77,28 +77,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &68407685193355793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6940943000679418869}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 122a53fb0b7bb3444a4801fcb6f23b52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leight1: 200
-  leight2: 100
-  collOffsetHorizontal: {x: -6, y: 0, z: 0}
-  collOffsetVertical: {x: 0, y: 17, z: 0}
-  collOffsetHorizontal2: {x: -6, y: 0, z: 0}
-  collOffsetVertical2: {x: 0, y: -17, z: 0}
-  collOffsetHorizontal3: {x: 0, y: 0, z: 0}
-  collOffsetVertical3: {x: 0, y: 0, z: 0}
-  miniObjectSprite:
-  - {fileID: 21300000, guid: 258b1eb6b7c54244ebc07076f1a2f93e, type: 3}
 --- !u!61 &2049537430414085901
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -125,3 +103,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 20, y: 20}
   m_EdgeRadius: 0
+--- !u!114 &-7556751509209584350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6940943000679418869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff54e734885f6394194b54acde582252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  miniObjectSprite: []

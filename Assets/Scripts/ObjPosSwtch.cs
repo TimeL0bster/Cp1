@@ -7,64 +7,22 @@ using UnityEngine.UI;
 public class ObjPosSwtch : MonoBehaviour
 {
 
-    [Header("Distance")]
-    public int leight = 0;
-    public Vector3 collOffSetRay1;
-    public Vector3 collOffSetRay2;
+    public GameObject[] indiSlots;
+    public GameObject[] miniObj;
 
-    [Header("Sprites")]
-    public Sprite[] miniObjectSprt;
-
-    private RaycastHit2D protoHit;
-    private Slots slots;
-
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        ObjSwtch();
+        
     }
 
-    private void ObjSwtch()
+    private void Update()
     {
-        protoHit = Physics2D.Raycast(transform.position + collOffSetRay1, Vector2.right * leight);
-        RaycastHit2D[] objectHit1 = Physics2D.RaycastAll(transform.position + collOffSetRay1, Vector2.right * leight);
+        
+    }
 
-        /*if (protoHit.collider != null)
-        {
-            if (objectHit1[0].collider.GetComponent<Image>().sprite == miniObjectSprt[0])
-            {
-                if (objectHit1[1].collider != null && objectHit1[1].collider.GetComponent<Image>().sprite == miniObjectSprt[0])
-                {
-                    Debug.Log("Green");
-                }
-                else
-                {
-                    for (int i = 2; i < 7;i++)
-                    {
-                        if (objectHit1[i].collider.GetComponent<Image>().sprite == miniObjectSprt[0])
-                        {
-                            float f = 0;
-                            while (f < 1)
-                            {
-                                f += Time.deltaTime / 10;
-                                objectHit1[1].collider.transform.position = Vector3.Lerp(objectHit1[1].collider.transform.position, slots.tempoSlots[i].transform.position, 1);
-                                objectHit1[i].collider.transform.position = Vector3.Lerp(objectHit1[i].collider.transform.position, slots.tempoSlots[1].transform.position, 1);
-                            }
-                        }
-                    }
-                }
-            }
-            else if (objectHit1[0].collider.GetComponent<Image>().sprite == miniObjectSprt[1])
-            {
-                Debug.Log("Red");
-            }
-        }*/
+    private void findEmptySlot()
+    {
 
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.white;
-        Gizmos.DrawLine(transform.position + collOffSetRay1, transform.position + collOffSetRay1 + Vector3.right * leight);
-    }
 }

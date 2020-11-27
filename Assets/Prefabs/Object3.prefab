@@ -115,6 +115,7 @@ MonoBehaviour:
   - {fileID: 5312620046281113571}
   - {fileID: 8884307543012063450}
   - {fileID: 132617717588339020}
+  destroyTimer: 0.1
 --- !u!65 &5312620046281113571
 BoxCollider:
   m_ObjectHideFlags: 0
