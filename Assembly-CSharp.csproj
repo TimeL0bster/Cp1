@@ -56,33 +56,34 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\IndiSlot1.cs" />
     <Compile Include="Assets\Scripts\GreenCheck.cs" />
+    <Compile Include="Assets\Scripts\IndiSlot6.cs" />
     <Compile Include="Assets\Scripts\SceneTransition.cs" />
     <Compile Include="Assets\Scripts\MatchCheck.cs" />
+    <Compile Include="Assets\Scripts\IndiSlot4.cs" />
+    <Compile Include="Assets\Scripts\IndiSlot5.cs" />
     <Compile Include="Assets\Scripts\IndiSlots.cs" />
     <Compile Include="Assets\Scripts\MiniObject.cs" />
     <Compile Include="Assets\Scripts\Object5.cs" />
+    <Compile Include="Assets\Scripts\IndiSlot3.cs" />
     <Compile Include="Assets\Scripts\Object1.cs" />
     <Compile Include="Assets\Mobile Cartoon GUI 2\Scripts\ButtonAnimationContoller.cs" />
     <Compile Include="Assets\Scripts\Object4.cs" />
     <Compile Include="Assets\Scripts\RedCheck.cs" />
     <Compile Include="Assets\Scripts\Objects.cs" />
+    <Compile Include="Assets\Scripts\IndiSlot2.cs" />
     <Compile Include="Assets\Scripts\TouchHandle.cs" />
     <Compile Include="Assets\Scripts\ProjectionObj.cs" />
     <Compile Include="Assets\Scripts\Object3.cs" />
     <Compile Include="Assets\Scripts\Object2.cs" />
     <Compile Include="Assets\Scripts\BlueCheck.cs" />
     <Compile Include="Assets\Scripts\ObjPosSwtch.cs" />
+    <Compile Include="Assets\Scripts\IndiSlot7.cs" />
     <Compile Include="Assets\Scripts\MiniObjectPool.cs" />
     <Compile Include="Assets\Scripts\Slots.cs" />
     <Compile Include="Assets\Scripts\AllCheck.cs" />
-    <Compile Include="Assets\Scripts\IndiSlot1.cs" />
-    <Compile Include="Assets\Scripts\IndiSlot2.cs" />
-    <Compile Include="Assets\Scripts\IndiSlot3.cs" />
-    <Compile Include="Assets\Scripts\IndiSlot4.cs" />
-    <Compile Include="Assets\Scripts\IndiSlot5.cs" />
-    <Compile Include="Assets\Scripts\IndiSlot6.cs" />
-    <Compile Include="Assets\Scripts\IndiSlot7.cs" />
+    <Compile Include="Assets\Scripts\RandomObjGenerate.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Foriero Store\Projects\Gems\gems_vol_1\sprites\gems@1x\import_spine.txt" />
