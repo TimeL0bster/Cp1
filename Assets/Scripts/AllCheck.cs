@@ -108,7 +108,7 @@ public class AllCheck : MonoBehaviour
                 //matchObjects[i].GetComponent<Image>().sprite = null;
                 //Destroy(matchObjects[i].gameObject);
                 StartCoroutine(OnWaitDestroyObject(matchedObjects[i].gameObject));
-                Debug.Log(matchedObjects.Count.ToString());
+                //Debug.Log(matchedObjects.Count.ToString());
                 
             }
         }
