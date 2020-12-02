@@ -574,7 +574,7 @@ GameObject:
   m_Component:
   - component: {fileID: 72965839}
   m_Layer: 0
-  m_Name: GameObject (3)
+  m_Name: TempoUISlot4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -646,6 +646,14 @@ MonoBehaviour:
   - {fileID: 1642067095}
   - {fileID: 1576158104}
   - {fileID: 1629885948}
+  tempoUISlots:
+  - {fileID: 483719825}
+  - {fileID: 814036521}
+  - {fileID: 1312416559}
+  - {fileID: 72965838}
+  - {fileID: 2147232731}
+  - {fileID: 1537101737}
+  - {fileID: 1514648764}
 --- !u!4 &86924797
 Transform:
   m_ObjectHideFlags: 0
@@ -1491,7 +1499,7 @@ GameObject:
   - component: {fileID: 315328160}
   - component: {fileID: 315328161}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: TempoSlot2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1984,7 +1992,7 @@ GameObject:
   m_Component:
   - component: {fileID: 483719826}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: TempoUISlot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2683,7 +2691,7 @@ GameObject:
   - component: {fileID: 628087459}
   - component: {fileID: 628087460}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: TempoSlot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3229,7 +3237,7 @@ GameObject:
   m_Component:
   - component: {fileID: 814036522}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: TempoUISlot2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4504,7 +4512,7 @@ GameObject:
   - component: {fileID: 1154984996}
   - component: {fileID: 1154984997}
   m_Layer: 0
-  m_Name: GameObject (3)
+  m_Name: TempoSlot4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5020,7 +5028,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1312416560}
   m_Layer: 0
-  m_Name: GameObject (2)
+  m_Name: TempoUISlot3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5627,7 +5635,7 @@ GameObject:
   - component: {fileID: 1447925656}
   - component: {fileID: 1447925657}
   m_Layer: 0
-  m_Name: GameObject (2)
+  m_Name: TempoSlot3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5714,7 +5722,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1514648765}
   m_Layer: 0
-  m_Name: GameObject (6)
+  m_Name: TempoUISlot7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5744,7 +5752,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1537101738}
   m_Layer: 0
-  m_Name: GameObject (5)
+  m_Name: TempoUISlot6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5874,7 +5882,7 @@ GameObject:
   - component: {fileID: 1576158105}
   - component: {fileID: 1576158106}
   m_Layer: 0
-  m_Name: GameObject (5)
+  m_Name: TempoSlot6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6212,7 +6220,7 @@ GameObject:
   - component: {fileID: 1629885949}
   - component: {fileID: 1629885950}
   m_Layer: 0
-  m_Name: GameObject (6)
+  m_Name: TempoSlot7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6385,7 +6393,7 @@ GameObject:
   - component: {fileID: 1642067096}
   - component: {fileID: 1642067097}
   m_Layer: 0
-  m_Name: GameObject (4)
+  m_Name: TempoSlot5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7967,12 +7975,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2103305041}
   m_Layer: 0
-  m_Name: SlotPos
+  m_Name: UISlotPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2103305041
 Transform:
   m_ObjectHideFlags: 0
@@ -8700,7 +8708,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2147232732}
   m_Layer: 0
-  m_Name: GameObject (4)
+  m_Name: TempoUISlot5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

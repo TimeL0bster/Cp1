@@ -48,7 +48,7 @@ public class IndiSlots : MonoBehaviour
                                     {
                                         if (transform.GetChild(0).transform.GetComponent<Image>().sprite == otherSlots[i].transform.GetChild(0).GetComponent<Image>().sprite)
                                         {
-                                            StartCoroutine(MovePos(otherSlots[i].transform.GetChild(0).transform, slots.tempoSlots[2].transform));
+                                            StartCoroutine(MovePos(otherSlots[i].transform.GetChild(0).transform, slots.tempoUISlots[2].transform));
                                             break;
                                         }
                                     }
@@ -64,7 +64,7 @@ public class IndiSlots : MonoBehaviour
 
                             if (transform.GetChild(0).transform.GetComponent<Image>().sprite == GameObject.FindGameObjectWithTag("Slot3").transform.GetChild(0).GetComponent<Image>().sprite)
                             {
-                                StartCoroutine(MovePos(GameObject.FindGameObjectWithTag("Slot3").transform.GetChild(0).transform, slots.tempoSlots[1].transform));
+                                StartCoroutine(MovePos(GameObject.FindGameObjectWithTag("Slot3").transform.GetChild(0).transform, slots.tempoUISlots[1].transform));
                             }
                             else
                             {
@@ -74,7 +74,7 @@ public class IndiSlots : MonoBehaviour
                                     {
                                         if (transform.GetChild(0).transform.GetComponent<Image>().sprite == otherSlots[i].transform.GetChild(0).GetComponent<Image>().sprite)
                                         {
-                                            StartCoroutine(MovePos(otherSlots[i].transform.GetChild(0).transform, slots.tempoSlots[1].transform));
+                                            StartCoroutine(MovePos(otherSlots[i].transform.GetChild(0).transform, slots.tempoUISlots[1].transform));
                                             break;
                                         }
                                     }

@@ -8,5 +8,6 @@ public class Slots : MonoBehaviour
     public bool[] isFull;
     public GameObject[] slots;
     public GameObject[] tempoSlots;
+    public GameObject[] tempoUISlots;
 
 }
