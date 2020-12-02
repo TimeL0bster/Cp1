@@ -116,7 +116,7 @@ public class AllCheck : MonoBehaviour
 
     IEnumerator OnWaitDestroyObject(GameObject matchObjects)
     {
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.3f);
 
         Destroy(matchObjects);
     }

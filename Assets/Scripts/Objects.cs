@@ -63,7 +63,7 @@ public class Objects : MonoBehaviour
 
         if (!isObjectAbove)
         {
-            for (int i = 0; i < slots.slots.Length; i++)
+            for (int i = 0; i < slots.tempoUISlots.Length; i++)
             {
                 if (slots.isFull[i] == false)
                 {
@@ -100,7 +100,7 @@ public class Objects : MonoBehaviour
     IEnumerator spwnMiniObject(int i,float destroyTime)
     {
         slots.isFull[i] = true;
-        Instantiate(miniObj, slots.slots[i].transform, false);
+        Instantiate(miniObj, slots.tempoUISlots[i].transform, false);
 
         yield return new WaitForSeconds(.5f);
 
