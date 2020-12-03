@@ -94,11 +94,13 @@ public class AllCheck : MonoBehaviour
     {
         List<GameObject> matchedObjects = new List<GameObject>();
 
-        for (int i = 0; i < 3; i++)
+        /*for (int i = 0; i < 3; i++)
         {
             matchedObjects.AddRange(matchChecker);
             break;
-        }
+        }*/
+
+        matchedObjects.AddRange(matchChecker);
 
         if (matchedObjects.Count >= 3)
         {
