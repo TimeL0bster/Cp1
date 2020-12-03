@@ -45,7 +45,7 @@ public class IndiSlots : MonoBehaviour
         {
             case "Slot1":
 
-                for (int i = 2; i < 7;i++)
+                /*for (int i = 2; i < 7;i++)
                 {
                     if (transform.childCount > 0 && slots.tempoUISlots[i].transform.childCount > 0)
                     {
@@ -64,36 +64,50 @@ public class IndiSlots : MonoBehaviour
                             }
                         }
                     }
-                }
+                }*/
 
-                /*if (transform.childCount > 0 && GameObject.FindGameObjectWithTag("Slot2").transform.childCount > 0)
+                if (transform.childCount > 0)
                 {
-                    if (transform.GetChild(0).transform.GetComponent<Image>().sprite == GameObject.FindGameObjectWithTag("Slot2").transform.GetChild(0).GetComponent<Image>().sprite)
+                    if (slots.tempoUISlots[1].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite != slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite)
                     {
-                        if (transform.childCount > 0 && GameObject.FindGameObjectWithTag("Slot3").transform.childCount > 0)
+
+                        List<GameObject> diffObj = new List<GameObject>();
+                        diffObj.Add(slots.tempoUISlots[1].transform.GetChild(0).gameObject);
+
+                        if (slots.tempoUISlots[2].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite == slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite)
                         {
-                            if (transform.GetChild(0).transform.GetComponent<Image>().sprite == GameObject.FindGameObjectWithTag("Slot3").transform.GetChild(0).GetComponent<Image>().sprite)
+                            break;
+                        }
+                        else if(slots.tempoUISlots[3].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite != slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite)
+                        {
+
+                            diffObj.Add(slots.tempoUISlots[2].transform.GetChild(0).gameObject);
+
+                            if (slots.tempoUISlots[3].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite == slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite)
                             {
+
+                                /*StartCoroutine(MovePos(GameObject.FindGameObjectWithTag("Slot3").transform.GetChild(0).transform, slots.tempoUISlots[3].transform));
+                                StartCoroutine(MovePos(GameObject.FindGameObjectWithTag("Slot4").transform.GetChild(0).transform, slots.tempoUISlots[2].transform));
+                                GameObject.FindGameObjectWithTag("Slot4").transform.GetChild(0).transform.SetParent(slots.tempoUISlots[2].transform);
+                                GameObject.FindGameObjectWithTag("Slot3").transform.GetChild(0).transform.SetParent(slots.tempoUISlots[3].transform);*/
+
+                                for (int i = 0; i < diffObj.Count; i++)
+                                {
+                                    StartCoroutine(MovePos(diffObj[i].gameObject.transform, slots.tempoUISlots[3].transform));
+                                }
+
                                 break;
                             }
-                            else
+                            else if(slots.tempoUISlots[3].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite != slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite)
                             {
-                                if (transform.childCount > 0 && GameObject.FindGameObjectWithTag("Slot4").transform.childCount > 0)
-                                {
-                                    if (transform.GetChild(0).transform.GetComponent<Image>().sprite == GameObject.FindGameObjectWithTag("Slot4").transform.GetChild(0).GetComponent<Image>().sprite)
-                                    {
-                                        StartCoroutine(MovePos(GameObject.FindGameObjectWithTag("Slot3").transform.GetChild(0).transform, slots.tempoUISlots[3].transform));
-                                        StartCoroutine(MovePos(GameObject.FindGameObjectWithTag("Slot4").transform.GetChild(0).transform, slots.tempoUISlots[2].transform));
-                                        GameObject.FindGameObjectWithTag("Slot4").transform.GetChild(0).transform.SetParent(slots.tempoUISlots[2].transform);
-                                        GameObject.FindGameObjectWithTag("Slot3").transform.GetChild(0).transform.SetParent(slots.tempoUISlots[3].transform);
-                                        break;
-                                    }
-                                }
+                                diffObj.Add(slots.tempoUISlots[3].transform.GetChild(0).gameObject);
                             }
+
                         }
 
+
                     }
-                    else if (transform.GetChild(0).transform.GetComponent<Image>().sprite != GameObject.FindGameObjectWithTag("Slot2").transform.GetChild(0).GetComponent<Image>().sprite)
+                    /*else if (transform.GetChild(0).transform.GetComponent<Image>().sprite != GameObject.FindGameObjectWithTag("Slot2").transform.GetChild(0).GetComponent<Image>().sprite)
                     {
 
                         if (GameObject.FindGameObjectWithTag("Slot3").transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite == GameObject.FindGameObjectWithTag("Slot3").transform.GetChild(0).GetComponent<Image>().sprite)
@@ -117,10 +131,8 @@ public class IndiSlots : MonoBehaviour
                             }
                         }
 
-                    }
-                }*/
-
-
+                    }*/
+                }
 
                 break;
 
