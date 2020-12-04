@@ -94,12 +94,6 @@ public class AllCheck : MonoBehaviour
     {
         List<GameObject> matchedObjects = new List<GameObject>();
 
-        /*for (int i = 0; i < 3; i++)
-        {
-            matchedObjects.AddRange(matchChecker);
-            break;
-        }*/
-
         matchedObjects.AddRange(matchChecker);
 
         if (matchedObjects.Count >= 3)
@@ -107,11 +101,7 @@ public class AllCheck : MonoBehaviour
             
             for (int i = 0; i < matchedObjects.Count; i++)
             {
-                //matchObjects[i].GetComponent<Image>().sprite = null;
-                //Destroy(matchObjects[i].gameObject);
                 StartCoroutine(OnWaitDestroyObject(matchedObjects[i].gameObject));
-                //Debug.Log(matchedObjects.Count.ToString());
-                
             }
         }
     }

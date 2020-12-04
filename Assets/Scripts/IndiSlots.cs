@@ -35,7 +35,6 @@ public class IndiSlots : MonoBehaviour
             PosSwtch();
         }
 
-
     }
 
 
@@ -56,15 +55,15 @@ public class IndiSlots : MonoBehaviour
                         if (slots.tempoUISlots[2].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite == slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite)
                         {
 
-                            StartCoroutine(MovePos(diffObj[0].gameObject.transform, slots.tempoUISlots[2].transform));
-                            StartCoroutine(MovePos(slots.tempoUISlots[2].transform.GetChild(0), slots.tempoUISlots[1].transform));
+                            StartCoroutine(MovePos(diffObj[0].gameObject.transform, slots.tempoUISlots[2].transform, 1.2f));
+                            StartCoroutine(MovePos(slots.tempoUISlots[2].transform.GetChild(0), slots.tempoUISlots[1].transform, 1.2f));
 
                             diffObj[0].gameObject.transform.SetParent(slots.tempoUISlots[2].transform);
                             slots.tempoUISlots[2].transform.GetChild(0).transform.SetParent(slots.tempoUISlots[1].transform);
 
                             break;
                         }
-                        else if (slots.tempoUISlots[3].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite != slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite)
+                        else if (slots.tempoUISlots[2].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite != slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite)
                         {
 
                             diffObj.Add(slots.tempoUISlots[2].transform.GetChild(0).gameObject);
@@ -74,7 +73,7 @@ public class IndiSlots : MonoBehaviour
 
                                 StartCoroutine(MovePos(diffObj[0].gameObject.transform, slots.tempoUISlots[2].transform));
                                 StartCoroutine(MovePos(diffObj[1].gameObject.transform, slots.tempoUISlots[3].transform));
-                                StartCoroutine(MovePos(slots.tempoUISlots[3].transform.GetChild(0), slots.tempoUISlots[1].transform));
+                                StartCoroutine(MovePos(slots.tempoUISlots[3].transform.GetChild(0), slots.tempoUISlots[1].transform, 1.2f));
 
                                 diffObj[0].gameObject.transform.SetParent(slots.tempoUISlots[2].transform);
                                 diffObj[1].gameObject.transform.SetParent(slots.tempoUISlots[3].transform);
@@ -94,7 +93,7 @@ public class IndiSlots : MonoBehaviour
                                     StartCoroutine(MovePos(diffObj[0].gameObject.transform, slots.tempoUISlots[2].transform));
                                     StartCoroutine(MovePos(diffObj[1].gameObject.transform, slots.tempoUISlots[3].transform));
                                     StartCoroutine(MovePos(diffObj[2].gameObject.transform, slots.tempoUISlots[4].transform));
-                                    StartCoroutine(MovePos(slots.tempoUISlots[4].transform.GetChild(0), slots.tempoUISlots[1].transform));
+                                    StartCoroutine(MovePos(slots.tempoUISlots[4].transform.GetChild(0), slots.tempoUISlots[1].transform, 1.2f));
 
                                     diffObj[0].gameObject.transform.SetParent(slots.tempoUISlots[2].transform);
                                     diffObj[1].gameObject.transform.SetParent(slots.tempoUISlots[3].transform);
@@ -251,60 +250,25 @@ public class IndiSlots : MonoBehaviour
                 {
                     List<GameObject> diffObj = new List<GameObject>();
 
-                    if (slots.tempoUISlots[3].transform.childCount > 0)
+
+                    if (slots.tempoUISlots[3].transform.childCount > 0 || slots.tempoUISlots[4].transform.childCount > 0 || slots.tempoUISlots[5].transform.childCount > 0 || slots.tempoUISlots[6].transform.childCount > 0)
                     {
+                        for (int i = 3; i < 7; i++)
+                        {
+                            if (slots.tempoUISlots[i].transform.childCount > 0)
+                            {
+                                diffObj.Add(slots.tempoUISlots[i].transform.GetChild(0).gameObject);
+                            }
+                        }
+                        for (int j = 0; j < diffObj.Count; j++)
+                        {
+                            StartCoroutine(MovePos(diffObj[j].gameObject.transform, slots.tempoUISlots[j].transform));
 
-                        diffObj.Add(slots.tempoUISlots[3].transform.GetChild(0).gameObject);
+                            diffObj[j].gameObject.transform.SetParent(slots.tempoUISlots[j].transform);
 
-                        StartCoroutine(MovePos(diffObj[0].gameObject.transform, slots.tempoUISlots[0].transform));
-
-                        diffObj[0].gameObject.transform.SetParent(slots.tempoUISlots[0].transform);
-
-                        slots.isFull[0] = true;
-
-
+                            slots.isFull[j] = true;
+                        }
                     }
-
-                    if (slots.tempoUISlots[4].transform.childCount > 0)
-                    {
-
-                        diffObj.Add(slots.tempoUISlots[4].transform.GetChild(0).gameObject);
-
-                        StartCoroutine(MovePos(diffObj[1].gameObject.transform, slots.tempoUISlots[1].transform));
-
-                        diffObj[1].gameObject.transform.SetParent(slots.tempoUISlots[1].transform);
-
-                        slots.isFull[1] = true;
-
-                    }
-
-                    if (slots.tempoUISlots[5].transform.childCount > 0)
-                    {
-
-                        diffObj.Add(slots.tempoUISlots[5].transform.GetChild(0).gameObject);
-
-                        StartCoroutine(MovePos(diffObj[2].gameObject.transform, slots.tempoUISlots[2].transform));
-
-                        diffObj[2].gameObject.transform.SetParent(slots.tempoUISlots[2].transform);
-
-                        slots.isFull[2] = true;
-
-                    }
-
-                    if (slots.tempoUISlots[6].transform.childCount > 0)
-                    {
-
-                        diffObj.Add(slots.tempoUISlots[6].transform.GetChild(0).gameObject);
-
-                        StartCoroutine(MovePos(diffObj[3].gameObject.transform, slots.tempoUISlots[3].transform));
-
-                        diffObj[3].gameObject.transform.SetParent(slots.tempoUISlots[3].transform);
-
-                        slots.isFull[3] = true;
-
-                    }
-
-                    RemoveObjFromList(diffObj);
 
                 }
 
@@ -312,19 +276,417 @@ public class IndiSlots : MonoBehaviour
 
             case "Slot2":
 
+                if (transform.childCount > 0)
+                {
+                    if (slots.tempoUISlots[2].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite != slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite)
+                    {
+
+                        List<GameObject> diffObj = new List<GameObject>();
+                        diffObj.Add(slots.tempoUISlots[2].transform.GetChild(0).gameObject);
+
+                        if (slots.tempoUISlots[3].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite == slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite)
+                        {
+
+                            StartCoroutine(MovePos(diffObj[0].gameObject.transform, slots.tempoUISlots[3].transform));
+                            StartCoroutine(MovePos(slots.tempoUISlots[3].transform.GetChild(0), slots.tempoUISlots[2].transform));
+
+                            diffObj[0].gameObject.transform.SetParent(slots.tempoUISlots[3].transform);
+                            slots.tempoUISlots[3].transform.GetChild(0).transform.SetParent(slots.tempoUISlots[2].transform);
+
+                            break;
+                        }
+                        else if (slots.tempoUISlots[3].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite != slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite)
+                        {
+
+                            diffObj.Add(slots.tempoUISlots[3].transform.GetChild(0).gameObject);
+
+                            if (slots.tempoUISlots[4].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite == slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite)
+                            {
+
+                                StartCoroutine(MovePos(diffObj[0].gameObject.transform, slots.tempoUISlots[3].transform));
+                                StartCoroutine(MovePos(diffObj[1].gameObject.transform, slots.tempoUISlots[4].transform));
+                                StartCoroutine(MovePos(slots.tempoUISlots[4].transform.GetChild(0), slots.tempoUISlots[2].transform));
+
+                                diffObj[0].gameObject.transform.SetParent(slots.tempoUISlots[3].transform);
+                                diffObj[1].gameObject.transform.SetParent(slots.tempoUISlots[4].transform);
+                                slots.tempoUISlots[4].transform.GetChild(0).transform.SetParent(slots.tempoUISlots[2].transform);
+
+                                RemoveObjFromList(diffObj);
+
+                                break;
+                            }
+                            else if (slots.tempoUISlots[4].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite != slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite)
+                            {
+
+                                diffObj.Add(slots.tempoUISlots[4].transform.GetChild(0).gameObject);
+
+                                if (slots.tempoUISlots[5].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite == slots.tempoUISlots[5].transform.GetChild(0).GetComponent<Image>().sprite)
+                                {
+                                    StartCoroutine(MovePos(diffObj[0].gameObject.transform, slots.tempoUISlots[3].transform));
+                                    StartCoroutine(MovePos(diffObj[1].gameObject.transform, slots.tempoUISlots[4].transform));
+                                    StartCoroutine(MovePos(diffObj[2].gameObject.transform, slots.tempoUISlots[5].transform));
+                                    StartCoroutine(MovePos(slots.tempoUISlots[5].transform.GetChild(0), slots.tempoUISlots[2].transform));
+
+                                    diffObj[0].gameObject.transform.SetParent(slots.tempoUISlots[3].transform);
+                                    diffObj[1].gameObject.transform.SetParent(slots.tempoUISlots[4].transform);
+                                    diffObj[2].gameObject.transform.SetParent(slots.tempoUISlots[5].transform);
+                                    slots.tempoUISlots[5].transform.GetChild(0).transform.SetParent(slots.tempoUISlots[2].transform);
+
+                                    RemoveObjFromList(diffObj);
+                                }
+                                else if (slots.tempoUISlots[5].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite != slots.tempoUISlots[5].transform.GetChild(0).GetComponent<Image>().sprite)
+                                {
+
+                                    diffObj.Add(slots.tempoUISlots[5].transform.GetChild(0).gameObject);
+
+                                    if (slots.tempoUISlots[6].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite == slots.tempoUISlots[6].transform.GetChild(0).GetComponent<Image>().sprite)
+                                    {
+                                        StartCoroutine(MovePos(diffObj[0].gameObject.transform, slots.tempoUISlots[3].transform));
+                                        StartCoroutine(MovePos(diffObj[1].gameObject.transform, slots.tempoUISlots[4].transform));
+                                        StartCoroutine(MovePos(diffObj[2].gameObject.transform, slots.tempoUISlots[5].transform));
+                                        StartCoroutine(MovePos(diffObj[3].gameObject.transform, slots.tempoUISlots[6].transform));
+                                        StartCoroutine(MovePos(slots.tempoUISlots[6].transform.GetChild(0), slots.tempoUISlots[2].transform));
+
+                                        diffObj[0].gameObject.transform.SetParent(slots.tempoUISlots[3].transform);
+                                        diffObj[1].gameObject.transform.SetParent(slots.tempoUISlots[4].transform);
+                                        diffObj[2].gameObject.transform.SetParent(slots.tempoUISlots[5].transform);
+                                        diffObj[3].gameObject.transform.SetParent(slots.tempoUISlots[6].transform);
+                                        slots.tempoUISlots[6].transform.GetChild(0).transform.SetParent(slots.tempoUISlots[2].transform);
+
+                                        RemoveObjFromList(diffObj);
+                                    }
+
+                                }
+
+                            }
+
+                        }
 
 
-                //Debug.Log("Name:" + transform.name);
+                    }
+                    else if (slots.tempoUISlots[2].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite == slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite)
+                    {
+
+                        if (slots.tempoUISlots[3].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite != slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite)
+                        {
+                            List<GameObject> diffObj = new List<GameObject>();
+                            diffObj.Add(slots.tempoUISlots[3].transform.GetChild(0).gameObject);
+
+                            if (slots.tempoUISlots[4].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite == slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite)
+                            {
+
+                                StartCoroutine(MovePos(diffObj[0].gameObject.transform, slots.tempoUISlots[4].transform));
+                                StartCoroutine(MovePos(slots.tempoUISlots[4].transform.GetChild(0), slots.tempoUISlots[3].transform));
+
+                                diffObj[0].gameObject.transform.SetParent(slots.tempoUISlots[4].transform);
+                                slots.tempoUISlots[4].transform.GetChild(0).transform.SetParent(slots.tempoUISlots[3].transform);
+
+                                RemoveObjFromList(diffObj);
+
+                            }
+                            else if (slots.tempoUISlots[4].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite != slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite)
+                            {
+
+                                diffObj.Add(slots.tempoUISlots[4].transform.GetChild(0).gameObject);
+
+                                if (slots.tempoUISlots[5].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite == slots.tempoUISlots[5].transform.GetChild(0).GetComponent<Image>().sprite)
+                                {
+                                    StartCoroutine(MovePos(diffObj[0].gameObject.transform, slots.tempoUISlots[4].transform));
+                                    StartCoroutine(MovePos(diffObj[1].gameObject.transform, slots.tempoUISlots[5].transform));
+                                    StartCoroutine(MovePos(slots.tempoUISlots[5].transform.GetChild(0), slots.tempoUISlots[3].transform));
+
+                                    diffObj[0].gameObject.transform.SetParent(slots.tempoUISlots[4].transform);
+                                    diffObj[1].gameObject.transform.SetParent(slots.tempoUISlots[5].transform);
+                                    slots.tempoUISlots[5].transform.GetChild(0).transform.SetParent(slots.tempoUISlots[3].transform);
+
+                                    RemoveObjFromList(diffObj);
+                                }
+                                else if (slots.tempoUISlots[5].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite != slots.tempoUISlots[5].transform.GetChild(0).GetComponent<Image>().sprite)
+                                {
+
+                                    diffObj.Add(slots.tempoUISlots[5].transform.GetChild(0).gameObject);
+
+                                    if (slots.tempoUISlots[6].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite == slots.tempoUISlots[6].transform.GetChild(0).GetComponent<Image>().sprite)
+                                    {
+                                        StartCoroutine(MovePos(diffObj[0].gameObject.transform, slots.tempoUISlots[4].transform));
+                                        StartCoroutine(MovePos(diffObj[1].gameObject.transform, slots.tempoUISlots[5].transform));
+                                        StartCoroutine(MovePos(diffObj[2].gameObject.transform, slots.tempoUISlots[6].transform));
+                                        StartCoroutine(MovePos(slots.tempoUISlots[6].transform.GetChild(0), slots.tempoUISlots[3].transform));
+
+                                        diffObj[0].gameObject.transform.SetParent(slots.tempoUISlots[4].transform);
+                                        diffObj[1].gameObject.transform.SetParent(slots.tempoUISlots[5].transform);
+                                        diffObj[2].gameObject.transform.SetParent(slots.tempoUISlots[6].transform);
+                                        slots.tempoUISlots[6].transform.GetChild(0).transform.SetParent(slots.tempoUISlots[3].transform);
+
+                                        RemoveObjFromList(diffObj);
+                                    }
+
+                                }
+
+                            }
+
+                            break;
+                        }
+
+                    }
+                }
+                else if (transform.childCount <= 0)
+                {
+                    List<GameObject> diffObj = new List<GameObject>();
+
+                    if (slots.tempoUISlots[4].transform.childCount > 0 || slots.tempoUISlots[5].transform.childCount > 0 || slots.tempoUISlots[6].transform.childCount > 0)
+                    {
+                        for (int i = 4; i < 7; i++)
+                        {
+                            if (slots.tempoUISlots[i].transform.childCount > 0)
+                            {
+                                diffObj.Add(slots.tempoUISlots[i].transform.GetChild(0).gameObject);
+                            }
+                        }
+                        for (int j = 0; j < diffObj.Count; j++)
+                        {
+                            StartCoroutine(MovePos(diffObj[j].gameObject.transform, slots.tempoUISlots[j+1].transform));
+
+                            diffObj[j].gameObject.transform.SetParent(slots.tempoUISlots[j+1].transform);
+
+                            slots.isFull[j+1] = true;
+                        }
+
+                    }
+
+                }
+
                 break;
 
             case "Slot3":
 
+                if (transform.childCount > 0)
+                {
+                    if (slots.tempoUISlots[3].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite != slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite)
+                    {
+
+                        List<GameObject> diffObj = new List<GameObject>();
+                        diffObj.Add(slots.tempoUISlots[3].transform.GetChild(0).gameObject);
+
+                        if (slots.tempoUISlots[4].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite == slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite)
+                        {
+
+                            StartCoroutine(MovePos(diffObj[0].gameObject.transform, slots.tempoUISlots[4].transform));
+                            StartCoroutine(MovePos(slots.tempoUISlots[4].transform.GetChild(0), slots.tempoUISlots[3].transform));
+
+                            diffObj[0].gameObject.transform.SetParent(slots.tempoUISlots[4].transform);
+                            slots.tempoUISlots[4].transform.GetChild(0).transform.SetParent(slots.tempoUISlots[3].transform);
+
+                            break;
+                        }
+                        else if (slots.tempoUISlots[4].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite != slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite)
+                        {
+
+                            diffObj.Add(slots.tempoUISlots[4].transform.GetChild(0).gameObject);
+
+                            if (slots.tempoUISlots[5].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite == slots.tempoUISlots[5].transform.GetChild(0).GetComponent<Image>().sprite)
+                            {
+
+                                StartCoroutine(MovePos(diffObj[0].gameObject.transform, slots.tempoUISlots[4].transform));
+                                StartCoroutine(MovePos(diffObj[1].gameObject.transform, slots.tempoUISlots[5].transform));
+                                StartCoroutine(MovePos(slots.tempoUISlots[5].transform.GetChild(0), slots.tempoUISlots[3].transform));
+
+                                diffObj[0].gameObject.transform.SetParent(slots.tempoUISlots[4].transform);
+                                diffObj[1].gameObject.transform.SetParent(slots.tempoUISlots[5].transform);
+                                slots.tempoUISlots[5].transform.GetChild(0).transform.SetParent(slots.tempoUISlots[3].transform);
+
+                                RemoveObjFromList(diffObj);
+
+                                break;
+                            }
+                            else if (slots.tempoUISlots[5].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite != slots.tempoUISlots[5].transform.GetChild(0).GetComponent<Image>().sprite)
+                            {
+
+                                diffObj.Add(slots.tempoUISlots[5].transform.GetChild(0).gameObject);
+
+                                if (slots.tempoUISlots[6].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite == slots.tempoUISlots[6].transform.GetChild(0).GetComponent<Image>().sprite)
+                                {
+                                    StartCoroutine(MovePos(diffObj[0].gameObject.transform, slots.tempoUISlots[4].transform));
+                                    StartCoroutine(MovePos(diffObj[1].gameObject.transform, slots.tempoUISlots[5].transform));
+                                    StartCoroutine(MovePos(diffObj[2].gameObject.transform, slots.tempoUISlots[6].transform));
+                                    StartCoroutine(MovePos(slots.tempoUISlots[6].transform.GetChild(0), slots.tempoUISlots[3].transform));
+
+                                    diffObj[0].gameObject.transform.SetParent(slots.tempoUISlots[4].transform);
+                                    diffObj[1].gameObject.transform.SetParent(slots.tempoUISlots[5].transform);
+                                    diffObj[2].gameObject.transform.SetParent(slots.tempoUISlots[6].transform);
+                                    slots.tempoUISlots[6].transform.GetChild(0).transform.SetParent(slots.tempoUISlots[3].transform);
+
+                                    RemoveObjFromList(diffObj);
+                                }
+
+                            }
+
+                        }
 
 
-                //Debug.Log("Name:" + transform.name);
+                    }
+                    else if (slots.tempoUISlots[3].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite == slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite)
+                    {
+
+                        if (slots.tempoUISlots[4].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite != slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite)
+                        {
+                            List<GameObject> diffObj = new List<GameObject>();
+                            diffObj.Add(slots.tempoUISlots[4].transform.GetChild(0).gameObject);
+
+                            if (slots.tempoUISlots[5].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite == slots.tempoUISlots[5].transform.GetChild(0).GetComponent<Image>().sprite)
+                            {
+
+                                StartCoroutine(MovePos(diffObj[0].gameObject.transform, slots.tempoUISlots[5].transform));
+                                StartCoroutine(MovePos(slots.tempoUISlots[5].transform.GetChild(0), slots.tempoUISlots[4].transform));
+
+                                diffObj[0].gameObject.transform.SetParent(slots.tempoUISlots[5].transform);
+                                slots.tempoUISlots[5].transform.GetChild(0).transform.SetParent(slots.tempoUISlots[4].transform);
+
+                                RemoveObjFromList(diffObj);
+
+                            }
+                            else if (slots.tempoUISlots[5].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite != slots.tempoUISlots[5].transform.GetChild(0).GetComponent<Image>().sprite)
+                            {
+
+                                diffObj.Add(slots.tempoUISlots[5].transform.GetChild(0).gameObject);
+
+                                if (slots.tempoUISlots[6].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite == slots.tempoUISlots[6].transform.GetChild(0).GetComponent<Image>().sprite)
+                                {
+                                    StartCoroutine(MovePos(diffObj[0].gameObject.transform, slots.tempoUISlots[5].transform));
+                                    StartCoroutine(MovePos(diffObj[1].gameObject.transform, slots.tempoUISlots[6].transform));
+                                    StartCoroutine(MovePos(slots.tempoUISlots[6].transform.GetChild(0), slots.tempoUISlots[4].transform));
+
+                                    diffObj[0].gameObject.transform.SetParent(slots.tempoUISlots[5].transform);
+                                    diffObj[1].gameObject.transform.SetParent(slots.tempoUISlots[6].transform);
+                                    slots.tempoUISlots[6].transform.GetChild(0).transform.SetParent(slots.tempoUISlots[4].transform);
+
+                                    RemoveObjFromList(diffObj);
+                                }
+
+                            }
+
+                            break;
+                        }
+
+                    }
+                }
+                else if (transform.childCount <= 0)
+                {
+                    List<GameObject> diffObj = new List<GameObject>();
+
+                    if (slots.tempoUISlots[5].transform.childCount > 0 || slots.tempoUISlots[6].transform.childCount > 0)
+                    {
+                        for (int i = 5; i < 7; i++)
+                        {
+                            if (slots.tempoUISlots[i].transform.childCount > 0)
+                            {
+                                diffObj.Add(slots.tempoUISlots[i].transform.GetChild(0).gameObject);
+                            }
+                        }
+                        for (int j = 0; j < diffObj.Count; j++)
+                        {
+                            StartCoroutine(MovePos(diffObj[j].gameObject.transform, slots.tempoUISlots[j + 2].transform));
+
+                            diffObj[j].gameObject.transform.SetParent(slots.tempoUISlots[j + 2].transform);
+
+                            slots.isFull[j + 2] = true;
+                        }
+
+                    }
+
+                }
+
                 break;
 
             case "Slot4":
+
+                if (transform.childCount > 0)
+                {
+                    if (slots.tempoUISlots[4].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite != slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite)
+                    {
+
+                        List<GameObject> diffObj = new List<GameObject>();
+                        diffObj.Add(slots.tempoUISlots[4].transform.GetChild(0).gameObject);
+
+                        if (slots.tempoUISlots[5].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite == slots.tempoUISlots[5].transform.GetChild(0).GetComponent<Image>().sprite)
+                        {
+
+                            StartCoroutine(MovePos(diffObj[0].gameObject.transform, slots.tempoUISlots[5].transform));
+                            StartCoroutine(MovePos(slots.tempoUISlots[5].transform.GetChild(0), slots.tempoUISlots[4].transform));
+
+                            diffObj[0].gameObject.transform.SetParent(slots.tempoUISlots[5].transform);
+                            slots.tempoUISlots[5].transform.GetChild(0).transform.SetParent(slots.tempoUISlots[4].transform);
+
+                            break;
+                        }
+                        else if (slots.tempoUISlots[5].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite != slots.tempoUISlots[5].transform.GetChild(0).GetComponent<Image>().sprite)
+                        {
+
+                            diffObj.Add(slots.tempoUISlots[5].transform.GetChild(0).gameObject);
+
+                            if (slots.tempoUISlots[6].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite == slots.tempoUISlots[6].transform.GetChild(0).GetComponent<Image>().sprite)
+                            {
+
+                                StartCoroutine(MovePos(diffObj[0].gameObject.transform, slots.tempoUISlots[5].transform));
+                                StartCoroutine(MovePos(diffObj[1].gameObject.transform, slots.tempoUISlots[6].transform));
+                                StartCoroutine(MovePos(slots.tempoUISlots[6].transform.GetChild(0), slots.tempoUISlots[4].transform));
+
+                                diffObj[0].gameObject.transform.SetParent(slots.tempoUISlots[5].transform);
+                                diffObj[1].gameObject.transform.SetParent(slots.tempoUISlots[6].transform);
+                                slots.tempoUISlots[6].transform.GetChild(0).transform.SetParent(slots.tempoUISlots[4].transform);
+
+                                RemoveObjFromList(diffObj);
+
+                                break;
+                            }
+
+                        }
+
+                    }
+                    else if (slots.tempoUISlots[4].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite == slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite)
+                    {
+
+                        if (slots.tempoUISlots[5].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite != slots.tempoUISlots[5].transform.GetChild(0).GetComponent<Image>().sprite)
+                        {
+                            List<GameObject> diffObj = new List<GameObject>();
+                            diffObj.Add(slots.tempoUISlots[5].transform.GetChild(0).gameObject);
+
+                            if (slots.tempoUISlots[6].transform.childCount > 0 && transform.GetChild(0).transform.GetComponent<Image>().sprite == slots.tempoUISlots[6].transform.GetChild(0).GetComponent<Image>().sprite)
+                            {
+
+                                StartCoroutine(MovePos(diffObj[0].gameObject.transform, slots.tempoUISlots[6].transform));
+                                StartCoroutine(MovePos(slots.tempoUISlots[6].transform.GetChild(0), slots.tempoUISlots[5].transform));
+
+                                diffObj[0].gameObject.transform.SetParent(slots.tempoUISlots[5].transform);
+                                slots.tempoUISlots[6].transform.GetChild(0).transform.SetParent(slots.tempoUISlots[5].transform);
+
+                                RemoveObjFromList(diffObj);
+
+                            }
+
+                            break;
+                        }
+
+                    }
+                }
+                else if (transform.childCount <= 0)
+                {
+                    List<GameObject> diffObj = new List<GameObject>();
+
+                    if (slots.tempoUISlots[6].transform.childCount > 0)
+                    {
+
+                        diffObj.Add(slots.tempoUISlots[6].transform.GetChild(0).gameObject);
+
+                        StartCoroutine(MovePos(diffObj[0].gameObject.transform, slots.tempoUISlots[3].transform));
+
+                        diffObj[0].gameObject.transform.SetParent(slots.tempoUISlots[3].transform);
+
+                        slots.isFull[3] = true;
+
+                    }
+
+                }
 
                 //Debug.Log("Name:" + transform.name);
                 break;
@@ -355,7 +717,7 @@ public class IndiSlots : MonoBehaviour
         Debug.Log(diffObj.Count);
     }
 
-    IEnumerator MovePos(Transform pos1, Transform pos2)
+    IEnumerator MovePos(Transform pos1, Transform pos2, float speed = 1.2f)
     {
         check = false;
 
@@ -364,7 +726,7 @@ public class IndiSlots : MonoBehaviour
         while (f < 1)
         {
             pos1.position = Vector3.Lerp(pos1.position, pos2.position, f);
-            f += Time.deltaTime * 1.2f;
+            f += Time.deltaTime * speed;
             yield return null;
         }
 

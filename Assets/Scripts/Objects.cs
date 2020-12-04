@@ -22,7 +22,7 @@ public class Objects : MonoBehaviour
 
     [Header("Other setting")]
     public GameObject miniObj;
-    public BoxCollider[] boxCollider;
+    public BoxCollider boxCollider;
     public float destroyTimer;
 
     private Animator anim;
@@ -36,6 +36,7 @@ public class Objects : MonoBehaviour
     {
         slots = GameObject.FindGameObjectWithTag("Slots").GetComponent<Slots>();
         sprt = GetComponent<SpriteRenderer>();
+        boxCollider = GetComponent<BoxCollider>();
     }
 
     public void CastRay()
@@ -82,11 +83,17 @@ public class Objects : MonoBehaviour
     {
 
         float f = 0;
+        
+        /*GameObject[] obj = GameObject.FindGameObjectsWithTag("Object");
+        BoxCollider[] box = new BoxCollider[obj.Length];
 
-        for (int j = 0; j < boxCollider.Length;j++)
+        for (int k = 0; k < obj.Length; k++)
         {
-            boxCollider[j].enabled = !boxCollider[j].enabled;
-        }
+            box[k] = obj[k].GetComponent<BoxCollider>();
+            box[k].enabled = !box[k].enabled;
+        }*/
+
+        boxCollider.enabled = !boxCollider.enabled;
 
         while (f < 1)
         {
