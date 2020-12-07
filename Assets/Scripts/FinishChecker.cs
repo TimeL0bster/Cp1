@@ -15,8 +15,9 @@ public class FinishChecker : MonoBehaviour
     private float k = 0;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+        Debug.Log("FinishChecker");
         slot = GameObject.FindGameObjectWithTag("Slots").GetComponent<Slots>();
         touchBlocker = GameObject.FindGameObjectWithTag("TouchBlocker").GetComponent<BoxCollider>();
         darkScreen = GameObject.FindGameObjectWithTag("DarkScreen");
@@ -28,7 +29,7 @@ public class FinishChecker : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         GameoverCheck();
     }
