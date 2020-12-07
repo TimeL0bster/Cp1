@@ -107,7 +107,7 @@ MonoBehaviour:
   collOffset8: {x: 0.13, y: -0.31, z: 0}
   isObjectLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   miniObj: {fileID: 1094697452428013112, guid: 6171ee552eff35644b5506576faec685, type: 3}
   boxCollider: {fileID: 0}
   destroyTimer: 0.08

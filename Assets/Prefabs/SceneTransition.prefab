@@ -43,4 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 445f9e13a9a64854099d312f3ce3e165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Level: 0000000000000000000000000000000000000000
   sceneStageName: LevelSelect

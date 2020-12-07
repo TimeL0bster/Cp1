@@ -6,11 +6,21 @@ using UnityEngine.SceneManagement;
 public class SceneTransition : MonoBehaviour
 {
 
-    [Header("Scene")]
-    public string sceneStageName;
+    [Header("LevelCheck")]
+    public bool[] Level;
 
-    public void SceneChange()
+    [Header("Scene")]
+    public string nextLevel;
+
+    public void NextLevel()
     {
-        SceneManager.LoadScene(sceneStageName);
+
+        SceneManager.LoadScene(nextLevel);
+
+    }
+
+    public void ResetLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

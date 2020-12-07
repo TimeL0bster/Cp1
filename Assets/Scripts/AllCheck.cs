@@ -28,6 +28,7 @@ public class AllCheck : MonoBehaviour
         ClearMatch(MatchObjCheck1());
         ClearMatch(MatchObjCheck2());
         ClearMatch(MatchObjCheck3());
+        ClearMatch(MatchObjCheck4());
     }
 
     private List<GameObject> MatchObjCheck1()
@@ -88,6 +89,26 @@ public class AllCheck : MonoBehaviour
         }
 
         return matchObject3;
+    }
+
+    private List<GameObject> MatchObjCheck4()
+    {
+        protoHit = Physics2D.Raycast(transform.position + collOffSetRay1, Vector2.right * leight);
+        RaycastHit2D[] objectHit4 = Physics2D.RaycastAll(transform.position + collOffSetRay1, Vector2.right * leight);
+        List<GameObject> matchObject4 = new List<GameObject>();
+
+        if (protoHit.collider != null)
+        {
+            foreach (RaycastHit2D hit in objectHit4)
+            {
+                if (hit.collider.GetComponent<Image>().sprite == spr[3])
+                {
+                    matchObject4.Add(hit.collider.gameObject);
+                }
+            }
+        }
+
+        return matchObject4;
     }
 
     private void ClearMatch(List<GameObject> matchChecker)

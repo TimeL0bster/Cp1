@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Slots
-  - Obj1
   - Object
   - Slot1
   - Slot2
@@ -14,6 +13,11 @@ TagManager:
   - Slot5
   - Slot6
   - Slot7
+  - NGUI
+  - TouchBlocker
+  - DarkScreen
+  - ObjRandomSpawner
+  - LevelComplete
   layers:
   - Default
   - TransparentFX

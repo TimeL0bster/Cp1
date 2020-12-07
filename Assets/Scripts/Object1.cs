@@ -5,8 +5,6 @@ using UnityEngine;
 public class Object1 : Objects
 {
 
-    //float t = 0f;
-
     // Update is called once per frame
     void Update()
     {
@@ -15,7 +13,11 @@ public class Object1 : Objects
 
     private void OnMouseDown()
     {
-        base.Touched(destroyTimer);
+        if (check)
+        {
+            base.Touched(destroyTimer);
+        }
+        
     }
 
     private void OnDrawGizmos()
