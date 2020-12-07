@@ -49,7 +49,7 @@ public class FinishChecker : MonoBehaviour
                 i += Time.deltaTime;
             }
             
-            if (i > .8f && i < 2)
+            if (i > 2 && i < 3)
             {
                 Debug.Log("Gameover");
                 touchBlocker.enabled = true;
@@ -60,7 +60,11 @@ public class FinishChecker : MonoBehaviour
 
         }
 
-        if (GameObject.FindGameObjectWithTag("Object") == null)
+        if (GameObject.FindGameObjectWithTag("Object1") == null 
+            && GameObject.FindGameObjectWithTag("Object2") == null 
+            && GameObject.FindGameObjectWithTag("Object3") == null 
+            && GameObject.FindGameObjectWithTag("Object4") == null
+            && GameObject.FindGameObjectWithTag("MiniObj") == null)
         {
 
             if (k <= .8f)

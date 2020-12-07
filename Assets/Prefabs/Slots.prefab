@@ -45,26 +45,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFull: 00000000000000
   slots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8323344957595946628, guid: 89209bd6a189d1e49bef2bbf6fd865c7, type: 3}
+  - {fileID: 717525227996338126, guid: 63d9ea05d632e294b9db890654cb6cf0, type: 3}
+  - {fileID: 4263930433611522575, guid: 1b54828bede95234a85f8422871e538e, type: 3}
+  - {fileID: 2401758138742589027, guid: 70c49cd42e8c0fe4995588fb63d7aac2, type: 3}
+  - {fileID: 6581553648417252237, guid: 3f03cf3fa9fdbc04f82259f9156aa602, type: 3}
+  - {fileID: 7155881925797473201, guid: 8024f3b7fba06e14594344fecbc4b161, type: 3}
+  - {fileID: 2051857327074414822, guid: 1af49bf49781b3e46a77968fbd18af36, type: 3}
   tempoSlots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7858955652995804480, guid: 0a94d94c28f7a4d448c19d0801d35aa0, type: 3}
+  - {fileID: 7461298707151670263, guid: ff59ee200dcfda949b97a0058662ff06, type: 3}
+  - {fileID: 3509913435476869391, guid: e5552e06c2fda4145b765de1896a2c00, type: 3}
+  - {fileID: 2621741644587529532, guid: 09f7658ef4fec3e4e80f5e4f3caf5da0, type: 3}
+  - {fileID: 6925919800178830784, guid: 3706005211f851047ba4970c1f19f8fe, type: 3}
+  - {fileID: 7994852035842933189, guid: 6b3750db534cd704c8f85e1fb6094663, type: 3}
+  - {fileID: 8347825349425084103, guid: 8f2801a8c8d274f49ac560c189fcc18d, type: 3}
   tempoUISlots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6747629631588038502, guid: 97911ec31631d7147a7707b1798fbf7e, type: 3}
+  - {fileID: 1220604323538548401, guid: 242626a7e19542d4f8dc9c0d106adaf2, type: 3}
+  - {fileID: 3216912200032462947, guid: 8c5a79fb50f462c4faa2bb4faab6359a, type: 3}
+  - {fileID: 5467155445436045414, guid: e9537104af30beb40adb6d7f55186e83, type: 3}
+  - {fileID: 7543142201039178923, guid: 50c451c64a808a3428383f0453a26a60, type: 3}
+  - {fileID: 5833894020812732019, guid: 706a617e1607d764484655137fb66ff4, type: 3}
+  - {fileID: 3182807310805768177, guid: 4af5c5728629e3e4b9fdf4b84a603c1b, type: 3}
