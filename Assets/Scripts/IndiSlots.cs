@@ -18,7 +18,7 @@ public class IndiSlots : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        slots = GameObject.FindGameObjectWithTag("Slots").GetComponent<Slots>();
+        slots = GameObject.FindWithTag("Slots").GetComponent<Slots>();
         touchBlocker = GameObject.FindGameObjectWithTag("TouchBlocker").GetComponent<BoxCollider>();
         check = true;
     }
