@@ -45,7 +45,7 @@ public class FinishChecker : MonoBehaviour
             slot.isFull[6] == true)
         {
 
-            if (i <= .8f)
+            if (i <= 2f)
             {
                 i += Time.deltaTime;
             }

@@ -11,7 +11,7 @@ public class ProjectionObj : MonoBehaviour
     void Start()
     {
         slot = GameObject.FindGameObjectWithTag("Slots").GetComponent<Slots>();
-        for (int i = 0; i < slot.slots.Length; i++)
+        for (int i = 0; i < slot.tempoSlots.Length; i++)
         {
             if (slot.isFull[i] == false)
             {

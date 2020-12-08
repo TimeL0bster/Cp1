@@ -66,6 +66,7 @@ public class SceneTransition : MonoBehaviour
 
     public void ResetLevel()
     {
+        Debug.Log("Reset");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
