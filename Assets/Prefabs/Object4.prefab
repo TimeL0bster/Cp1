@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Leight: 0.25
-  collOffset1: {x: 0.17, y: 0.28, z: 0}
+  collOffset1: {x: 0.17, y: 0.15, z: 0}
   collOffset2: {x: -0.18, y: 0.09, z: 0}
   collOffset3: {x: -0.25, y: -0.16, z: 0}
   collOffset4: {x: 0.25, y: -0.15, z: 0}

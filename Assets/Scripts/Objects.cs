@@ -67,15 +67,6 @@ public class Objects : MonoBehaviour
 
         if (!isObjectAbove)
         {
-            /*for (int i = 0; i < slots.tempoUISlots.Length; i++)
-            {
-                if (slots.isFull[i] == false)
-                {
-                    StartCoroutine(Move(5, i));
-                    StartCoroutine(spwnMiniObject(i, destroyTime));
-                    break;
-                }
-            }*/
 
             if (slots.tempoUISlots[0].transform.childCount <= 0 && slots.isFull[0] == false)
             {
@@ -89,7 +80,7 @@ public class Objects : MonoBehaviour
             }
             else if (slots.tempoUISlots[2].transform.childCount <= 0 && slots.isFull[2] == false)
             {
-                if (slots.tempoUISlots[0].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite 
+                if (slots.tempoUISlots[0].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
                     && slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
                 {
                     StartCoroutine(MovePos(slots.tempoUISlots[1].transform.GetChild(0), 2));
@@ -108,7 +99,7 @@ public class Objects : MonoBehaviour
                 if (slots.tempoUISlots[0].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite)
                 {
 
-                    if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite 
+                    if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
                         && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
                     {
                         StartCoroutine(MovePos(slots.tempoUISlots[1].transform.GetChild(0), 2));
@@ -117,8 +108,8 @@ public class Objects : MonoBehaviour
                         StartCoroutine(Move(5, 1));
                         StartCoroutine(spwnMiniObject(1, destroyTime));
                     }
-                    
-                    else if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite 
+
+                    else if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
                         && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
                     {
                         StartCoroutine(MovePos(slots.tempoUISlots[2].transform.GetChild(0), 3));
@@ -127,12 +118,12 @@ public class Objects : MonoBehaviour
                         StartCoroutine(spwnMiniObject(2, destroyTime));
                     }
 
-                    
+
 
                 }
                 else
                 {
-                    if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite 
+                    if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
                         && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
                         ||
                         slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
@@ -144,8 +135,8 @@ public class Objects : MonoBehaviour
                         StartCoroutine(Move(5, 3));
                         StartCoroutine(spwnMiniObject(3, destroyTime));
                     }
-                    
-                    else if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite 
+
+                    else if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
                         && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
                     {
                         StartCoroutine(MovePos(slots.tempoUISlots[2].transform.GetChild(0), 3));
@@ -153,7 +144,7 @@ public class Objects : MonoBehaviour
                         StartCoroutine(Move(5, 2));
                         StartCoroutine(spwnMiniObject(2, destroyTime));
                     }
-                    
+
                 }
             }
             else if (slots.tempoUISlots[4].transform.childCount <= 0 && slots.isFull[4] == false)
@@ -161,8 +152,8 @@ public class Objects : MonoBehaviour
                 if (slots.tempoUISlots[0].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite)
                 {
 
-                    if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite 
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite 
+                    if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
+                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
                         && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
                     {
                         StartCoroutine(MovePos(slots.tempoUISlots[1].transform.GetChild(0), 2));
@@ -172,9 +163,9 @@ public class Objects : MonoBehaviour
                         StartCoroutine(Move(5, 1));
                         StartCoroutine(spwnMiniObject(1, destroyTime));
                     }
-                    
-                    else if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite 
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite 
+
+                    else if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
+                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
                         && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
                     {
                         StartCoroutine(MovePos(slots.tempoUISlots[2].transform.GetChild(0), 3));
@@ -183,12 +174,12 @@ public class Objects : MonoBehaviour
                         StartCoroutine(Move(5, 2));
                         StartCoroutine(spwnMiniObject(2, destroyTime));
                     }
-                    
+
                 }
                 else
                 {
-                    if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite 
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite 
+                    if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
+                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
                         && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
                         ||
                         slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
@@ -202,9 +193,9 @@ public class Objects : MonoBehaviour
                         StartCoroutine(Move(5, 4));
                         StartCoroutine(spwnMiniObject(4, destroyTime));
                     }
-                    
-                    else if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite 
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite 
+
+                    else if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
+                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
                         && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
                     {
                         StartCoroutine(MovePos(slots.tempoUISlots[2].transform.GetChild(0), 3));
@@ -213,11 +204,11 @@ public class Objects : MonoBehaviour
                         StartCoroutine(Move(5, 2));
                         StartCoroutine(spwnMiniObject(2, destroyTime));
                     }
-                    
-                    else if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite 
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite 
+
+                    else if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
+                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
                         && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        || 
+                        ||
                         slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
                         && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
                         && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
@@ -443,9 +434,15 @@ public class Objects : MonoBehaviour
                         StartCoroutine(spwnMiniObject(4, destroyTime));
                     }
 
-                    else if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
+                    else if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
                         && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
                         && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
+                        && slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
+                        && slots.tempoUISlots[5].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
+                        ||
+                        slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
+                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
+                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
                         && slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
                         && slots.tempoUISlots[5].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
                     {
@@ -473,7 +470,7 @@ public class Objects : MonoBehaviour
 
         while (f < 1)
         {
-            f += Time.deltaTime / time;
+            f += Time.deltaTime / 2f;
             if (transform.localScale.x >= 0)
             {
                 transform.localScale -= new Vector3(1, 1, 1) * Time.deltaTime * 2f;

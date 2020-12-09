@@ -32,27 +32,39 @@ public class SceneTransition : MonoBehaviour
         }
         else if (currentLevel == 2)
         {
-            Debug.Log(currentLevel);
+            SceneManager.LoadScene("Level2");
         }
         else if (currentLevel == 3)
         {
-            Debug.Log(currentLevel);
+            SceneManager.LoadScene("Level3");
         }
         else if (currentLevel == 4)
         {
-            Debug.Log(currentLevel);
+            SceneManager.LoadScene("Level4");
         }
         else if (currentLevel == 5)
         {
-            Debug.Log(currentLevel);
+            SceneManager.LoadScene("Level5");
         }
         else if (currentLevel == 6)
         {
-            Debug.Log(currentLevel);
+            SceneManager.LoadScene("Level6");
         }
         else if (currentLevel == 7)
         {
-            Debug.Log(currentLevel);
+            SceneManager.LoadScene("Level7");
+        }
+        else if (currentLevel == 8)
+        {
+            SceneManager.LoadScene("Level8");
+        }
+        else if (currentLevel == 9)
+        {
+            SceneManager.LoadScene("Level9");
+        }
+        else if (currentLevel == 10)
+        {
+            SceneManager.LoadScene("Level10");
         }
 
     }
@@ -70,5 +82,9 @@ public class SceneTransition : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    
+    public void ReturnToStartScene()
+    {
+        SceneManager.LoadScene("Start");
+    }
+
 }
