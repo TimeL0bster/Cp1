@@ -17,7 +17,6 @@ public class FinishChecker : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        Debug.Log("FinishChecker");
         slot = GameObject.FindGameObjectWithTag("Slots").GetComponent<Slots>();
         touchBlocker = GameObject.FindGameObjectWithTag("TouchBlocker").GetComponent<BoxCollider>();
         darkScreen = GameObject.FindGameObjectWithTag("DarkScreen");
