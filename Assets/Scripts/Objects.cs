@@ -27,7 +27,8 @@ public class Objects : MonoBehaviour
 
     private Animator anim;
     private SpriteRenderer sprt;
-    private Renderer render;
+    private MeshRenderer render;
+    private GameObject objectDarkScreen;
     private bool isObjectAbove = false;
 
     protected BoxCollider touchBlocker;
@@ -39,12 +40,14 @@ public class Objects : MonoBehaviour
     {
         slots = GameObject.FindGameObjectWithTag("Slots").GetComponent<Slots>();
         sprt = GetComponent<SpriteRenderer>();
-        //render = GetComponent<MeshRenderer>();
+        //render = transform.GetChild(0).GetComponent<MeshRenderer>();
+        objectDarkScreen = transform.GetChild(0).gameObject;
         boxCollider = GetComponent<BoxCollider>();
         touchBlocker = GameObject.FindGameObjectWithTag("TouchBlocker").GetComponent<BoxCollider>();
         //transform.rotation = Random.rotation;
         //render.material.SetColor("_Color", Color.blue);
         touchBlocker.enabled = false;
+        objectDarkScreen.SetActive(false);
         check = true;
     }
 
@@ -57,14 +60,16 @@ public class Objects : MonoBehaviour
 
         if (!isObjectAbove)
         {
-            sprt.color = new Color32(255, 255, 255, 255);
-            //render.material.SetColor("_Color", new Color32(255, 255, 255, 255));
+            objectDarkScreen.SetActive(false);
+            //sprt.color = new Color32(255, 255, 255, 255);
+            //render.material.SetColor("_Color", Color.blue);
             //render.material.color = new Color(255, 255, 255, 255);
         }
         else
         {
-            sprt.color = new Color32(80, 80, 80, 255);
-            //render.material.SetColor("_Color", new Color32(80, 80, 80, 255));
+            objectDarkScreen.SetActive(true);
+            //sprt.color = new Color32(80, 80, 80, 255);
+            //render.material.SetColor("_Color", Color.red);
             //render.material.color = Color.blue;
         }
 
