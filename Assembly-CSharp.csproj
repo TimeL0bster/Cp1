@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\MiniObjectPool.cs" />
     <Compile Include="Assets\Scripts\Slots.cs" />
     <Compile Include="Assets\Scripts\AllCheck.cs" />
+    <Compile Include="Assets\Scripts\RandomRotation.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Mobile Cartoon GUI 2\Readme.txt" />
