@@ -321,6 +321,11 @@ public class Objects : MonoBehaviour
                     else if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
                         && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
                         && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
+                        && slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
+                        ||
+                        slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
+                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
+                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
                         && slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
                     {
 

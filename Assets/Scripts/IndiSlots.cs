@@ -10,7 +10,7 @@ public class IndiSlots : MonoBehaviour
     public GameObject[] otherSlots;
     public GameObject[] miniObj;
 
-    private Slots slots;
+    public Slots slots;
     private BoxCollider touchBlocker;
     private GameObject thisChild;
     private bool check;
@@ -26,7 +26,6 @@ public class IndiSlots : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-
         if (transform.childCount <= 0)
         {
             slots.isFull[i] = false;

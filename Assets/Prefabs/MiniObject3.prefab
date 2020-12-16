@@ -117,6 +117,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   miniObjectSprite: []
+--- !u!114 &6709575306840372466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5564166916902248415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a4500d725ce0674fb9b3e1af8c5f767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5564166916902360867
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -189,5 +201,10 @@ PrefabInstance:
 --- !u!4 &5564166916902538237 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 449758, guid: 8d32e599b924f9d468964a83a6d714f5, type: 3}
+  m_PrefabInstance: {fileID: 5564166916902360867}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5564166916902248415 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 149756, guid: 8d32e599b924f9d468964a83a6d714f5, type: 3}
   m_PrefabInstance: {fileID: 5564166916902360867}
   m_PrefabAsset: {fileID: 0}

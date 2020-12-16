@@ -9,7 +9,7 @@ public class FinishChecker : MonoBehaviour
     private GameObject levelComplete;
     private Animator darkScreenAnim;
     private Animator levelCompleteAnim;
-    private Slots slot;
+    public Slots slot;
     private BoxCollider touchBlocker;
     private float i = 0;
     private float k = 0;
@@ -23,6 +23,7 @@ public class FinishChecker : MonoBehaviour
         levelComplete = GameObject.FindGameObjectWithTag("LevelComplete");
         darkScreenAnim = darkScreen.GetComponent<Animator>();
         levelCompleteAnim = levelComplete.GetComponent<Animator>();
+        touchBlocker.enabled = false;
         darkScreen.SetActive(false);
         levelComplete.SetActive(false);
     }
@@ -44,18 +45,18 @@ public class FinishChecker : MonoBehaviour
             slot.isFull[6] == true)
         {
 
-            if (i <= 2f)
+            if (i <= 3f)
             {
                 i += Time.deltaTime;
             }
             
-            if (i > 2 && i < 3)
+            if (i > 3 && i < 4)
             {
                 Debug.Log("Gameover");
                 touchBlocker.enabled = true;
                 darkScreen.SetActive(true);
                 darkScreenAnim.SetBool("Dark",true);
-                i = 4;
+                i = 5;
             }
 
         }
