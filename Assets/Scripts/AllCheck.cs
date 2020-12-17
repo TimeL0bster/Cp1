@@ -145,7 +145,7 @@ public class AllCheck : MonoBehaviour
             
             for (int i = 0; i < matchedObjects.Count; i++)
             {
-                StartCoroutine(ShrunkMatchedObj(matchedObjects[i].gameObject));
+                //StartCoroutine(ShrunkMatchedObj(matchedObjects[i].gameObject));
                 StartCoroutine(OnWaitDestroyObject(matchedObjects[i].gameObject));
             }
 
@@ -155,7 +155,7 @@ public class AllCheck : MonoBehaviour
     IEnumerator OnWaitDestroyObject(GameObject matchObjects)
     {
 
-        
+        StartCoroutine(ShrunkMatchedObj(matchObjects));
 
         yield return new WaitForSeconds(.5f);
 

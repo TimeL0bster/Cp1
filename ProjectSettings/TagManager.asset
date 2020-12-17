@@ -23,6 +23,7 @@ TagManager:
   - Slot6
   - Slot5
   - PauseWindow
+  - Object5
   layers:
   - Default
   - TransparentFX

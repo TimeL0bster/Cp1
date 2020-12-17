@@ -25,10 +25,12 @@ public class Objects : MonoBehaviour
     public BoxCollider boxCollider;
     public float destroyTimer;
 
-    private Animator anim;
+    [Header("Materials")]
+    public Material[] matDark;
+    public Material[] mat;
+
     private SpriteRenderer sprt;
     private MeshRenderer render;
-    private GameObject objectDarkScreen;
     private bool isObjectAbove = false;
 
     protected BoxCollider touchBlocker;
@@ -40,14 +42,10 @@ public class Objects : MonoBehaviour
     {
         slots = GameObject.FindGameObjectWithTag("Slots").GetComponent<Slots>();
         sprt = GetComponent<SpriteRenderer>();
-        //render = transform.GetChild(0).GetComponent<MeshRenderer>();
-        objectDarkScreen = transform.GetChild(0).gameObject;
+        render = transform.GetChild(0).GetComponent<MeshRenderer>();
         boxCollider = GetComponent<BoxCollider>();
         touchBlocker = GameObject.FindGameObjectWithTag("TouchBlocker").GetComponent<BoxCollider>();
-        //transform.rotation = Random.rotation;
-        //render.material.SetColor("_Color", Color.blue);
         touchBlocker.enabled = false;
-        objectDarkScreen.SetActive(false);
         check = true;
     }
 
@@ -60,17 +58,47 @@ public class Objects : MonoBehaviour
 
         if (!isObjectAbove)
         {
-            objectDarkScreen.SetActive(false);
-            //sprt.color = new Color32(255, 255, 255, 255);
-            //render.material.SetColor("_Color", Color.blue);
-            //render.material.color = new Color(255, 255, 255, 255);
+            switch (this.gameObject.tag)
+            {
+                case "Object1":
+                    render.material = mat[0];
+                    break;
+                case "Object2":
+                    render.material = mat[1];
+                    break;
+                case "Object3":
+                    render.material = mat[2];
+                    break;
+                case "Object4":
+                    render.material = mat[3];
+                    break;
+                case "Object5":
+                    render.material = mat[4];
+                    break;
+            }
+            
         }
         else
         {
-            objectDarkScreen.SetActive(true);
-            //sprt.color = new Color32(80, 80, 80, 255);
-            //render.material.SetColor("_Color", Color.red);
-            //render.material.color = Color.blue;
+            switch (this.gameObject.tag)
+            {
+                case "Object1":
+                    render.material = matDark[0];
+                    break;
+                case "Object2":
+                    render.material = matDark[1];
+                    break;
+                case "Object3":
+                    render.material = matDark[2];
+                    break;
+                case "Object4":
+                    render.material = matDark[3];
+                    break;
+                case "Object5":
+                    render.material = matDark[4];
+                    break;
+            }
+            
         }
 
     }
@@ -488,22 +516,20 @@ public class Objects : MonoBehaviour
 
         while (f < 1)
         {
-            f += Time.deltaTime / 2f;
+            f += Time.deltaTime / 5f;
             if (transform.localScale.x >= 0)
             {
-                transform.localScale -= new Vector3(1, 1, 1) * Time.deltaTime * 2f;
+                transform.localScale -= new Vector3(1, 1, 1) * Time.deltaTime * 3.5f;
             }
             transform.position = Vector3.Lerp(transform.position, slots.tempoSlots[index].transform.position, f);
             yield return null;
         }
 
-        touchBlocker.enabled = false;
-
     }
 
     IEnumerator MovePos(Transform slotChildIndex, int slotIndex, float speed = 1.2f)
     {
-
+        touchBlocker.enabled = true;
         check = false;
 
         float f = 0;
@@ -520,7 +546,6 @@ public class Objects : MonoBehaviour
         slotChildIndex.transform.position = slots.tempoUISlots[slotIndex].transform.position;
 
         slots.isFull[slotIndex] = true;
-
         check = true;
 
     }
@@ -532,7 +557,6 @@ public class Objects : MonoBehaviour
 
         yield return new WaitForSeconds(.5f);
 
-        touchBlocker.enabled = false;
         StartCoroutine(DestroySelf(destroyTime));
     }
 
@@ -540,6 +564,7 @@ public class Objects : MonoBehaviour
     {
         yield return new WaitForSeconds(destroyTime);
 
+        touchBlocker.enabled = false;
         Destroy(this.gameObject);
     }
 

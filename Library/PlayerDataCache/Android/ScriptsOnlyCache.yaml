@@ -30,8 +30,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -1389,7 +1391,7 @@ ScriptsOnlyBuild:
     className: AnalyticsTracker
   - hash:
       serializedVersion: 2
-      Hash: 808c7245404acfd1f1742c5890adff43
+      Hash: 3dbb77871399e5177aa7d4405c9b7f4e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Object5
@@ -1437,7 +1439,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 808c7245404acfd1f1742c5890adff43
+      Hash: 3dbb77871399e5177aa7d4405c9b7f4e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Object1
@@ -1461,7 +1463,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 808c7245404acfd1f1742c5890adff43
+      Hash: 3dbb77871399e5177aa7d4405c9b7f4e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Object4
@@ -1503,7 +1505,7 @@ ScriptsOnlyBuild:
     className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
-      Hash: 808c7245404acfd1f1742c5890adff43
+      Hash: 3dbb77871399e5177aa7d4405c9b7f4e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Objects
@@ -1605,13 +1607,13 @@ ScriptsOnlyBuild:
     className: ProjectionObj
   - hash:
       serializedVersion: 2
-      Hash: 808c7245404acfd1f1742c5890adff43
+      Hash: 3dbb77871399e5177aa7d4405c9b7f4e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Object3
   - hash:
       serializedVersion: 2
-      Hash: 808c7245404acfd1f1742c5890adff43
+      Hash: 3dbb77871399e5177aa7d4405c9b7f4e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Object2
@@ -1826,4 +1828,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Level8.unity
   - Assets/Scenes/Level9.unity
   - Assets/Scenes/Level10.unity
-  playerPath: H:/UnityProjects/Builds/Match-match_v1.0.apk
+  playerPath: D:/Builds/MatchFun.apk
