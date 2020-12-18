@@ -14,18 +14,22 @@ public class AllCheck : MonoBehaviour
     [Header("Sprites")]
     public Sprite[] spr;
 
+    [Header("Completion bar")]
+    public CompletionBar completionBar;
+
+    private float point = 0;
     private RaycastHit2D protoHit;
     private BoxCollider touchBlocker;
     private Slots slots;
 
     private void Start()
     {
+        point = 0;
         slots = GameObject.FindGameObjectWithTag("Slots").GetComponent<Slots>();
         touchBlocker = GameObject.FindGameObjectWithTag("TouchBlocker").GetComponent<BoxCollider>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         ClearMatch(MatchObjCheck1());
         ClearMatch(MatchObjCheck2());
@@ -155,17 +159,18 @@ public class AllCheck : MonoBehaviour
     IEnumerator OnWaitDestroyObject(GameObject matchObjects)
     {
 
-        StartCoroutine(ShrunkMatchedObj(matchObjects));
+        //StartCoroutine(ShrunkMatchedObj(matchObjects));
+        StartCoroutine(onWaitShruckObj(matchObjects));
 
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.8f);
 
-        touchBlocker.enabled = false;
+        //touchBlocker.enabled = false;
         Destroy(matchObjects);
     }
 
     IEnumerator ShrunkMatchedObj(GameObject matchObject)
     {
-
+        
         float f = 0;
 
         while (f < 1)
@@ -181,6 +186,15 @@ public class AllCheck : MonoBehaviour
             }
             yield return null;
         }
+
+    }
+
+    IEnumerator onWaitShruckObj(GameObject matchObj)
+    {
+
+        yield return new WaitForSeconds(.6f);
+
+        StartCoroutine(ShrunkMatchedObj(matchObj));
 
     }
 

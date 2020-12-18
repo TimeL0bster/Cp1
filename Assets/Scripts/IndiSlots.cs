@@ -10,7 +10,7 @@ public class IndiSlots : MonoBehaviour
     public GameObject[] otherSlots;
     public GameObject[] miniObj;
 
-    public Slots slots;
+    private Slots slots;
     private BoxCollider touchBlocker;
     private GameObject thisChild;
     private bool check;
@@ -64,16 +64,19 @@ public class IndiSlots : MonoBehaviour
                             }
                         }
 
-                        /*for (int j = 0; j < diffObj.Count; j++)
+                        for (int j = 0; j < diffObj.Count; j++)
                         {
-                            StartCoroutine(MovePos(diffObj[j].gameObject.transform, slots.tempoUISlots[j].transform));
+                            StartCoroutine(MovePos(diffObj[j].gameObject.transform, j));
 
                             diffObj[j].gameObject.transform.SetParent(slots.tempoUISlots[j].transform);
 
                             slots.isFull[j] = true;
-                        }*/
+                        }
 
-                        if (diffObj.Count == 1)
+                        //touchBlocker.enabled = false;
+                        StartCoroutine(TouchBlockerDisable());
+
+                        /*if (diffObj.Count == 1)
                         {
                             StartCoroutine(MovePos(diffObj[0].gameObject.transform, 0));
                         }
@@ -95,7 +98,7 @@ public class IndiSlots : MonoBehaviour
                             StartCoroutine(MovePos(diffObj[1].gameObject.transform, 1));
                             StartCoroutine(MovePos(diffObj[2].gameObject.transform, 2));
                             StartCoroutine(MovePos(diffObj[3].gameObject.transform, 3));
-                        }
+                        }*/
 
                     }
 
@@ -111,6 +114,7 @@ public class IndiSlots : MonoBehaviour
 
                     if (slots.tempoUISlots[4].transform.childCount > 0 || slots.tempoUISlots[5].transform.childCount > 0 || slots.tempoUISlots[6].transform.childCount > 0)
                     {
+
                         for (int i = 4; i < 7; i++)
                         {
                             if (slots.tempoUISlots[i].transform.childCount > 0)
@@ -119,16 +123,19 @@ public class IndiSlots : MonoBehaviour
                             }
                         }
 
-                        /*for (int j = 0; j < diffObj.Count; j++)
+                        for (int j = 0; j < diffObj.Count; j++)
                         {
-                            StartCoroutine(MovePos(diffObj[j].gameObject.transform, slots.tempoUISlots[j+1].transform));
+                            StartCoroutine(MovePos(diffObj[j].gameObject.transform, j + 1));
 
                             diffObj[j].gameObject.transform.SetParent(slots.tempoUISlots[j+1].transform);
 
                             slots.isFull[j+1] = true;
-                        }*/
+                        }
 
-                        if (diffObj.Count == 1)
+                        //touchBlocker.enabled = false;
+                        StartCoroutine(TouchBlockerDisable());
+
+                        /*if (diffObj.Count == 1)
                         {
                             StartCoroutine(MovePos(diffObj[0].gameObject.transform, 1));
                         }
@@ -142,8 +149,7 @@ public class IndiSlots : MonoBehaviour
                             StartCoroutine(MovePos(diffObj[0].gameObject.transform, 1));
                             StartCoroutine(MovePos(diffObj[1].gameObject.transform, 2));
                             StartCoroutine(MovePos(diffObj[2].gameObject.transform, 3));
-                        }
-                        
+                        }*/
 
                     }
 
@@ -167,16 +173,19 @@ public class IndiSlots : MonoBehaviour
                             }
                         }
 
-                        /*for (int j = 0; j < diffObj.Count; j++)
+                        for (int j = 0; j < diffObj.Count; j++)
                         {
-                            StartCoroutine(MovePos(diffObj[j].gameObject.transform, slots.tempoUISlots[j + 2].transform));
+                            StartCoroutine(MovePos(diffObj[j].gameObject.transform, j + 2));
 
                             diffObj[j].gameObject.transform.SetParent(slots.tempoUISlots[j + 2].transform);
 
                             slots.isFull[j + 2] = true;
-                        }*/
+                        }
 
-                        if (diffObj.Count == 1)
+                        //touchBlocker.enabled = false;
+                        StartCoroutine(TouchBlockerDisable());
+
+                        /*if (diffObj.Count == 1)
                         {
                             StartCoroutine(MovePos(diffObj[0].gameObject.transform, 2));
                         }
@@ -184,7 +193,7 @@ public class IndiSlots : MonoBehaviour
                         {
                             StartCoroutine(MovePos(diffObj[0].gameObject.transform, 2));
                             StartCoroutine(MovePos(diffObj[1].gameObject.transform, 3));
-                        }
+                        }*/
 
                     }
 
@@ -207,10 +216,30 @@ public class IndiSlots : MonoBehaviour
 
                     }
 
+                    //touchBlocker.enabled = false;
+                    StartCoroutine(TouchBlockerDisable());
+
                 }
 
                 break;
 
+            case "Slot5":
+
+                if (transform.childCount > 0)
+                {
+                    StartCoroutine(TouchBlockerDisable());
+                }
+
+                break;
+
+            case "Slot6":
+
+                if (transform.childCount > 0)
+                {
+                    StartCoroutine(TouchBlockerDisable());
+                }
+
+                break;
         }
     }
 
@@ -230,6 +259,7 @@ public class IndiSlots : MonoBehaviour
     IEnumerator MovePos(Transform pos1, int PosIndex, float speed = 1.2f)
     {
         check = false;
+        touchBlocker.enabled = true;
 
         float f = 0;
 
@@ -239,6 +269,7 @@ public class IndiSlots : MonoBehaviour
         {
             pos1.position = Vector3.Lerp(pos1.position, slots.tempoUISlots[PosIndex].transform.position, f);
             f += Time.deltaTime * speed;
+            //touchBlocker.enabled = true;
             yield return null;
         }
 
@@ -247,6 +278,16 @@ public class IndiSlots : MonoBehaviour
         slots.isFull[PosIndex] = true;
 
         check = true;
+    }
+
+    IEnumerator TouchBlockerDisable()
+    {
+
+
+        yield return new WaitForSeconds(.3f);
+
+        touchBlocker.enabled = false;
+
     }
 
 }

@@ -76,7 +76,6 @@ public class Objects : MonoBehaviour
                     render.material = mat[4];
                     break;
             }
-            
         }
         else
         {
@@ -98,7 +97,6 @@ public class Objects : MonoBehaviour
                     render.material = matDark[4];
                     break;
             }
-            
         }
 
     }
@@ -508,7 +506,7 @@ public class Objects : MonoBehaviour
     IEnumerator Move(float time, int index)
     {
 
-        touchBlocker.enabled = true;
+        //touchBlocker.enabled = true;
 
         float f = 0;
 
@@ -516,10 +514,10 @@ public class Objects : MonoBehaviour
 
         while (f < 1)
         {
-            f += Time.deltaTime / 5f;
+            f += Time.deltaTime / 10f;
             if (transform.localScale.x >= 0)
             {
-                transform.localScale -= new Vector3(1, 1, 1) * Time.deltaTime * 3.5f;
+                transform.localScale -= new Vector3(1, 1, 1) * Time.deltaTime * 1.5f;
             }
             transform.position = Vector3.Lerp(transform.position, slots.tempoSlots[index].transform.position, f);
             yield return null;
@@ -529,8 +527,8 @@ public class Objects : MonoBehaviour
 
     IEnumerator MovePos(Transform slotChildIndex, int slotIndex, float speed = 1.2f)
     {
-        touchBlocker.enabled = true;
         check = false;
+        //touchBlocker.enabled = true;
 
         float f = 0;
 
@@ -555,16 +553,25 @@ public class Objects : MonoBehaviour
         slots.isFull[i] = true;
         Instantiate(miniObj, slots.tempoUISlots[i].transform, false);
 
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.35f);
 
         StartCoroutine(DestroySelf(destroyTime));
     }
 
-    IEnumerator DestroySelf(float destroyTime)
+    IEnumerator WaitForItemSpwn(int i)
+    {
+
+        yield return new WaitForSeconds(.6f);
+
+        slots.isFull[i] = true;
+        Instantiate(miniObj, slots.tempoUISlots[i].transform, false);
+    }
+
+    IEnumerator DestroySelf(float destroyTime = 0.1f)
     {
         yield return new WaitForSeconds(destroyTime);
 
-        touchBlocker.enabled = false;
+        //touchBlocker.enabled = false;
         Destroy(this.gameObject);
     }
 
