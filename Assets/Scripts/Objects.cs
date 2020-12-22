@@ -514,10 +514,10 @@ public class Objects : MonoBehaviour
 
         while (f < 1)
         {
-            f += Time.deltaTime / 10f;
+            f += Time.deltaTime * .5f;
             if (transform.localScale.x >= 0)
             {
-                transform.localScale -= new Vector3(1, 1, 1) * Time.deltaTime * 1.5f;
+                transform.localScale -= new Vector3(1, 1, 1) * Time.deltaTime * 2.5f;
             }
             transform.position = Vector3.Lerp(transform.position, slots.tempoSlots[index].transform.position, f);
             yield return null;
