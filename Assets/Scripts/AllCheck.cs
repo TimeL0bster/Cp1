@@ -179,10 +179,7 @@ public class AllCheck : MonoBehaviour
             if (matchObject != null && matchObject.transform.localScale.x >= 0)
             {
                 matchObject.transform.localScale -= new Vector3(1, 1, 1) * Time.deltaTime /2f;
-                if (touchBlocker.enabled == false)
-                {
-                    touchBlocker.enabled = true;
-                }
+                
             }
             yield return null;
         }

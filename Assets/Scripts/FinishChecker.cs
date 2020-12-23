@@ -68,12 +68,12 @@ public class FinishChecker : MonoBehaviour
             && GameObject.FindGameObjectWithTag("MiniObj") == null)
         {
 
-            if (k <= .8f)
+            if (k <= 1f)
             {
                 k += Time.deltaTime;
             }
 
-            if (k > .8f && k < 2)
+            if (k > 1f && k < 2)
             {
                 Debug.Log("Win");
                 touchBlocker.enabled = true;
