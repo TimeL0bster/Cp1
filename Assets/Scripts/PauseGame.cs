@@ -22,13 +22,13 @@ public class PauseGame : MonoBehaviour
     {
         pauseWindow.SetActive(true);
         pauseWindowAnim.SetBool("Dark", true);
-        touchBlocker.enabled = true;
+        //touchBlocker.enabled = true;
     }
 
     public void TurnOffPauseWindow()
     {
         pauseWindowAnim.SetBool("Light", true);
         pauseWindow.SetActive(false);
-        touchBlocker.enabled = false;
+        //touchBlocker.enabled = false;
     }
 }

@@ -103,7 +103,7 @@ public class Objects : MonoBehaviour
 
     protected void Touched(float destroyTime)
     {
-        touchBlocker.enabled = true;
+        //touchBlocker.enabled = true;
         if (!isObjectAbove)
         {
             
@@ -525,7 +525,7 @@ public class Objects : MonoBehaviour
             {
                 spwnCheck = false;
                 StartCoroutine(spwnMiniObject(index, destroyTime));
-                touchBlocker.enabled = false;
+                //touchBlocker.enabled = false;
                 Destroy(this.gameObject);
             }
 
@@ -562,8 +562,42 @@ public class Objects : MonoBehaviour
 
     IEnumerator spwnMiniObject(int i, float destroyTime)
     {
-        slots.isFull[i] = true;
-        Instantiate(miniObj, slots.tempoUISlots[i].transform, false);
+        
+        if (slots.isFull[0] != true)
+        {
+            slots.isFull[0] = true;
+            Instantiate(miniObj, slots.tempoUISlots[0].transform, false);
+        }
+        else if (slots.isFull[1] != true)
+        {
+            slots.isFull[1] = true;
+            Instantiate(miniObj, slots.tempoUISlots[1].transform, false);
+        }
+        else if (slots.isFull[2] != true)
+        {
+            slots.isFull[2] = true;
+            Instantiate(miniObj, slots.tempoUISlots[2].transform, false);
+        }
+        else if (slots.isFull[3] != true)
+        {
+            slots.isFull[3] = true;
+            Instantiate(miniObj, slots.tempoUISlots[3].transform, false);
+        }
+        else if (slots.isFull[4] != true)
+        {
+            slots.isFull[4] = true;
+            Instantiate(miniObj, slots.tempoUISlots[4].transform, false);
+        }
+        else if (slots.isFull[5] != true)
+        {
+            slots.isFull[5] = true;
+            Instantiate(miniObj, slots.tempoUISlots[5].transform, false);
+        }
+        else if (slots.isFull[6] != true)
+        {
+            slots.isFull[6] = true;
+            Instantiate(miniObj, slots.tempoUISlots[6].transform, false);
+        }
 
         yield return new WaitForSeconds(.3f);
 

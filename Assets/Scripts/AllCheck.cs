@@ -50,7 +50,10 @@ public class AllCheck : MonoBehaviour
             {
                 if (hit.collider.GetComponent<Image>().sprite == spr[0])
                 {
-                    matchObject1.Add(hit.collider.gameObject);
+                    if (matchObject1.Count < 3)
+                    {
+                        matchObject1.Add(hit.collider.gameObject);
+                    }
                 }
             }
         }
@@ -70,7 +73,10 @@ public class AllCheck : MonoBehaviour
             {
                 if (hit.collider.GetComponent<Image>().sprite == spr[1])
                 {
-                    matchObject2.Add(hit.collider.gameObject);
+                    if (matchObject2.Count < 3)
+                    {
+                        matchObject2.Add(hit.collider.gameObject);
+                    }
                 }
             }
         }
@@ -90,7 +96,10 @@ public class AllCheck : MonoBehaviour
             {
                 if (hit.collider.GetComponent<Image>().sprite == spr[2])
                 {
-                    matchObject3.Add(hit.collider.gameObject);
+                    if (matchObject3.Count < 3)
+                    {
+                        matchObject3.Add(hit.collider.gameObject);
+                    }
                 }
             }
         }
@@ -110,7 +119,10 @@ public class AllCheck : MonoBehaviour
             {
                 if (hit.collider.GetComponent<Image>().sprite == spr[3])
                 {
-                    matchObject4.Add(hit.collider.gameObject);
+                    if (matchObject4.Count < 3)
+                    {
+                        matchObject4.Add(hit.collider.gameObject);
+                    }
                 }
             }
         }
@@ -126,11 +138,15 @@ public class AllCheck : MonoBehaviour
 
         if (protoHit.collider != null)
         {
+            
             foreach (RaycastHit2D hit in objectHit5)
             {
                 if (hit.collider.GetComponent<Image>().sprite == spr[4])
                 {
-                    matchObject5.Add(hit.collider.gameObject);
+                    if (matchObject5.Count < 2)
+                    {
+                        matchObject5.Add(hit.collider.gameObject);
+                    }
                 }
             }
         }
