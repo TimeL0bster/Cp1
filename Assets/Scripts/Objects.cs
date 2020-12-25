@@ -524,12 +524,12 @@ public class Objects : MonoBehaviour
             if (f > .2f && f < .21f && spwnCheck == true)
             {
                 spwnCheck = false;
-                
+                StartCoroutine(spwnMiniObject(index, destroyTime));
                 touchBlocker.enabled = false;
-                //Destroy(this.gameObject);
+                Destroy(this.gameObject);
             }
 
-            yield return StartCoroutine(spwnMiniObject(index, destroyTime));
+            yield return null;
 
         }
 
