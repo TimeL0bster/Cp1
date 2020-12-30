@@ -10,7 +10,7 @@ public class RandomRotation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rotation = new Vector3(Random.Range(-60,-120), 0, Random.Range(50, 130));
+        rotation = new Vector3(Random.Range(-60, -120), 0, Random.Range(50, 130));
         transform.eulerAngles = rotation;
     }
 
@@ -18,5 +18,11 @@ public class RandomRotation : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void RotationReturnToOrigin()
+    {
+        var desireRotation = Quaternion.Euler(-90, 0, 90);
+        transform.rotation = Quaternion.Lerp(transform.rotation, desireRotation, Time.deltaTime * 5f);
     }
 }

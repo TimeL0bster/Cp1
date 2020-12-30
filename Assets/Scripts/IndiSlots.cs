@@ -37,7 +37,7 @@ public class IndiSlots : MonoBehaviour
 
         if (check)
         {
-            //PosSwtch();
+            PosSwtch();
         }
 
     }
@@ -252,7 +252,7 @@ public class IndiSlots : MonoBehaviour
 
                 if (transform.childCount > 0)
                 {
-                    StartCoroutine(TouchBlockerDisable());
+                    //StartCoroutine(TouchBlockerDisable());
                 }
 
                 break;
@@ -261,7 +261,7 @@ public class IndiSlots : MonoBehaviour
 
                 if (transform.childCount > 0)
                 {
-                    StartCoroutine(TouchBlockerDisable());
+                    //StartCoroutine(TouchBlockerDisable());
                 }
 
                 break;

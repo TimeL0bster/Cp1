@@ -33,6 +33,7 @@ public class Objects : MonoBehaviour
     private MeshRenderer render;
     private bool isObjectAbove = false;
 
+    protected RandomRotation randomRotation;
     protected BoxCollider touchBlocker;
     protected bool check;
     protected Slots slots;
@@ -40,6 +41,7 @@ public class Objects : MonoBehaviour
 
     protected virtual void Start()
     {
+        randomRotation = transform.GetChild(0).GetComponent<RandomRotation>();
         slots = GameObject.FindGameObjectWithTag("Slots").GetComponent<Slots>();
         sprt = GetComponent<SpriteRenderer>();
         render = transform.GetChild(0).GetComponent<MeshRenderer>();
@@ -521,13 +523,13 @@ public class Objects : MonoBehaviour
             }
             transform.position = Vector3.Lerp(transform.position, slots.tempoSlots[index].transform.position, f);
 
-            if (f > .2f && f < .21f && spwnCheck == true)
+            /*if (f > .2f && f < .21f && spwnCheck == true)
             {
                 spwnCheck = false;
-                StartCoroutine(spwnMiniObject(index, destroyTime));
+                //StartCoroutine(spwnMiniObject(index, destroyTime));
                 //touchBlocker.enabled = false;
                 Destroy(this.gameObject);
-            }
+            }*/
 
             yield return null;
 
