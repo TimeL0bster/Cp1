@@ -18,7 +18,7 @@ public class AllCheck : MonoBehaviour
     public CompletionBar completionBar;
 
     private float point = 0;
-    private RaycastHit2D protoHit;
+    private RaycastHit protoHit;
     private BoxCollider touchBlocker;
     private Slots slots;
 
@@ -40,16 +40,18 @@ public class AllCheck : MonoBehaviour
 
     private List<GameObject> MatchObjCheck1()
     {
-        protoHit = Physics2D.Raycast(transform.position + collOffSetRay1, Vector2.right * leight);
-        RaycastHit2D[] objectHit1 = Physics2D.RaycastAll(transform.position + collOffSetRay1, Vector2.right * leight);
+        bool isObjHit = Physics.Raycast(transform.position + collOffSetRay1, Vector2.right * leight);
+        RaycastHit[] objectHit1 = Physics.RaycastAll(transform.position + collOffSetRay1, Vector2.right * leight);
         List<GameObject> matchObject1 = new List<GameObject>();
 
-        if (protoHit.collider != null)
+        if (isObjHit == true)
         {
-            foreach (RaycastHit2D hit in objectHit1)
+            foreach (RaycastHit hit in objectHit1)
             {
-                if (hit.collider.GetComponent<Image>().sprite == spr[0])
+                
+                if (hit.collider.GetComponent<SpriteRenderer>().sprite == spr[0])
                 {
+                    Debug.Log("hit");
                     if (matchObject1.Count < 3)
                     {
                         matchObject1.Add(hit.collider.gameObject);
@@ -63,16 +65,18 @@ public class AllCheck : MonoBehaviour
 
     private List<GameObject> MatchObjCheck2()
     {
-        protoHit = Physics2D.Raycast(transform.position + collOffSetRay1, Vector2.right * leight);
-        RaycastHit2D[] objectHit2 = Physics2D.RaycastAll(transform.position + collOffSetRay1, Vector2.right * leight);
+        bool isObjHit = Physics.Raycast(transform.position + collOffSetRay1, Vector2.right * leight);
+        RaycastHit[] objectHit2 = Physics.RaycastAll(transform.position + collOffSetRay1, Vector2.right * leight);
         List<GameObject> matchObject2 = new List<GameObject>();
 
-        if (protoHit.collider != null)
+        if (isObjHit == true)
         {
-            foreach (RaycastHit2D hit in objectHit2)
+            foreach (RaycastHit hit in objectHit2)
             {
-                if (hit.collider.GetComponent<Image>().sprite == spr[1])
+                
+                if (hit.collider.GetComponent<SpriteRenderer>().sprite == spr[1])
                 {
+                    Debug.Log("hit");
                     if (matchObject2.Count < 3)
                     {
                         matchObject2.Add(hit.collider.gameObject);
@@ -86,15 +90,15 @@ public class AllCheck : MonoBehaviour
 
     private List<GameObject> MatchObjCheck3()
     {
-        protoHit = Physics2D.Raycast(transform.position + collOffSetRay1, Vector2.right * leight);
-        RaycastHit2D[] objectHit3 = Physics2D.RaycastAll(transform.position + collOffSetRay1, Vector2.right * leight);
+        bool isObjHit = Physics.Raycast(transform.position + collOffSetRay1, Vector2.right * leight);
+        RaycastHit[] objectHit3 = Physics.RaycastAll(transform.position + collOffSetRay1, Vector2.right * leight);
         List<GameObject> matchObject3 = new List<GameObject>();
 
-        if (protoHit.collider != null)
+        if (isObjHit == true)
         {
-            foreach (RaycastHit2D hit in objectHit3)
+            foreach (RaycastHit hit in objectHit3)
             {
-                if (hit.collider.GetComponent<Image>().sprite == spr[2])
+                if (hit.collider.GetComponent<SpriteRenderer>().sprite == spr[2])
                 {
                     if (matchObject3.Count < 3)
                     {
@@ -109,15 +113,15 @@ public class AllCheck : MonoBehaviour
 
     private List<GameObject> MatchObjCheck4()
     {
-        protoHit = Physics2D.Raycast(transform.position + collOffSetRay1, Vector2.right * leight);
-        RaycastHit2D[] objectHit4 = Physics2D.RaycastAll(transform.position + collOffSetRay1, Vector2.right * leight);
+        bool isObjHit = Physics.Raycast(transform.position + collOffSetRay1, Vector2.right * leight);
+        RaycastHit[] objectHit4 = Physics.RaycastAll(transform.position + collOffSetRay1, Vector2.right * leight);
         List<GameObject> matchObject4 = new List<GameObject>();
 
-        if (protoHit.collider != null)
+        if (isObjHit == true)
         {
-            foreach (RaycastHit2D hit in objectHit4)
+            foreach (RaycastHit hit in objectHit4)
             {
-                if (hit.collider.GetComponent<Image>().sprite == spr[3])
+                if (hit.collider.GetComponent<SpriteRenderer>().sprite == spr[3])
                 {
                     if (matchObject4.Count < 3)
                     {
@@ -132,18 +136,18 @@ public class AllCheck : MonoBehaviour
 
     private List<GameObject> MatchObjCheck5()
     {
-        protoHit = Physics2D.Raycast(transform.position + collOffSetRay1, Vector2.right * leight);
-        RaycastHit2D[] objectHit5 = Physics2D.RaycastAll(transform.position + collOffSetRay1, Vector2.right * leight);
+        bool isObjHit = Physics.Raycast(transform.position + collOffSetRay1, Vector2.right * leight);
+        RaycastHit[] objectHit5 = Physics.RaycastAll(transform.position + collOffSetRay1, Vector2.right * leight);
         List<GameObject> matchObject5 = new List<GameObject>();
 
-        if (protoHit.collider != null)
+        if (isObjHit == true)
         {
             
-            foreach (RaycastHit2D hit in objectHit5)
+            foreach (RaycastHit hit in objectHit5)
             {
-                if (hit.collider.GetComponent<Image>().sprite == spr[4])
+                if (hit.collider.GetComponent<SpriteRenderer>().sprite == spr[4])
                 {
-                    if (matchObject5.Count < 2)
+                    if (matchObject5.Count < 3)
                     {
                         matchObject5.Add(hit.collider.gameObject);
                     }
@@ -157,16 +161,18 @@ public class AllCheck : MonoBehaviour
     private void ClearMatch(List<GameObject> matchChecker)
     {
         List<GameObject> matchedObjects = new List<GameObject>();
+        GameObject[] matchedObj = new GameObject[3];
 
         matchedObjects.AddRange(matchChecker);
-
-        if (matchedObjects.Count >= 3)
+        
+        if (matchedObjects.Count == 3)
         {
             
-            for (int i = 0; i < matchedObjects.Count; i++)
+            for (int i = 0; i < 3; i++)
             {
-                //StartCoroutine(ShrunkMatchedObj(matchedObjects[i].gameObject));
-                StartCoroutine(OnWaitDestroyObject(matchedObjects[i].gameObject));
+                matchedObj[i] = matchedObjects[i];
+                //StartCoroutine(ShrunkMatchedObj(matchedObj[i].gameObject));
+                StartCoroutine(OnWaitDestroyObject(matchedObj[i].gameObject));
             }
 
         }
@@ -175,6 +181,7 @@ public class AllCheck : MonoBehaviour
     IEnumerator OnWaitDestroyObject(GameObject matchObjects)
     {
 
+        
         //StartCoroutine(ShrunkMatchedObj(matchObjects));
         StartCoroutine(onWaitShruckObj(matchObjects));
 
@@ -195,7 +202,6 @@ public class AllCheck : MonoBehaviour
             if (matchObject != null && matchObject.transform.localScale.x >= 0)
             {
                 matchObject.transform.localScale -= new Vector3(1, 1, 1) * Time.deltaTime /2f;
-                
             }
             yield return null;
         }

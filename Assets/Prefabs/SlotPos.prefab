@@ -47,9 +47,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6442669631278585101}
   - component: {fileID: 6442669631278585098}
+  - component: {fileID: 748306679448029399}
   m_Layer: 0
   m_Name: TempoSlot1
-  m_TagString: Untagged
+  m_TagString: Slot1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,7 +63,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6442669631278585100}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.16, y: 0.56, z: 0}
+  m_LocalPosition: {x: -1.768, y: 0.90000015, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6442669631023513848}
@@ -119,6 +120,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &748306679448029399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6442669631278585100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3d3d14dfca22d45b72f377245a4987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  i: 0
+  otherSlots: []
+  miniObj: []
 --- !u!1 &6442669631624366385
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,9 +145,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6442669631624366350}
   - component: {fileID: 6442669631624366351}
+  - component: {fileID: 3483537105220773533}
   m_Layer: 0
   m_Name: TempoSlot2
-  m_TagString: Untagged
+  m_TagString: Slot2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,7 +161,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6442669631624366385}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.22, y: 0.55999994, z: 0}
+  m_LocalPosition: {x: -1.237, y: 0.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6442669631023513848}
@@ -201,6 +218,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3483537105220773533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6442669631624366385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3d3d14dfca22d45b72f377245a4987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  i: 1
+  otherSlots: []
+  miniObj: []
 --- !u!1 &6442669632414202681
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,9 +243,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6442669632414202678}
   - component: {fileID: 6442669632414202679}
+  - component: {fileID: 8372367742457683587}
   m_Layer: 0
   m_Name: TempoSlot5
-  m_TagString: Untagged
+  m_TagString: Slot5
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -226,7 +259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6442669632414202681}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.393, y: 0.55999994, z: 0}
+  m_LocalPosition: {x: 0.374, y: 0.9000001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6442669631023513848}
@@ -283,6 +316,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8372367742457683587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6442669632414202681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3d3d14dfca22d45b72f377245a4987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  i: 4
+  otherSlots: []
+  miniObj: []
 --- !u!1 &6442669632423156306
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,9 +341,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6442669632423156307}
   - component: {fileID: 6442669632423156304}
+  - component: {fileID: 1107610561268467585}
   m_Layer: 0
   m_Name: TempoSlot7
-  m_TagString: Untagged
+  m_TagString: Slot7
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -308,7 +357,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6442669632423156306}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.492, y: 0.55999994, z: 0}
+  m_LocalPosition: {x: 1.468, y: 0.9000001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6442669631023513848}
@@ -365,6 +414,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1107610561268467585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6442669632423156306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3d3d14dfca22d45b72f377245a4987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  i: 6
+  otherSlots: []
+  miniObj: []
 --- !u!1 &6442669632478448694
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,9 +439,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6442669632478448695}
   - component: {fileID: 6442669632478448692}
+  - component: {fileID: 7254128335467203158}
   m_Layer: 0
   m_Name: TempoSlot6
-  m_TagString: Untagged
+  m_TagString: Slot6
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -390,7 +455,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6442669632478448694}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.94299996, y: 0.55999994, z: 0}
+  m_LocalPosition: {x: 0.927, y: 0.9000001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6442669631023513848}
@@ -447,6 +512,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7254128335467203158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6442669632478448694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3d3d14dfca22d45b72f377245a4987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  i: 5
+  otherSlots: []
+  miniObj: []
 --- !u!1 &6442669632639522873
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,9 +537,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6442669632639522870}
   - component: {fileID: 6442669632639522871}
+  - component: {fileID: 8703421332156250024}
   m_Layer: 0
   m_Name: TempoSlot3
-  m_TagString: Untagged
+  m_TagString: Slot3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -472,7 +553,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6442669632639522873}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.69, y: 0.55999994, z: 0}
+  m_LocalPosition: {x: -0.698, y: 0.9000001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6442669631023513848}
@@ -529,6 +610,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8703421332156250024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6442669632639522873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3d3d14dfca22d45b72f377245a4987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  i: 2
+  otherSlots: []
+  miniObj: []
 --- !u!1 &6442669632866673549
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,9 +635,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6442669632866673546}
   - component: {fileID: 6442669632866673547}
+  - component: {fileID: 3568805043238473380}
   m_Layer: 0
   m_Name: TempoSlot4
-  m_TagString: Untagged
+  m_TagString: Slot4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -554,7 +651,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6442669632866673549}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.148, y: 0.55999994, z: 0}
+  m_LocalPosition: {x: -0.16, y: 0.9000001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6442669631023513848}
@@ -611,3 +708,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3568805043238473380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6442669632866673549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3d3d14dfca22d45b72f377245a4987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  i: 3
+  otherSlots: []
+  miniObj: []

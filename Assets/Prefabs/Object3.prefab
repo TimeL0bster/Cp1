@@ -34,7 +34,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3029901213086314663}
   - component: {fileID: 5811471906884484395}
-  - component: {fileID: 8775822681437701534}
+  - component: {fileID: 6557802691200464982}
   - component: {fileID: 5312620046281113571}
   m_Layer: 8
   m_Name: Object3
@@ -109,7 +109,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8775822681437701534
+--- !u!114 &6557802691200464982
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4529711859249597438}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c17e08b8d5b2cd478576c06df9cb53f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d96024878cdd8148886ce06a7169a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Leight: 0.7
@@ -133,7 +133,7 @@ MonoBehaviour:
   isObjectLayer:
     serializedVersion: 2
     m_Bits: 256
-  miniObj: {fileID: 4058297172009466787, guid: 203eff272319e034ca0fe69a41195d86, type: 3}
+  miniObj: {fileID: 0}
   boxCollider: {fileID: 0}
   destroyTimer: 0.1
   matDark:
@@ -159,8 +159,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5345219, y: 0.48777342, z: 0}
-  m_Center: {x: -0.0005659163, y: 0.042352527, z: 0.28}
+  m_Size: {x: 0.5345219, y: 0.48777342, z: 0.1}
+  m_Center: {x: -0.0005659163, y: 0.042352527, z: 0}
 --- !u!1001 &2299765264140669384
 PrefabInstance:
   m_ObjectHideFlags: 0

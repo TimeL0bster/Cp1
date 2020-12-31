@@ -32,7 +32,9 @@ public class Objects : MonoBehaviour
     private SpriteRenderer sprt;
     private MeshRenderer render;
     private bool isObjectAbove = false;
+    private Objects objs;
 
+    
     protected RandomRotation randomRotation;
     protected BoxCollider touchBlocker;
     protected bool check;
@@ -43,12 +45,35 @@ public class Objects : MonoBehaviour
     {
         randomRotation = transform.GetChild(0).GetComponent<RandomRotation>();
         slots = GameObject.FindGameObjectWithTag("Slots").GetComponent<Slots>();
+        objs = GetComponent<Objects>();
         sprt = GetComponent<SpriteRenderer>();
         render = transform.GetChild(0).GetComponent<MeshRenderer>();
         boxCollider = GetComponent<BoxCollider>();
         touchBlocker = GameObject.FindGameObjectWithTag("TouchBlocker").GetComponent<BoxCollider>();
         touchBlocker.enabled = false;
         check = true;
+    }
+
+    private void Update()
+    {
+        CastRay();
+    }
+
+    private void OnMouseDown()
+    {
+        if (check)
+        {
+
+            if (enabled == false)
+            {
+                return;
+            }
+            else
+            {
+                Touched(destroyTimer);
+            }
+            
+        }
     }
 
     public void CastRay()
@@ -109,22 +134,22 @@ public class Objects : MonoBehaviour
         if (!isObjectAbove)
         {
             
-            if (slots.tempoUISlots[0].transform.childCount <= 0 && slots.isFull[0] == false)
+            if (slots.isFull[0] == false)
             {
                 StartCoroutine(Move(0, destroyTime));
                 //StartCoroutine(spwnMiniObject(0, destroyTime));
             }
-            else if (slots.tempoUISlots[1].transform.childCount <= 0 && slots.isFull[1] == false)
+            else if (slots.isFull[1] == false)
             {
                 StartCoroutine(Move(1, destroyTime));
                 //StartCoroutine(spwnMiniObject(1, destroyTime));
             }
-            else if (slots.tempoUISlots[2].transform.childCount <= 0 && slots.isFull[2] == false)
+            else if (slots.isFull[2] == false)
             {
-                if (slots.tempoUISlots[0].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                    && slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
+                /*if (slots.tempoSlots[0].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                    && slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite)
                 {
-                    StartCoroutine(MovePos(slots.tempoUISlots[1].transform.GetChild(0), 2));
+                    StartCoroutine(MovePos(slots.tempoSlots[1].transform.GetChild(0), 2));
 
                     StartCoroutine(Move(1, destroyTime));
                    // StartCoroutine(spwnMiniObject(1, destroyTime));
@@ -133,84 +158,83 @@ public class Objects : MonoBehaviour
                 {
                     StartCoroutine(Move(2, destroyTime));
                     //StartCoroutine(spwnMiniObject(2, destroyTime));
-                }
+                }*/
+                StartCoroutine(Move(2, destroyTime));
             }
-            else if (slots.tempoUISlots[3].transform.childCount <= 0 && slots.isFull[3] == false)
+            else if (slots.isFull[3] == false)
             {
-                if (slots.tempoUISlots[0].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite)
+                /*if (slots.tempoSlots[0].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite)
                 {
 
-                    if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
+                    if (slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite)
                     {
-                        StartCoroutine(MovePos(slots.tempoUISlots[1].transform.GetChild(0), 2));
-                        StartCoroutine(MovePos(slots.tempoUISlots[2].transform.GetChild(0), 3));
+                        StartCoroutine(MovePos(slots.tempoSlots[1].transform.GetChild(0), 2));
+                        StartCoroutine(MovePos(slots.tempoSlots[2].transform.GetChild(0), 3));
 
                         StartCoroutine(Move(1, destroyTime));
                         //StartCoroutine(spwnMiniObject(1, destroyTime));
                     }
 
-                    else if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
+                    else if (slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite)
                     {
-                        StartCoroutine(MovePos(slots.tempoUISlots[2].transform.GetChild(0), 3));
+                        StartCoroutine(MovePos(slots.tempoSlots[2].transform.GetChild(0), 3));
 
                         StartCoroutine(Move(2, destroyTime));
                         //StartCoroutine(spwnMiniObject(2, destroyTime));
                     }
 
-
-
                 }
                 else
                 {
-                    if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
+                    if (slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
                         ||
-                        slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
+                        slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
                         ||
-                        slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite)
+                        slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite)
                     {
                         StartCoroutine(Move(3, destroyTime));
                         //StartCoroutine(spwnMiniObject(3, destroyTime));
                     }
 
-                    else if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
+                    else if (slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite)
                     {
-                        StartCoroutine(MovePos(slots.tempoUISlots[2].transform.GetChild(0), 3));
+                        StartCoroutine(MovePos(slots.tempoSlots[2].transform.GetChild(0), 3));
 
                         StartCoroutine(Move(2, destroyTime));
                         //tartCoroutine(spwnMiniObject(2, destroyTime));
-                    }
-
-                }
+                    }           
+                }*/
+                StartCoroutine(Move(3, destroyTime));
             }
-            else if (slots.tempoUISlots[4].transform.childCount <= 0 && slots.isFull[4] == false)
+            else if (slots.isFull[4] == false)
             {
-                if (slots.tempoUISlots[0].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite)
+                /*if (slots.tempoSlots[0].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite)
                 {
 
-                    if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
+                    if (slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite)
                     {
-                        StartCoroutine(MovePos(slots.tempoUISlots[1].transform.GetChild(0), 2));
-                        StartCoroutine(MovePos(slots.tempoUISlots[2].transform.GetChild(0), 3));
-                        StartCoroutine(MovePos(slots.tempoUISlots[3].transform.GetChild(0), 4));
+                        StartCoroutine(MovePos(slots.tempoSlots[1].transform.GetChild(0), 2));
+                        StartCoroutine(MovePos(slots.tempoSlots[2].transform.GetChild(0), 3));
+                        StartCoroutine(MovePos(slots.tempoSlots[3].transform.GetChild(0), 4));
 
                         StartCoroutine(Move(1, destroyTime));
                         //StartCoroutine(spwnMiniObject(1, destroyTime));
                     }
 
-                    else if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
+                    else if (slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite)
                     {
-                        StartCoroutine(MovePos(slots.tempoUISlots[2].transform.GetChild(0), 3));
-                        StartCoroutine(MovePos(slots.tempoUISlots[3].transform.GetChild(0), 4));
+                        StartCoroutine(MovePos(slots.tempoSlots[2].transform.GetChild(0), 3));
+                        StartCoroutine(MovePos(slots.tempoSlots[3].transform.GetChild(0), 4));
 
                         StartCoroutine(Move(2, destroyTime));
                         //StartCoroutine(spwnMiniObject(2, destroyTime));
@@ -219,76 +243,77 @@ public class Objects : MonoBehaviour
                 }
                 else
                 {
-                    if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
+                    if (slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
                         ||
-                        slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
+                        slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
                         ||
-                        slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite)
+                        slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite)
                     {
                         StartCoroutine(Move(4, destroyTime));
                         //StartCoroutine(spwnMiniObject(4, destroyTime));
                     }
 
-                    else if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
+                    else if (slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite)
                     {
-                        StartCoroutine(MovePos(slots.tempoUISlots[2].transform.GetChild(0), 3));
-                        StartCoroutine(MovePos(slots.tempoUISlots[3].transform.GetChild(0), 4));
+                        StartCoroutine(MovePos(slots.tempoSlots[2].transform.GetChild(0), 3));
+                        StartCoroutine(MovePos(slots.tempoSlots[3].transform.GetChild(0), 4));
 
                         StartCoroutine(Move(2, destroyTime));
                         //StartCoroutine(spwnMiniObject(2, destroyTime));
                     }
 
-                    else if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
+                    else if (slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
                         ||
-                        slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
+                        slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite)
                     {
-                        StartCoroutine(MovePos(slots.tempoUISlots[3].transform.GetChild(0), 4));
+                        StartCoroutine(MovePos(slots.tempoSlots[3].transform.GetChild(0), 4));
 
                         StartCoroutine(Move(3, destroyTime));
                         //StartCoroutine(spwnMiniObject(3, destroyTime));
                     }
 
-                }
+                }*/
+                StartCoroutine(Move(4, destroyTime));
             }
-            else if (slots.tempoUISlots[5].transform.childCount <= 0 && slots.isFull[5] == false)
+            else if (slots.isFull[5] == false)
             {
-                if (slots.tempoUISlots[0].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite)
+                /*if (slots.tempoSlots[0].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite)
                 {
 
-                    if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
+                    if (slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[4].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite)
                     {
-                        StartCoroutine(MovePos(slots.tempoUISlots[1].transform.GetChild(0), 2));
-                        StartCoroutine(MovePos(slots.tempoUISlots[2].transform.GetChild(0), 3));
-                        StartCoroutine(MovePos(slots.tempoUISlots[3].transform.GetChild(0), 4));
-                        StartCoroutine(MovePos(slots.tempoUISlots[4].transform.GetChild(0), 5));
+                        StartCoroutine(MovePos(slots.tempoSlots[1].transform.GetChild(0), 2));
+                        StartCoroutine(MovePos(slots.tempoSlots[2].transform.GetChild(0), 3));
+                        StartCoroutine(MovePos(slots.tempoSlots[3].transform.GetChild(0), 4));
+                        StartCoroutine(MovePos(slots.tempoSlots[4].transform.GetChild(0), 5));
 
                         StartCoroutine(Move(1, destroyTime));
                         //StartCoroutine(spwnMiniObject(1, destroyTime));
                     }
 
-                    else if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
+                    else if (slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[4].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite)
                     {
-                        StartCoroutine(MovePos(slots.tempoUISlots[2].transform.GetChild(0), 3));
-                        StartCoroutine(MovePos(slots.tempoUISlots[3].transform.GetChild(0), 4));
-                        StartCoroutine(MovePos(slots.tempoUISlots[4].transform.GetChild(0), 5));
+                        StartCoroutine(MovePos(slots.tempoSlots[2].transform.GetChild(0), 3));
+                        StartCoroutine(MovePos(slots.tempoSlots[3].transform.GetChild(0), 4));
+                        StartCoroutine(MovePos(slots.tempoSlots[4].transform.GetChild(0), 5));
 
                         StartCoroutine(Move(2, destroyTime));
                         //StartCoroutine(spwnMiniObject(2, destroyTime));
@@ -297,105 +322,106 @@ public class Objects : MonoBehaviour
                 }
                 else
                 {
-                    if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
+                    if (slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[4].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
                         ||
-                        slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
+                        slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[4].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
                         ||
-                        slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite)
+                        slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[4].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite)
                     {
                         StartCoroutine(Move(5, destroyTime));
                         //StartCoroutine(spwnMiniObject(5, destroyTime));
                     }
 
-                    else if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
+                    else if (slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[4].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite)
                     {
-                        StartCoroutine(MovePos(slots.tempoUISlots[2].transform.GetChild(0), 3));
-                        StartCoroutine(MovePos(slots.tempoUISlots[3].transform.GetChild(0), 4));
-                        StartCoroutine(MovePos(slots.tempoUISlots[4].transform.GetChild(0), 5));
+                        StartCoroutine(MovePos(slots.tempoSlots[2].transform.GetChild(0), 3));
+                        StartCoroutine(MovePos(slots.tempoSlots[3].transform.GetChild(0), 4));
+                        StartCoroutine(MovePos(slots.tempoSlots[4].transform.GetChild(0), 5));
 
                         StartCoroutine(Move(2, destroyTime));
                         //StartCoroutine(spwnMiniObject(2, destroyTime));
                     }
 
-                    else if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
+                    else if (slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[4].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
                         ||
-                        slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
+                        slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[4].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite)
                     {
-                        StartCoroutine(MovePos(slots.tempoUISlots[3].transform.GetChild(0), 4));
-                        StartCoroutine(MovePos(slots.tempoUISlots[4].transform.GetChild(0), 5));
+                        StartCoroutine(MovePos(slots.tempoSlots[3].transform.GetChild(0), 4));
+                        StartCoroutine(MovePos(slots.tempoSlots[4].transform.GetChild(0), 5));
 
                         StartCoroutine(Move(3, destroyTime));
                         //StartCoroutine(spwnMiniObject(3, destroyTime));
                     }
 
-                    else if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
+                    else if (slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[4].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
                         ||
-                        slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
+                        slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[4].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite)
                     {
 
-                        StartCoroutine(MovePos(slots.tempoUISlots[4].transform.GetChild(0), 5));
+                        StartCoroutine(MovePos(slots.tempoSlots[4].transform.GetChild(0), 5));
 
                         StartCoroutine(Move(4, destroyTime));
                         //StartCoroutine(spwnMiniObject(4, destroyTime));
                     }
 
-                }
+                }*/
+                StartCoroutine(Move(5, destroyTime));
             }
-            else if (slots.tempoUISlots[6].transform.childCount <= 0 && slots.isFull[6] == false)
+            else if (slots.isFull[6] == false)
             {
-                if (slots.tempoUISlots[0].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite)
+                /*if (slots.tempoSlots[0].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite)
                 {
 
-                    if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[5].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
+                    if (slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[4].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[5].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite)
                     {
-                        StartCoroutine(MovePos(slots.tempoUISlots[1].transform.GetChild(0), 2));
-                        StartCoroutine(MovePos(slots.tempoUISlots[2].transform.GetChild(0), 3));
-                        StartCoroutine(MovePos(slots.tempoUISlots[3].transform.GetChild(0), 4));
-                        StartCoroutine(MovePos(slots.tempoUISlots[4].transform.GetChild(0), 5));
-                        StartCoroutine(MovePos(slots.tempoUISlots[5].transform.GetChild(0), 6));
+                        StartCoroutine(MovePos(slots.tempoSlots[1].transform.GetChild(0), 2));
+                        StartCoroutine(MovePos(slots.tempoSlots[2].transform.GetChild(0), 3));
+                        StartCoroutine(MovePos(slots.tempoSlots[3].transform.GetChild(0), 4));
+                        StartCoroutine(MovePos(slots.tempoSlots[4].transform.GetChild(0), 5));
+                        StartCoroutine(MovePos(slots.tempoSlots[5].transform.GetChild(0), 6));
 
                         StartCoroutine(Move(1, destroyTime));
                         //StartCoroutine(spwnMiniObject(1, destroyTime));
                     }
 
-                    else if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[5].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
+                    else if (slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[4].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[5].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite)
                     {
-                        StartCoroutine(MovePos(slots.tempoUISlots[2].transform.GetChild(0), 3));
-                        StartCoroutine(MovePos(slots.tempoUISlots[3].transform.GetChild(0), 4));
-                        StartCoroutine(MovePos(slots.tempoUISlots[4].transform.GetChild(0), 5));
-                        StartCoroutine(MovePos(slots.tempoUISlots[5].transform.GetChild(0), 6));
+                        StartCoroutine(MovePos(slots.tempoSlots[2].transform.GetChild(0), 3));
+                        StartCoroutine(MovePos(slots.tempoSlots[3].transform.GetChild(0), 4));
+                        StartCoroutine(MovePos(slots.tempoSlots[4].transform.GetChild(0), 5));
+                        StartCoroutine(MovePos(slots.tempoSlots[5].transform.GetChild(0), 6));
 
                         StartCoroutine(Move(2, destroyTime));
                         //StartCoroutine(spwnMiniObject(2, destroyTime));
@@ -404,101 +430,102 @@ public class Objects : MonoBehaviour
                 }
                 else
                 {
-                    if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[5].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
+                    if (slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[4].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[5].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
                         ||
-                        slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[5].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
+                        slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[4].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[5].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
                         ||
-                        slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[5].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite)
+                        slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[4].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[5].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite)
                     {
                         StartCoroutine(Move(6, destroyTime));
                         //StartCoroutine(spwnMiniObject(6, destroyTime));
                     }
 
-                    else if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[5].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
+                    else if (slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[4].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[5].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite)
                     {
-                        StartCoroutine(MovePos(slots.tempoUISlots[2].transform.GetChild(0), 3));
-                        StartCoroutine(MovePos(slots.tempoUISlots[3].transform.GetChild(0), 4));
-                        StartCoroutine(MovePos(slots.tempoUISlots[4].transform.GetChild(0), 5));
-                        StartCoroutine(MovePos(slots.tempoUISlots[5].transform.GetChild(0), 6));
+                        StartCoroutine(MovePos(slots.tempoSlots[2].transform.GetChild(0), 3));
+                        StartCoroutine(MovePos(slots.tempoSlots[3].transform.GetChild(0), 4));
+                        StartCoroutine(MovePos(slots.tempoSlots[4].transform.GetChild(0), 5));
+                        StartCoroutine(MovePos(slots.tempoSlots[5].transform.GetChild(0), 6));
 
                         StartCoroutine(Move(2, destroyTime));
                         //StartCoroutine(spwnMiniObject(2, destroyTime));
                     }
 
-                    else if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[5].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
+                    else if (slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[4].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[5].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
                         ||
-                        slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[5].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
+                        slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[4].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[5].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite)
                     {
-                        StartCoroutine(MovePos(slots.tempoUISlots[3].transform.GetChild(0), 4));
-                        StartCoroutine(MovePos(slots.tempoUISlots[4].transform.GetChild(0), 5));
-                        StartCoroutine(MovePos(slots.tempoUISlots[5].transform.GetChild(0), 6));
+                        StartCoroutine(MovePos(slots.tempoSlots[3].transform.GetChild(0), 4));
+                        StartCoroutine(MovePos(slots.tempoSlots[4].transform.GetChild(0), 5));
+                        StartCoroutine(MovePos(slots.tempoSlots[5].transform.GetChild(0), 6));
 
                         StartCoroutine(Move(3, destroyTime));
                         //StartCoroutine(spwnMiniObject(3, destroyTime));
                     }
 
-                    else if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[5].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
+                    else if (slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[4].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[5].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
                         ||
-                        slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[5].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
+                        slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[4].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[5].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite)
                     {
-                        StartCoroutine(MovePos(slots.tempoUISlots[4].transform.GetChild(0), 5));
-                        StartCoroutine(MovePos(slots.tempoUISlots[5].transform.GetChild(0), 6));
+                        StartCoroutine(MovePos(slots.tempoSlots[4].transform.GetChild(0), 5));
+                        StartCoroutine(MovePos(slots.tempoSlots[5].transform.GetChild(0), 6));
 
                         StartCoroutine(Move(4, destroyTime));
                         //StartCoroutine(spwnMiniObject(4, destroyTime));
                     }
 
-                    else if (slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[5].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
+                    else if (slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[4].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[5].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
                         ||
-                        slots.tempoUISlots[1].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[2].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[3].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite
-                        && slots.tempoUISlots[4].transform.GetChild(0).GetComponent<Image>().sprite == sprt.sprite
-                        && slots.tempoUISlots[5].transform.GetChild(0).GetComponent<Image>().sprite != sprt.sprite)
+                        slots.tempoSlots[1].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[2].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[3].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite
+                        && slots.tempoSlots[4].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite == sprt.sprite
+                        && slots.tempoSlots[5].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite != sprt.sprite)
                     {
-                        StartCoroutine(MovePos(slots.tempoUISlots[5].transform.GetChild(0), 6));
+                        StartCoroutine(MovePos(slots.tempoSlots[5].transform.GetChild(0), 6));
 
                         StartCoroutine(Move(5, destroyTime));
-                        //StartCoroutine(spwnMiniObject(5, destroyTime));
+                        //StartCoroutine(spwnMiniObject(destroyTime));
                     }
 
-                }
+                }*/
+                StartCoroutine(Move(6, destroyTime));
             }
 
         }
@@ -509,99 +536,104 @@ public class Objects : MonoBehaviour
     {
 
         float f = 0;
-        bool spwnCheck = true;
-
-        boxCollider.enabled = !boxCollider.enabled;
+        bool parentSetCheck = false;
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 3f);
+        transform.localScale = new Vector3(1.9f, 1.9f, 1.9f);
 
         while (f < 1)
         {
 
-            f += Time.deltaTime / 2f;
-            if (transform.localScale.x >= .5f)
+            f += Time.deltaTime / 4f;
+
+            if (transform.localScale.x >= 0.5f)
             {
+                transform.GetChild(0).GetComponent<RandomRotation>().RotationReturnToOrigin();
                 transform.localScale -= new Vector3(1, 1, 1) * Time.deltaTime * 2.5f;
             }
+
             transform.position = Vector3.Lerp(transform.position, slots.tempoSlots[index].transform.position, f);
 
-            /*if (f > .2f && f < .21f && spwnCheck == true)
+            if (parentSetCheck == false)
             {
-                spwnCheck = false;
-                //StartCoroutine(spwnMiniObject(index, destroyTime));
-                //touchBlocker.enabled = false;
-                Destroy(this.gameObject);
-            }*/
+                parentSetCheck = true;
+                transform.SetParent(slots.tempoSlots[index].transform); 
+            }
 
-            yield return null;
+            yield return slots.isFull[index] = true;
+
+            objs.enabled = false;
 
         }
-
-        //StartCoroutine(spwnMiniObject(index, destroyTime));
 
     }
 
     IEnumerator MovePos(Transform slotChildIndex, int slotIndex, float speed = 1.2f)
     {
         check = false;
-        //touchBlocker.enabled = true;
 
-        float f = 0;
+        /*float f = 0;
 
-        slotChildIndex.transform.SetParent(slots.tempoUISlots[slotIndex].transform);
+        slotChildIndex.transform.SetParent(slots.tempoSlots[slotIndex].transform);
 
         while (f < 1)
         {
-            slotChildIndex.transform.position = Vector3.Lerp(slotChildIndex.transform.position, slots.tempoUISlots[slotIndex].transform.position, f);
+            slotChildIndex.transform.position = Vector3.Lerp(slotChildIndex.transform.position, slots.tempoSlots[slotIndex].transform.position, f);
+            
             f += Time.deltaTime * speed;
+
             yield return null;
         }
 
-        slotChildIndex.transform.position = slots.tempoUISlots[slotIndex].transform.position;
 
-        slots.isFull[slotIndex] = true;
+        if (slots.isFull[slotIndex] == false)
+        {
+            slots.isFull[slotIndex] = true;
+        }*/
+        yield return null;
         check = true;
 
     }
 
-    IEnumerator spwnMiniObject(int i, float destroyTime)
+    IEnumerator spwnMiniObject(float destroyTime = .2f)
     {
-        
+
         if (slots.isFull[0] != true)
         {
-            slots.isFull[0] = true;
-            Instantiate(miniObj, slots.tempoUISlots[0].transform, false);
+            //slots.isFull[0] = true;
+            //Instantiate(miniObj, slots.tempoSlots[0].transform, false);
         }
         else if (slots.isFull[1] != true)
         {
-            slots.isFull[1] = true;
-            Instantiate(miniObj, slots.tempoUISlots[1].transform, false);
+            //slots.isFull[1] = true;
+            //Instantiate(miniObj, slots.tempoSlots[1].transform, false);
         }
         else if (slots.isFull[2] != true)
         {
-            slots.isFull[2] = true;
-            Instantiate(miniObj, slots.tempoUISlots[2].transform, false);
+            //slots.isFull[2] = true;
+            //Instantiate(miniObj, slots.tempoSlots[2].transform, false);
         }
         else if (slots.isFull[3] != true)
         {
-            slots.isFull[3] = true;
-            Instantiate(miniObj, slots.tempoUISlots[3].transform, false);
+            //lots.isFull[3] = true;
+            //Instantiate(miniObj, slots.tempoSlots[3].transform, false);
         }
         else if (slots.isFull[4] != true)
         {
-            slots.isFull[4] = true;
-            Instantiate(miniObj, slots.tempoUISlots[4].transform, false);
+            //slots.isFull[4] = true;
+            //Instantiate(miniObj, slots.tempoSlots[4].transform, false);
         }
         else if (slots.isFull[5] != true)
         {
-            slots.isFull[5] = true;
-            Instantiate(miniObj, slots.tempoUISlots[5].transform, false);
+            //slots.isFull[5] = true;
+            //Instantiate(miniObj, slots.tempoSlots[5].transform, false);
         }
         else if (slots.isFull[6] != true)
         {
-            slots.isFull[6] = true;
-            Instantiate(miniObj, slots.tempoUISlots[6].transform, false);
+            //slots.isFull[6] = true;
+            //Instantiate(miniObj, slots.tempoSlots[6].transform, false);
         }
 
-        yield return new WaitForSeconds(.3f);
+        yield return null;
 
         
         //StartCoroutine(DestroySelf(destroyTime));

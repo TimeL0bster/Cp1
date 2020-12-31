@@ -10,7 +10,7 @@ public class RandomRotation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rotation = new Vector3(Random.Range(-60, -120), 0, Random.Range(50, 130));
+        rotation = new Vector3(Random.Range(-60, -150), 0, Random.Range(50, 160));
         transform.eulerAngles = rotation;
     }
 

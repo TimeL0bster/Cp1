@@ -26,7 +26,7 @@ public class IndiSlots : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (transform.childCount <= 0)
+        if (transform.childCount == 0)
         {
             slots.isFull[i] = false;
         }
@@ -37,7 +37,7 @@ public class IndiSlots : MonoBehaviour
 
         if (check)
         {
-            PosSwtch();
+            //PosSwtch();
         }
 
     }
@@ -54,16 +54,16 @@ public class IndiSlots : MonoBehaviour
                     List<GameObject> diffObj = new List<GameObject>();
 
 
-                    if (slots.tempoUISlots[3].transform.childCount > 0 
-                        || slots.tempoUISlots[4].transform.childCount > 0 
-                        || slots.tempoUISlots[5].transform.childCount > 0 
-                        || slots.tempoUISlots[6].transform.childCount > 0)
+                    if (slots.tempoSlots[3].transform.childCount > 0 
+                        || slots.tempoSlots[4].transform.childCount > 0 
+                        || slots.tempoSlots[5].transform.childCount > 0 
+                        || slots.tempoSlots[6].transform.childCount > 0)
                     {
                         for (int i = 3; i < 7; i++)
                         {
-                            if (slots.tempoUISlots[i].transform.childCount > 0)
+                            if (slots.tempoSlots[i].transform.childCount > 0)
                             {
-                                diffObj.Add(slots.tempoUISlots[i].transform.GetChild(0).gameObject);
+                                diffObj.Add(slots.tempoSlots[i].transform.GetChild(0).gameObject);
                             }
                         }
 
@@ -73,7 +73,7 @@ public class IndiSlots : MonoBehaviour
                             StopCoroutine(MovePos(diffObj[j].gameObject.transform, j));
                             StartCoroutine(MovePos(diffObj[j].gameObject.transform, j));
 
-                            diffObj[j].gameObject.transform.SetParent(slots.tempoUISlots[j].transform);
+                            diffObj[j].gameObject.transform.SetParent(slots.tempoSlots[j].transform);
 
                             slots.isFull[j] = true;
                         }
@@ -127,14 +127,14 @@ public class IndiSlots : MonoBehaviour
                 {
                     List<GameObject> diffObj = new List<GameObject>();
 
-                    if (slots.tempoUISlots[4].transform.childCount > 0 || slots.tempoUISlots[5].transform.childCount > 0 || slots.tempoUISlots[6].transform.childCount > 0)
+                    if (slots.tempoSlots[4].transform.childCount > 0 || slots.tempoSlots[5].transform.childCount > 0 || slots.tempoSlots[6].transform.childCount > 0)
                     {
 
                         for (int i = 4; i < 7; i++)
                         {
-                            if (slots.tempoUISlots[i].transform.childCount > 0)
+                            if (slots.tempoSlots[i].transform.childCount > 0)
                             {
-                                diffObj.Add(slots.tempoUISlots[i].transform.GetChild(0).gameObject);
+                                diffObj.Add(slots.tempoSlots[i].transform.GetChild(0).gameObject);
                             }
                         }
 
@@ -143,7 +143,7 @@ public class IndiSlots : MonoBehaviour
                             StopCoroutine(MovePos(diffObj[j].gameObject.transform, j + 1));
                             StartCoroutine(MovePos(diffObj[j].gameObject.transform, j + 1));
 
-                            diffObj[j].gameObject.transform.SetParent(slots.tempoUISlots[j+1].transform);
+                            diffObj[j].gameObject.transform.SetParent(slots.tempoSlots[j+1].transform);
 
                             slots.isFull[j+1] = true;
                         }
@@ -184,13 +184,13 @@ public class IndiSlots : MonoBehaviour
                 {
                     List<GameObject> diffObj = new List<GameObject>();
 
-                    if (slots.tempoUISlots[5].transform.childCount > 0 || slots.tempoUISlots[6].transform.childCount > 0)
+                    if (slots.tempoSlots[5].transform.childCount > 0 || slots.tempoSlots[6].transform.childCount > 0)
                     {
                         for (int i = 5; i < 7; i++)
                         {
-                            if (slots.tempoUISlots[i].transform.childCount > 0)
+                            if (slots.tempoSlots[i].transform.childCount > 0)
                             {
-                                diffObj.Add(slots.tempoUISlots[i].transform.GetChild(0).gameObject);
+                                diffObj.Add(slots.tempoSlots[i].transform.GetChild(0).gameObject);
                             }
                         }
 
@@ -200,7 +200,7 @@ public class IndiSlots : MonoBehaviour
                             StopCoroutine(MovePos(diffObj[j].gameObject.transform, j + 2));
                             StartCoroutine(MovePos(diffObj[j].gameObject.transform, j + 2));
 
-                            diffObj[j].gameObject.transform.SetParent(slots.tempoUISlots[j + 2].transform);
+                            diffObj[j].gameObject.transform.SetParent(slots.tempoSlots[j + 2].transform);
 
                             slots.isFull[j + 2] = true;
                         }
@@ -232,10 +232,10 @@ public class IndiSlots : MonoBehaviour
                 {
                     List<GameObject> diffObj = new List<GameObject>();
 
-                    if (slots.tempoUISlots[6].transform.childCount > 0)
+                    if (slots.tempoSlots[6].transform.childCount > 0)
                     {
 
-                        diffObj.Add(slots.tempoUISlots[6].transform.GetChild(0).gameObject);
+                        diffObj.Add(slots.tempoSlots[6].transform.GetChild(0).gameObject);
 
                         StopCoroutine(MovePos(diffObj[0].gameObject.transform, 3));
                         StartCoroutine(MovePos(diffObj[0].gameObject.transform, 3));
@@ -287,18 +287,20 @@ public class IndiSlots : MonoBehaviour
         //touchBlocker.enabled = true;
 
         float f = 0;
+        Vector3 velocity = Vector3.zero;
 
-        pos1.SetParent(slots.tempoUISlots[PosIndex].transform);
+        pos1.SetParent(slots.tempoSlots[PosIndex].transform);
 
         while (f < 1)
         {
-            f += Time.deltaTime * speed;
-            pos1.position = Vector3.Lerp(pos1.position, slots.tempoUISlots[PosIndex].transform.position, f);
+            f += Time.deltaTime / 20f;
+            pos1.position = Vector3.SmoothDamp(pos1.position, slots.tempoSlots[PosIndex].transform.position,ref velocity, .2f);
+                //Vector3.Lerp(pos1.position, slots.tempoSlots[PosIndex].transform.position, f);
             //touchBlocker.enabled = true;
             yield return null;
         }
 
-        pos1.position = slots.tempoUISlots[PosIndex].transform.position;
+        pos1.position = slots.tempoSlots[PosIndex].transform.position;
 
         slots.isFull[PosIndex] = true;
 

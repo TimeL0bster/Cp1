@@ -48,6 +48,7 @@ public class FinishChecker : MonoBehaviour
             if (i <= 3f)
             {
                 i += Time.deltaTime;
+                Debug.Log(i);
             }
             
             if (i > 3 && i < 4)
@@ -56,9 +57,13 @@ public class FinishChecker : MonoBehaviour
                 touchBlocker.enabled = true;
                 darkScreen.SetActive(true);
                 darkScreenAnim.SetBool("Dark",true);
-                i = 5;
+                i = 6;
             }
 
+        }
+        else
+        {
+            i = 0;
         }
 
         if (GameObject.FindGameObjectWithTag("Object1") == null 

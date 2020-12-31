@@ -35,7 +35,7 @@ GameObject:
   - component: {fileID: 5136039471006885132}
   - component: {fileID: 4462153943833258112}
   - component: {fileID: 3386482914830599147}
-  - component: {fileID: 699860376450592680}
+  - component: {fileID: -1718343110023388906}
   - component: {fileID: 6178530592567117960}
   m_Layer: 8
   m_Name: Object1
@@ -121,9 +121,9 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5350963, y: 0.58177036, z: 0}
-  m_Center: {x: -0.004903257, y: 0.05, z: 0.28}
---- !u!114 &699860376450592680
+  m_Size: {x: 0.5345219, y: 0.48777342, z: 0.1}
+  m_Center: {x: -0.0005659163, y: 0.042352527, z: 0}
+--- !u!114 &-1718343110023388906
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6023137176961326677}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 628179b67f724c74c953237e7d06c3a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d96024878cdd8148886ce06a7169a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Leight: 0.7
@@ -147,7 +147,7 @@ MonoBehaviour:
   isObjectLayer:
     serializedVersion: 2
     m_Bits: 256
-  miniObj: {fileID: 6940943000679418869, guid: 5950e6bacee342447b9e468acabba4c6, type: 3}
+  miniObj: {fileID: 0}
   boxCollider: {fileID: 0}
   destroyTimer: 0.1
   matDark:
